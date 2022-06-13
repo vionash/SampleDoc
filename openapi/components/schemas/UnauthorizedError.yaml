@@ -1,0 +1,17 @@
+allOf:
+  - $ref: ./GenericError.yaml
+  - properties:
+      code:
+        example: '10009'
+      detail:
+        example: >-
+          The required authentication headers were either invalid or not
+          included in the request.
+      meta:
+        properties:
+          url:
+            example: https://developers.telnyx.com/docs/overview/errors/10009
+            type: string
+        type: object
+      title:
+        example: Authentication failed

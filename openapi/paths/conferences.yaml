@@ -1,0 +1,137 @@
+get:
+  description: >-
+    Lists conferences. Conferences are created on demand, and will expire after
+    all participants have left the conference or after 4 hours regardless of the
+    number of active participants. Conferences are listed in descending order by
+    `expires_at`.
+  operationId: listConferences
+  parameters:
+    - $ref: ../components/parameters/FilterConferenceName.yaml
+    - $ref: ../components/parameters/FilterConferenceStatus.yaml
+    - $ref: ../components/parameters/PageNumber.yaml
+    - $ref: ../components/parameters/PageSize.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/ListConferencesResponse.yaml
+    '401':
+      $ref: ../components/responses/UnauthorizedResponse.yaml
+    '422':
+      $ref: ../components/responses/UnprocessableEntityResponse.yaml
+  summary: List conferences
+  tags:
+    - Conference Commands
+  x-group-parameters: 'true'
+  x-latency-category: responsive
+post:
+  callbacks:
+    conferenceCreated:
+      '{$request.body#/webhook_url}':
+        post:
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  $ref: ../components/schemas/ConferenceCreatedEvent.yaml
+            required: true
+          responses:
+            '200':
+              description: >-
+                The server must return an HTTP 200, otherwise we will reattempt
+                delivery at the failover webhook URL.
+    conferenceEnded:
+      '{$request.body#/webhook_url}':
+        post:
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  $ref: ../components/schemas/ConferenceEndedEvent.yaml
+            required: true
+          responses:
+            '200':
+              description: >-
+                The server must return an HTTP 200, otherwise we will reattempt
+                delivery at the failover webhook URL.
+    conferenceFloorChanged:
+      '{$request.body#/webhook_url}':
+        post:
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  $ref: ../components/schemas/ConferenceFloorChangedEvent.yaml
+            required: true
+          responses:
+            '200':
+              description: >-
+                The server must return an HTTP 200, otherwise we will reattempt
+                delivery at the failover webhook URL.
+    conferenceParticipantJoined:
+      '{$request.body#/webhook_url}':
+        post:
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  $ref: ../components/schemas/ConferenceParticipantJoinedEvent.yaml
+            required: true
+          responses:
+            '200':
+              description: >-
+                The server must return an HTTP 200, otherwise we will reattempt
+                delivery at the failover webhook URL.
+    conferenceParticipantLeft:
+      '{$request.body#/webhook_url}':
+        post:
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  $ref: ../components/schemas/ConferenceParticipantLeftEvent.yaml
+            required: true
+          responses:
+            '200':
+              description: >-
+                The server must return an HTTP 200, otherwise we will reattempt
+                delivery at the failover webhook URL.
+  description: >
+    Create a conference from an existing call leg using a `call_control_id` and
+    a conference name. Upon creating the conference, the call will be
+    automatically bridged to the conference. Conferences will expire after all
+    participants have left the conference or after 4 hours regardless of the
+    number of active participants.
+
+
+    **Expected Webhooks:**
+
+
+    - `conference.created`
+
+    - `conference.participant.joined`
+
+    - `conference.participant.left`
+
+    - `conference.ended`
+
+    - `conference.recording.saved`
+
+    - `conference.floor.changed`
+  operationId: createConference
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/CreateConferenceRequest.yaml
+    description: Create a conference
+    required: true
+  responses:
+    '200':
+      $ref: ../components/responses/ConferenceResponse.yaml
+    '401':
+      $ref: ../components/responses/UnauthorizedResponse.yaml
+    '422':
+      $ref: ../components/responses/UnprocessableEntityResponse.yaml
+  summary: Create conference
+  tags:
+    - Conference Commands
+  x-latency-category: interactive

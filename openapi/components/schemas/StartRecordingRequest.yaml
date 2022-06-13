@@ -1,0 +1,65 @@
+example:
+  channels: single
+  client_state: aGF2ZSBhIG5pY2UgZGF5ID1d
+  command_id: 891510ac-f3e4-11e8-af5b-de00688a4901
+  format: wav
+  max_length: 0
+  play_beep: true
+  timeout_secs: 0
+properties:
+  channels:
+    description: >-
+      When `dual`, final audio file will be stereo recorded with the first leg
+      on channel A, and the rest on channel B.
+    enum:
+      - single
+      - dual
+    example: single
+    type: string
+  client_state:
+    description: >-
+      Use this field to add state to every subsequent webhook. It must be a
+      valid Base-64 encoded string.
+    example: aGF2ZSBhIG5pY2UgZGF5ID1d
+    type: string
+  command_id:
+    description: >-
+      Use this field to avoid duplicate commands. Telnyx will ignore any command
+      with the same `command_id` for the same `call_control_id`.
+    example: 891510ac-f3e4-11e8-af5b-de00688a4901
+    type: string
+  format:
+    description: >-
+      The audio file format used when storing the call recording. Can be either
+      `mp3` or `wav`.
+    enum:
+      - wav
+      - mp3
+    example: mp3
+    type: string
+  max_length:
+    default: 0
+    description: >-
+      Defines the maximum length for the recording in seconds. The minimum value
+      is 0. The maximum value is 14400. The default value is 0 (infinite)
+    example: 100
+    format: int32
+    type: integer
+  play_beep:
+    description: If enabled, a beep sound will be played at the start of a recording.
+    example: true
+    type: boolean
+  timeout_secs:
+    default: 0
+    description: >-
+      The number of seconds that Telnyx will wait for the recording to be
+      stopped if silence is detected. The timer only starts when the speech is
+      detected. The minimum value is 0. The default value is 0 (infinite)
+    example: 100
+    format: int32
+    type: integer
+required:
+  - format
+  - channels
+title: Start Recording Request
+type: object

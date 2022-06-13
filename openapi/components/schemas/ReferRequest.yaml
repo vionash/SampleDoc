@@ -1,0 +1,40 @@
+example:
+  sip_address: sip:username@sip.non-telnyx-address.com
+properties:
+  client_state:
+    description: >-
+      Use this field to add state to every subsequent webhook. It must be a
+      valid Base-64 encoded string.
+    example: aGF2ZSBhIG5pY2UgZGF5ID1d
+    type: string
+  command_id:
+    description: >-
+      Use this field to avoid execution of duplicate commands. Telnyx will
+      ignore subsequent commands with the same `command_id` as one that has
+      already been executed.
+    example: 891510ac-f3e4-11e8-af5b-de00688a4901
+    type: string
+  custom_headers:
+    description: Custom headers to be added to the SIP INVITE.
+    example:
+      - name: head_1
+        value: val_1
+      - name: head_2
+        value: val_2
+    items:
+      $ref: ./CustomSipHeader.yaml
+    type: array
+  sip_address:
+    description: The SIP URI to which the call will be referred to.
+    example: sip:username@sip.non-telnyx-address.com
+    type: string
+  sip_auth_password:
+    description: SIP Authentication password used for SIP challenges.
+    type: string
+  sip_auth_username:
+    description: SIP Authentication username used for SIP challenges.
+    type: string
+required:
+  - sip_address
+title: Refer request
+type: object

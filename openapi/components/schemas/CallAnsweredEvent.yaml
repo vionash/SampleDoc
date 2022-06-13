@@ -1,0 +1,5 @@
+properties:
+  data:
+    $ref: ./CallAnswered.yaml
+title: Call Answered Event
+type: object

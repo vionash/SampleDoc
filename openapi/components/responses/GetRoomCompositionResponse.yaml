@@ -1,0 +1,8 @@
+content:
+  application/json:
+    schema:
+      properties:
+        data:
+          $ref: ../schemas/RoomComposition.yaml
+      type: object
+description: Get room composition response.

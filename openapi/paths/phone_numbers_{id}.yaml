@@ -1,0 +1,49 @@
+delete:
+  operationId: deletePhoneNumber
+  parameters:
+    - $ref: ../components/parameters/IntId.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/DeletePhoneNumberResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Delete a phone number
+  tags:
+    - Number Configurations
+  x-endpoint-cost: medium
+  x-latency-category: responsive
+get:
+  operationId: retrievePhoneNumber
+  parameters:
+    - $ref: ../components/parameters/IntId.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/PhoneNumberResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Retrieve a phone number
+  tags:
+    - Number Configurations
+  x-endpoint-cost: medium
+  x-latency-category: responsive
+patch:
+  operationId: updatePhoneNumber
+  parameters:
+    - $ref: ../components/parameters/IntId.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/UpdatePhoneNumberRequest.yaml
+    description: Updated settings for the phone number.
+    required: true
+  responses:
+    '200':
+      $ref: ../components/responses/PhoneNumberResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Update a phone number
+  tags:
+    - Number Configurations
+  x-endpoint-cost: medium
+  x-latency-category: responsive

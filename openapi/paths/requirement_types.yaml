@@ -1,0 +1,15 @@
+get:
+  description: List all requirement types ordered by created_at descending
+  operationId: docReqsListRequirementTypes
+  parameters:
+    - $ref: ../components/parameters/DocReqsRequirementTypeNameFilter.yaml
+    - $ref: ../components/parameters/DocReqsRequirementTypesSort.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/DocReqsListRequirementTypesResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: List all requirement types
+  tags:
+    - Requirement Types
+  x-latency-category: responsive

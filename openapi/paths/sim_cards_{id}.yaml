@@ -1,0 +1,59 @@
+delete:
+  description: >-
+    The SIM card will be decommissioned, removed from your account and you will
+    stop being charged.<br />The SIM card won't be able to connect to the
+    network after the deletion is completed, thus making it impossible to
+    consume data.<br/>
+
+    Transitioning to the disabled state may take a period of time.</br>
+
+    Until the transition is completed, the SIM card status will be disabling
+    <code>disabling</code>.<br />In order to re-enable the SIM card, you will
+    need to re-register it.
+  operationId: SimCardDelete
+  parameters:
+    - $ref: ../components/parameters/ResourceId.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/DeleteSimCardResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Deletes a SIM card
+  tags:
+    - SIM Cards
+  x-latency-category: responsive
+get:
+  description: Returns the details regarding a specific SIM card.
+  operationId: SimCardGet
+  parameters:
+    - $ref: ../components/parameters/ResourceId.yaml
+    - $ref: ../components/parameters/IncludeSIMCardGroup.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/GetSimCardResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Get SIM card
+  tags:
+    - SIM Cards
+  x-latency-category: responsive
+patch:
+  description: Updates SIM card data
+  operationId: SimCardUpdate
+  parameters:
+    - $ref: ../components/parameters/ResourceId.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/SIMCard.yaml
+    required: true
+  responses:
+    '200':
+      $ref: ../components/responses/UpdateSimCardResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Update a SIM card
+  tags:
+    - SIM Cards
+  x-latency-category: responsive

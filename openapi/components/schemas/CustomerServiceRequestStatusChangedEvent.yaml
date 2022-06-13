@@ -1,0 +1,51 @@
+properties:
+  event_type:
+    description: The type of the callback event.
+    enum:
+      - customer_service_request.status_changed
+    example: customer_service_request.status_changed
+    type: string
+  id:
+    description: Uniquely identifies the callback event.
+    example: d3c462b5-8afa-4d48-9af1-4f9b1f00e7bd
+    format: uuid
+    type: string
+  occurred_at:
+    description: ISO 8601 formatted date indicating when the callback event occurred.
+    example: '2021-03-19T10:07:15.527Z'
+    format: date-time
+    type: string
+  payload:
+    properties:
+      id:
+        description: Uniquely identifies the customer service request.
+        example: f1486bae-f067-460c-ad43-73a92848f902
+        format: uuid
+        type: string
+      phone_number:
+        description: The phone number of the customer service request.
+        example: '+12065551212'
+        type: string
+      status:
+        description: The status of the customer service request
+        enum:
+          - pending
+          - completed
+          - failed
+        example: completed
+        type: string
+      updated_at:
+        description: >-
+          ISO 8601 formatted date indicating the last time where the resource
+          was updated.
+        example: '2021-03-19T10:07:15.527Z'
+        format: date-time
+        type: string
+    type: object
+  record_type:
+    description: Identifies the type of the resource.
+    enum:
+      - event
+    example: event
+    type: string
+type: object

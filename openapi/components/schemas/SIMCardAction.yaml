@@ -1,0 +1,68 @@
+description: >-
+  This object represents a SIM card action. It allows tracking the current
+  status of an operation that impacts the SIM card.
+properties:
+  action_type:
+    description: |-
+      The operation type. It can be one of the following: <br/>
+      <ul>
+       <li><code>enable</code> - move the SIM card to the <code>enabled</code> status</li>
+       <li><code>enable_standby_sim_card</code> - move a SIM card previously on the <code>standby</code> status to the <code>enabled</code> status after it consumes data.</li>
+       <li><code>disable</code> - move the SIM card to the <code>disabled</code> status</li>
+       <li><code>set_standby</code> - move the SIM card to the <code>standby</code> status</li>
+       </ul>
+    enum:
+      - enable
+      - enable_standby_sim_card
+      - disable
+      - set_standby
+    example: enable
+    readOnly: true
+    type: string
+  created_at:
+    $ref: ./CreatedAt.yaml
+  id:
+    $ref: ./Id.yaml
+  record_type:
+    example: sim_card_action
+    readOnly: true
+    type: string
+  settings:
+    description: A JSON object representation of the action params.
+    example: {}
+    nullable: true
+    readOnly: true
+    type: object
+  sim_card_id:
+    description: The related SIM card identifier.
+    example: 6a09cdc3-8948-47f0-aa62-74ac943d6c58
+    format: uuid
+    readOnly: true
+    type: string
+  status:
+    properties:
+      reason:
+        description: >-
+          It describes why the SIM card action is in the current status. This
+          will be <code>null</code> for self-explanatory statuses, such as
+          <code>in-progress</code> and <code>completed</code> but will include
+          further information on statuses like <code>interrupted</code> and
+          <code>failed</code>.
+        example: The data limit was exceeded.
+        readOnly: true
+        type: string
+      value:
+        description: The current status of the SIM card action.
+        enum:
+          - in-progress
+          - completed
+          - failed
+          - interrupted
+        example: completed
+        readOnly: true
+        type: string
+    type: object
+  updated_at:
+    $ref: ./UpdatedAt.yaml
+title: SIMCardAction
+type: object

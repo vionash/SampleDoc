@@ -1,0 +1,103 @@
+example:
+  created_at: '2020-10-23T18:10:00.000Z'
+  etc: '2020-10-30T18:10:00.000Z'
+  failed_operations:
+    - errors:
+        - code: '10015'
+          detail: The field is invalid.
+          source: /emergency_address_id
+          title: Bad Request
+      id: '3388768018273'
+      phone_number: '+19705551234'
+  id: 42587e44-3a3e-46de-9255-0c9a7a1d1ec7
+  pending_operations:
+    - id: '2637816387126861837'
+      phone_number: '+19705555099'
+  phone_numbers:
+    - id: '2637816387126861836'
+    - phone_number: '+19715555098'
+    - phone_number: '+19705555099'
+    - id: '3388768018273'
+  record_type: phone_numbers_job
+  status: pending
+  successful_operations:
+    - id: '2637816387126861836'
+      phone_number: '+19705555098'
+    - id: '33081887126861836'
+      phone_number: '+19715555098'
+  type: update_emergency_settings
+  updated_at: '2020-10-23T18:10:01.000Z'
+properties:
+  created_at:
+    description: ISO 8601 formatted date indicating when the resource was created.
+    readOnly: true
+    type: string
+  etc:
+    description: >-
+      ISO 8601 formatted date indicating when the estimated time of completion
+      of the background job.
+    format: date-time
+    readOnly: true
+    type: string
+  failed_operations:
+    items:
+      $ref: ./PhoneNumbersJobFailedOperation.yaml
+    readOnly: true
+    type: array
+  id:
+    description: Identifies the resource.
+    example: 42587e44-3a3e-46de-9255-0c9a7a1d1ec7
+    format: uuid
+    readOnly: true
+    type: string
+  pending_operations:
+    items:
+      $ref: ./PhoneNumbersJobPendingOperation.yaml
+      description: >-
+        The phone numbers pending confirmation on update results. Entries in
+        this list are transient, and will be moved to either
+        successful_operations or failed_operations once the processing is done.
+    readOnly: true
+    type: array
+  phone_numbers:
+    items:
+      $ref: ./PhoneNumbersJobPhoneNumber.yaml
+      description: The unique phone numbers given as arguments in the job creation.
+    type: array
+  record_type:
+    description: Identifies the type of the resource.
+    example: phone_numbers_job
+    readOnly: true
+    type: string
+  status:
+    default: pending
+    description: Indicates the completion status of the background update.
+    enum:
+      - pending
+      - in_progress
+      - completed
+      - failed
+      - expired
+    example: pending
+    readOnly: true
+    type: string
+  successful_operations:
+    items:
+      $ref: ./PhoneNumbersJobSuccessfulOperation.yaml
+      description: The phone numbers successfully updated.
+    readOnly: true
+    type: array
+  type:
+    description: Identifies the type of the background job.
+    enum:
+      - update_emergency_settings
+      - delete_phone_numbers
+      - update_phone_numbers
+    example: update_emergency_settings
+    readOnly: true
+    type: string
+  updated_at:
+    description: ISO 8601 formatted date indicating when the resource was updated.
+    readOnly: true
+    type: string
+type: object

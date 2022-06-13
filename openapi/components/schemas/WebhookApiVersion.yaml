@@ -1,0 +1,8 @@
+default: '1'
+description: Determines which webhook format will be used, Telnyx API v1 or v2.
+enum:
+  - '1'
+  - '2'
+example: '1'
+title: Webhook API Version
+type: string

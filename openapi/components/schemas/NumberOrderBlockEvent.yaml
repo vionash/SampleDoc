@@ -1,0 +1,5 @@
+properties:
+  data:
+    $ref: ./NumberBlockOrder.yaml
+title: Number Order Event
+type: object

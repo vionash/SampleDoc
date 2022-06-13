@@ -1,0 +1,74 @@
+example:
+  addresses:
+    - city: Menlo Park
+      country: United States
+      country_code: us
+      state: CA
+      street: 1 Hacker Way
+      type: HOME
+      zip: '94025'
+    - city: Menlo Park
+      country: United States
+      country_code: us
+      state: CA
+      street: 200 Jefferson Dr
+      type: WORK
+      zip: '94025'
+  birthday: '2012-08-18'
+  emails:
+    - email: test@fb.com
+      type: WORK
+    - email: test@whatsapp.com
+      type: WORK
+  name:
+    first_name: John
+    formatted_name: John Smith
+    last_name: Smith
+  org:
+    company: WhatsApp
+    department: Design
+    title: Manager
+  phones:
+    - phone: +1 (940) 555-1234
+      type: HOME
+    - id: '16505551234'
+      phone: +1 (650) 555-1234
+      type: WORK
+  urls:
+    - type: WORK
+      url: https://www.facebook.com
+properties:
+  addresses:
+    description: Full contact address(es)
+    items:
+      $ref: ./WhatsAppContactAddress.yaml
+    type: array
+  birthday:
+    description: YYYY-MM-DD formatted string
+    type: string
+  emails:
+    description: Contact email address(es)
+    items:
+      $ref: ./Email.yaml
+    type: array
+  ims:
+    description: ''
+    items:
+      type: string
+    type: array
+  name:
+    $ref: ./Name.yaml
+  org:
+    $ref: ./Organization.yaml
+  phones:
+    description: Contact phone number(s)
+    items:
+      $ref: ./Phone.yaml
+    type: array
+  urls:
+    description: Contact URL(s)
+    items:
+      $ref: ./Url.yaml
+    type: array
+title: Contact
+type: object

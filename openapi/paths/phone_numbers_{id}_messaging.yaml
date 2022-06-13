@@ -1,0 +1,43 @@
+get:
+  operationId: retrievePhoneNumberWithMessagingSettings
+  parameters:
+    - description: Identifies the type of resource.
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      $ref: ../components/responses/PhoneNumberWithMessagingSettingsResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Retrieve a phone number with messaging settings
+  tags:
+    - Number Configurations
+  x-latency-category: responsive
+patch:
+  operationId: updatePhoneNumberWithMessagingSettings
+  parameters:
+    - description: Identifies the type of resource.
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/UpdatePhoneNumberMessagingSettingsRequest.yaml
+    description: Updated messaging settings for the phone number
+    required: true
+  responses:
+    '200':
+      $ref: ../components/responses/PhoneNumberWithMessagingSettingsResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Update a phone number with messaging settings
+  tags:
+    - Number Configurations
+  x-latency-category: responsive

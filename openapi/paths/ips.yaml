@@ -1,0 +1,56 @@
+get:
+  description: Get all IPs belonging to the user that match the given filters.
+  operationId: listIps
+  parameters:
+    - $ref: ../components/parameters/PageNumber.yaml
+    - $ref: ../components/parameters/PageSize.yaml
+    - description: ID of the IP Connection to which this IP should be attached.
+      in: query
+      name: filter[connection_id]
+      schema:
+        type: string
+    - description: IP adddress represented by this resource.
+      in: query
+      name: filter[ip_address]
+      schema:
+        example: 192.168.0.0
+        type: string
+    - description: Port to use when connecting to this IP.
+      in: query
+      name: filter[port]
+      schema:
+        example: 5060
+        type: integer
+  responses:
+    '200':
+      $ref: ../components/responses/ListIpsResponse.yaml
+    '400':
+      description: Bad request
+    '401':
+      description: Unauthorized
+  summary: List Ips
+  tags:
+    - IPs
+  x-endpoint-cost: medium
+  x-group-parameters: 'true'
+  x-latency-category: responsive
+post:
+  description: Create a new IP object.
+  operationId: createIp
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/CreateIpRequest.yaml
+  responses:
+    '201':
+      $ref: ../components/responses/IpResponse.yaml
+    '400':
+      description: Bad request
+    '401':
+      description: Unauthorized
+  summary: Create an Ip
+  tags:
+    - IPs
+  x-endpoint-cost: medium
+  x-latency-category: responsive

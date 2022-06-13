@@ -1,0 +1,13 @@
+content:
+  application/json:
+    schema:
+      properties:
+        data:
+          items:
+            $ref: ../schemas/CallControlApplication.yaml
+          type: array
+        meta:
+          $ref: ../schemas/PaginationMeta.yaml
+      title: List Call Control Applications Response
+      type: object
+description: Successful response with a list of call control applications.

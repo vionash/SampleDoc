@@ -1,0 +1,5 @@
+properties:
+  data:
+    $ref: ./RecordingCompleted.yaml
+title: Recording Completed Event
+type: object

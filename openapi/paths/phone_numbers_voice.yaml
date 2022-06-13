@@ -1,0 +1,60 @@
+get:
+  operationId: listPhoneNumbersWithVoiceSettings
+  parameters:
+    - $ref: ../components/parameters/PageNumber.yaml
+    - $ref: ../components/parameters/PageSize.yaml
+    - description: |-
+        Filter by phone number. Requires at least three digits.
+                     Non-numerical characters will result in no values being returned.
+      in: query
+      name: filter[phone_number]
+      required: false
+      schema:
+        type: string
+    - description: Filter contains connection name. Requires at least three characters.
+      in: query
+      name: filter[connection_name][contains]
+      required: false
+      schema:
+        example: test
+        type: string
+    - description: Filter numbers via the customer_reference set.
+      in: query
+      name: filter[customer_reference]
+      schema:
+        type: string
+    - description: Filter by usage_payment_method.
+      in: query
+      name: filter[usage_payment_method]
+      required: false
+      schema:
+        enum:
+          - pay-per-minute
+          - channel
+        example: channel
+        type: string
+    - description: >-
+        Specifies the sort order for results. If not given, results are sorted
+        by created_at in descending order.
+      in: query
+      name: sort
+      required: false
+      schema:
+        enum:
+          - purchased_at
+          - phone_number
+          - connection_name
+          - usage_payment_method
+        example: connection_name
+        type: string
+  responses:
+    '200':
+      $ref: ../components/responses/ListPhoneNumbersWithVoiceSettingsResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: List phone numbers with voice settings
+  tags:
+    - Number Configurations
+  x-endpoint-cost: medium
+  x-group-parameters: 'true'
+  x-latency-category: responsive

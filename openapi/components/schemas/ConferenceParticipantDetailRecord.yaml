@@ -1,0 +1,76 @@
+properties:
+  billed_sec:
+    description: Duration of the conference call for billing purposes
+    example: 120
+    type: integer
+  call_leg_id:
+    description: Telnyx UUID that identifies the conference call leg
+    example: 3ca7bd3d-7d82-4e07-9df4-009123068320
+    type: string
+  call_sec:
+    description: Duration of the conference call in seconds
+    example: 100
+    type: integer
+  call_session_id:
+    description: Telnyx UUID that identifies with conference call session
+    example: 3ca7bd3d-7d82-4e07-9df4-009123068320
+    type: string
+  conference_id:
+    description: Conference id
+    example: 3ca7bd3d-7d82-4e07-9df4-009123068320
+    type: string
+  cost:
+    description: Currency amount for Telnyx billing cost
+    example: '0.004'
+    type: string
+  currency:
+    description: >-
+      Telnyx account currency used to describe monetary values, including
+      billing cost
+    example: USD
+    type: string
+  destination_number:
+    description: Number called by the participant to join the conference
+    example: '+18005550199'
+    type: string
+  id:
+    description: Participant id
+    example: 3ca7bd3d-7d82-4e07-9df4-009123068320
+    type: string
+  is_telnyx_billable:
+    description: Indicates whether Telnyx billing charges might be applicable
+    example: true
+    type: boolean
+  joined_at:
+    description: Participant join time
+    example: '2020-07-01T00:00:00-06:00'
+    format: date-time
+    type: string
+  left_at:
+    description: Participant leave time
+    example: '2020-07-01T00:00:00-06:00'
+    format: date-time
+    type: string
+  originating_number:
+    description: Participant origin number used in the conference call
+    example: '+18005550199'
+    type: string
+  rate:
+    description: Currency amount per billing unit used to calculate the Telnyx billing cost
+    example: '0.002'
+    type: string
+  rate_measured_in:
+    description: Billing unit used to calculate the Telnyx billing cost
+    example: minutes
+    type: string
+  record_type:
+    default: conference_participant_detail_record
+    example: conference_participant_detail_record
+    type: string
+  user_id:
+    description: User id
+    example: 3ca7bd3d-7d82-4e07-9df4-009123068320
+    type: string
+required:
+  - record_type
+type: object

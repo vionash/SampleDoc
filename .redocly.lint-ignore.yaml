@@ -1,0 +1,1095 @@
+# This file instructs Redocly's linter to ignore the rules contained for specific parts of your API.
+# See https://redoc.ly/docs/cli/ for more information.
+openapi/openapi.yaml:
+  info-license-url:
+    - '#/info/license/url'
+  no-ambiguous-paths:
+    - '#/paths/~1phone_numbers~1{id}~1messaging'
+    - '#/paths/~1phone_numbers~1{id}~1voice'
+openapi/paths/access_fqdns.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/post/responses'
+openapi/paths/access_fqdns_{fqdn_id}.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/delete/responses'
+    - '#/patch/responses'
+openapi/paths/access_fqdns_{fqdn_id}_ips.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/access_ip_address_{access_ip_address_id}.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/delete/responses'
+openapi/paths/access_ip_ranges_{access_ip_range_id}.yaml:
+  operation-operationId:
+    - '#/delete/operationId'
+  operation-4xx-response:
+    - '#/delete/responses'
+openapi/paths/actions_register_sim_cards.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+openapi/paths/available_phone_number_blocks.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/available_phone_numbers.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/balance.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/billing_groups.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/post/responses'
+openapi/paths/billing_groups_{id}.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/delete/responses'
+    - '#/patch/responses'
+openapi/paths/bulk_sim_card_actions.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/bulk_sim_card_actions_{id}.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/business_identities.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/post/responses'
+openapi/components/schemas/CreateOrUpdateBusinessIdentityRequest.yaml:
+  no-unresolved-refs:
+    - '#/properties/address'
+    - '#/properties/business_description'
+    - '#/properties/business_email'
+    - '#/properties/business_name'
+    - '#/properties/business_phone_number'
+    - '#/properties/contacts'
+    - '#/properties/submission_acknowledgement'
+    - '#/properties/website_url'
+openapi/paths/business_identities_{id}.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/delete/responses'
+    - '#/patch/responses'
+openapi/paths/call_events.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/components/schemas/CallRequest.yaml:
+  spec:
+    - '#/properties/record_timeout_secs/defaut'
+openapi/paths/calls.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+    - '#/post/callbacks/callAnswered/{$request.body#~1webhook_url}/post/responses'
+    - '#/post/callbacks/callHangup/{$request.body#~1webhook_url}/post/responses'
+    - >-
+      #/post/callbacks/callInitiated/{$request.body#~1webhook_url}/post/responses
+    - >-
+      #/post/callbacks/callMachineDetectionEnded/{$request.body#~1webhook_url}/post/responses
+    - >-
+      #/post/callbacks/callMachineGreetingEnded/{$request.body#~1webhook_url}/post/responses
+    - >-
+      #/post/callbacks/streamingStarted/{$request.body#~1webhook_url}/post/responses
+    - >-
+      #/post/callbacks/streamingStopped/{$request.body#~1webhook_url}/post/responses
+  operation-summary:
+    - '#/post/callbacks/callAnswered/{$request.body#~1webhook_url}/post/summary'
+    - '#/post/callbacks/callHangup/{$request.body#~1webhook_url}/post/summary'
+    - '#/post/callbacks/callInitiated/{$request.body#~1webhook_url}/post/summary'
+    - >-
+      #/post/callbacks/callMachineDetectionEnded/{$request.body#~1webhook_url}/post/summary
+    - >-
+      #/post/callbacks/callMachineGreetingEnded/{$request.body#~1webhook_url}/post/summary
+    - >-
+      #/post/callbacks/streamingStarted/{$request.body#~1webhook_url}/post/summary
+    - >-
+      #/post/callbacks/streamingStopped/{$request.body#~1webhook_url}/post/summary
+openapi/paths/calls_register.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+openapi/paths/calls_{call_control_id}.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/calls_{call_control_id}_actions_answer.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+    - '#/post/callbacks/callAnswered/{$request.body#~1webhook_url}/post/responses'
+    - >-
+      #/post/callbacks/streamingStarted/{$request.body#~1webhook_url}/post/responses
+    - >-
+      #/post/callbacks/streamingStopped/{$request.body#~1webhook_url}/post/responses
+  operation-summary:
+    - '#/post/callbacks/callAnswered/{$request.body#~1webhook_url}/post/summary'
+    - >-
+      #/post/callbacks/streamingStarted/{$request.body#~1webhook_url}/post/summary
+    - >-
+      #/post/callbacks/streamingStopped/{$request.body#~1webhook_url}/post/summary
+openapi/paths/calls_{call_control_id}_actions_bridge.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+    - '#/post/callbacks/callBridged/{$request.body#~1webhook_url}/post/responses'
+  operation-summary:
+    - '#/post/callbacks/callBridged/{$request.body#~1webhook_url}/post/summary'
+openapi/paths/calls_{call_control_id}_actions_client_state_update.yaml:
+  operation-4xx-response:
+    - '#/put/responses'
+openapi/components/schemas/EnqueueRequest.yaml:
+  spec:
+    - '#/properties/queue_name/required'
+openapi/paths/calls_{call_control_id}_actions_enqueue.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+    - '#/post/callbacks/callEnqueued/{$request.body#~1webhook_url}/post/responses'
+    - >-
+      #/post/callbacks/callLeftQueue/{$request.body#~1webhook_url}/post/responses
+  operation-summary:
+    - '#/post/callbacks/callEnqueued/{$request.body#~1webhook_url}/post/summary'
+    - '#/post/callbacks/callLeftQueue/{$request.body#~1webhook_url}/post/summary'
+openapi/paths/calls_{call_control_id}_actions_fork_start.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+    - >-
+      #/post/callbacks/callForkStarted/{$request.body#~1webhook_url}/post/responses
+    - >-
+      #/post/callbacks/callForkStopped/{$request.body#~1webhook_url}/post/responses
+  operation-summary:
+    - >-
+      #/post/callbacks/callForkStarted/{$request.body#~1webhook_url}/post/summary
+    - >-
+      #/post/callbacks/callForkStopped/{$request.body#~1webhook_url}/post/summary
+openapi/paths/calls_{call_control_id}_actions_fork_stop.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+    - >-
+      #/post/callbacks/callForkStopped/{$request.body#~1webhook_url}/post/responses
+  operation-summary:
+    - >-
+      #/post/callbacks/callForkStopped/{$request.body#~1webhook_url}/post/summary
+openapi/paths/calls_{call_control_id}_actions_gather.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+    - >-
+      #/post/callbacks/callDtmfReceived/{$request.body#~1webhook_url}/post/responses
+    - >-
+      #/post/callbacks/callGatherEnded/{$request.body#~1webhook_url}/post/responses
+  operation-summary:
+    - >-
+      #/post/callbacks/callDtmfReceived/{$request.body#~1webhook_url}/post/summary
+    - >-
+      #/post/callbacks/callGatherEnded/{$request.body#~1webhook_url}/post/summary
+openapi/paths/calls_{call_control_id}_actions_gather_stop.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+    - >-
+      #/post/callbacks/callGatherEnded/{$request.body#~1webhook_url}/post/responses
+  operation-summary:
+    - >-
+      #/post/callbacks/callGatherEnded/{$request.body#~1webhook_url}/post/summary
+openapi/paths/calls_{call_control_id}_actions_gather_using_audio.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+    - >-
+      #/post/callbacks/callDtmfReceived/{$request.body#~1webhook_url}/post/responses
+    - >-
+      #/post/callbacks/callGatherEnded/{$request.body#~1webhook_url}/post/responses
+    - >-
+      #/post/callbacks/callPlaybackEnded/{$request.body#~1webhook_url}/post/responses
+    - >-
+      #/post/callbacks/callPlaybackStarted/{$request.body#~1webhook_url}/post/responses
+  operation-summary:
+    - >-
+      #/post/callbacks/callDtmfReceived/{$request.body#~1webhook_url}/post/summary
+    - >-
+      #/post/callbacks/callGatherEnded/{$request.body#~1webhook_url}/post/summary
+    - >-
+      #/post/callbacks/callPlaybackEnded/{$request.body#~1webhook_url}/post/summary
+    - >-
+      #/post/callbacks/callPlaybackStarted/{$request.body#~1webhook_url}/post/summary
+openapi/paths/calls_{call_control_id}_actions_gather_using_speak.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+    - >-
+      #/post/callbacks/callDtmfReceived/{$request.body#~1webhook_url}/post/responses
+    - >-
+      #/post/callbacks/callGatherEnded/{$request.body#~1webhook_url}/post/responses
+  operation-summary:
+    - >-
+      #/post/callbacks/callDtmfReceived/{$request.body#~1webhook_url}/post/summary
+    - >-
+      #/post/callbacks/callGatherEnded/{$request.body#~1webhook_url}/post/summary
+openapi/paths/calls_{call_control_id}_actions_hangup.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+    - '#/post/callbacks/callHangup/{$request.body#~1webhook_url}/post/responses'
+    - >-
+      #/post/callbacks/callRecordingError/{$request.body#~1webhook_url}/post/responses
+    - >-
+      #/post/callbacks/callRecordingSaved/{$request.body#~1webhook_url}/post/responses
+  operation-summary:
+    - '#/post/callbacks/callHangup/{$request.body#~1webhook_url}/post/summary'
+    - >-
+      #/post/callbacks/callRecordingError/{$request.body#~1webhook_url}/post/summary
+    - >-
+      #/post/callbacks/callRecordingSaved/{$request.body#~1webhook_url}/post/summary
+openapi/paths/calls_{call_control_id}_actions_leave_queue.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+    - >-
+      #/post/callbacks/callLeftQueue/{$request.body#~1webhook_url}/post/responses
+  operation-summary:
+    - '#/post/callbacks/callLeftQueue/{$request.body#~1webhook_url}/post/summary'
+openapi/paths/calls_{call_control_id}_actions_playback_start.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+    - >-
+      #/post/callbacks/callPlaybackEnded/{$request.body#~1webhook_url}/post/responses
+    - >-
+      #/post/callbacks/callPlaybackStarted/{$request.body#~1webhook_url}/post/responses
+  operation-summary:
+    - >-
+      #/post/callbacks/callPlaybackEnded/{$request.body#~1webhook_url}/post/summary
+    - >-
+      #/post/callbacks/callPlaybackStarted/{$request.body#~1webhook_url}/post/summary
+openapi/paths/calls_{call_control_id}_actions_playback_stop.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+    - >-
+      #/post/callbacks/callPlaybackEnded/{$request.body#~1webhook_url}/post/responses
+    - >-
+      #/post/callbacks/callSpeakEnded/{$request.body#~1webhook_url}/post/responses
+  operation-summary:
+    - >-
+      #/post/callbacks/callPlaybackEnded/{$request.body#~1webhook_url}/post/summary
+    - '#/post/callbacks/callSpeakEnded/{$request.body#~1webhook_url}/post/summary'
+openapi/paths/calls_{call_control_id}_actions_record_pause.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+openapi/paths/calls_{call_control_id}_actions_record_resume.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+openapi/paths/calls_{call_control_id}_actions_record_start.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+openapi/paths/calls_{call_control_id}_actions_record_stop.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+    - >-
+      #/post/callbacks/callRecordingError/{$request.body#~1webhook_url}/post/responses
+    - >-
+      #/post/callbacks/callRecordingSaved/{$request.body#~1webhook_url}/post/responses
+  operation-summary:
+    - >-
+      #/post/callbacks/callRecordingError/{$request.body#~1webhook_url}/post/summary
+    - >-
+      #/post/callbacks/callRecordingSaved/{$request.body#~1webhook_url}/post/summary
+openapi/paths/calls_{call_control_id}_actions_refer.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+    - >-
+      #/post/callbacks/callReferCompleted/{$request.body#~1webhook_url}/post/responses
+    - >-
+      #/post/callbacks/callReferFailed/{$request.body#~1webhook_url}/post/responses
+    - >-
+      #/post/callbacks/callReferStarted/{$request.body#~1webhook_url}/post/responses
+  operation-summary:
+    - >-
+      #/post/callbacks/callReferCompleted/{$request.body#~1webhook_url}/post/summary
+    - >-
+      #/post/callbacks/callReferFailed/{$request.body#~1webhook_url}/post/summary
+    - >-
+      #/post/callbacks/callReferStarted/{$request.body#~1webhook_url}/post/summary
+openapi/paths/calls_{call_control_id}_actions_reject.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+    - '#/post/callbacks/callHangup/{$request.body#~1webhook_url}/post/responses'
+  operation-summary:
+    - '#/post/callbacks/callHangup/{$request.body#~1webhook_url}/post/summary'
+openapi/paths/calls_{call_control_id}_actions_send_dtmf.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+openapi/paths/calls_{call_control_id}_actions_speak.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+    - >-
+      #/post/callbacks/callSpeakEnded/{$request.body#~1webhook_url}/post/responses
+    - >-
+      #/post/callbacks/callSpeakStarted/{$request.body#~1webhook_url}/post/responses
+  operation-summary:
+    - '#/post/callbacks/callSpeakEnded/{$request.body#~1webhook_url}/post/summary'
+    - >-
+      #/post/callbacks/callSpeakStarted/{$request.body#~1webhook_url}/post/summary
+openapi/paths/calls_{call_control_id}_actions_streaming_start.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+    - >-
+      #/post/callbacks/callStreamingStarted/{$request.body#~1webhook_url}/post/responses
+    - >-
+      #/post/callbacks/callStreamingStopped/{$request.body#~1webhook_url}/post/responses
+  operation-summary:
+    - >-
+      #/post/callbacks/callStreamingStarted/{$request.body#~1webhook_url}/post/summary
+    - >-
+      #/post/callbacks/callStreamingStopped/{$request.body#~1webhook_url}/post/summary
+openapi/paths/calls_{call_control_id}_actions_streaming_stop.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+    - >-
+      #/post/callbacks/callStreamingStopped/{$request.body#~1webhook_url}/post/responses
+  operation-summary:
+    - >-
+      #/post/callbacks/callStreamingStopped/{$request.body#~1webhook_url}/post/summary
+openapi/paths/calls_{call_control_id}_actions_transcription_start.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+    - >-
+      #/post/callbacks/transcription/{$request.body#~1webhook_url}/post/responses
+  operation-summary:
+    - '#/post/callbacks/transcription/{$request.body#~1webhook_url}/post/summary'
+openapi/paths/calls_{call_control_id}_actions_transcription_stop.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+openapi/paths/calls_{call_control_id}_actions_transfer.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+    - '#/post/callbacks/callAnswered/{$request.body#~1webhook_url}/post/responses'
+    - '#/post/callbacks/callBridged/{$request.body#~1webhook_url}/post/responses'
+    - '#/post/callbacks/callHangup/{$request.body#~1webhook_url}/post/responses'
+    - >-
+      #/post/callbacks/callInitiated/{$request.body#~1webhook_url}/post/responses
+  operation-summary:
+    - '#/post/callbacks/callAnswered/{$request.body#~1webhook_url}/post/summary'
+    - '#/post/callbacks/callBridged/{$request.body#~1webhook_url}/post/summary'
+    - '#/post/callbacks/callHangup/{$request.body#~1webhook_url}/post/summary'
+    - '#/post/callbacks/callInitiated/{$request.body#~1webhook_url}/post/summary'
+openapi/paths/channel_zones.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/channel_zones_{channel_zone_id}.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/patch/responses'
+openapi/paths/channel_zones_{channel_zone_id}_channel_zone_phone_numbers.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/post/responses'
+openapi/paths/channel_zones_{channel_zone_id}_channel_zone_phone_numbers_{phone_number}.yaml:
+  operation-4xx-response:
+    - '#/delete/responses'
+openapi/paths/comments.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/post/responses'
+openapi/paths/comments_{id}.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/comments_{id}_read.yaml:
+  operation-4xx-response:
+    - '#/patch/responses'
+openapi/paths/conferences.yaml:
+  operation-summary:
+    - >-
+      #/post/callbacks/conferenceCreated/{$request.body#~1webhook_url}/post/summary
+    - >-
+      #/post/callbacks/conferenceEnded/{$request.body#~1webhook_url}/post/summary
+    - >-
+      #/post/callbacks/conferenceFloorChanged/{$request.body#~1webhook_url}/post/summary
+    - >-
+      #/post/callbacks/conferenceParticipantJoined/{$request.body#~1webhook_url}/post/summary
+    - >-
+      #/post/callbacks/conferenceParticipantLeft/{$request.body#~1webhook_url}/post/summary
+  operation-4xx-response:
+    - >-
+      #/post/callbacks/conferenceCreated/{$request.body#~1webhook_url}/post/responses
+    - >-
+      #/post/callbacks/conferenceEnded/{$request.body#~1webhook_url}/post/responses
+    - >-
+      #/post/callbacks/conferenceFloorChanged/{$request.body#~1webhook_url}/post/responses
+    - >-
+      #/post/callbacks/conferenceParticipantJoined/{$request.body#~1webhook_url}/post/responses
+    - >-
+      #/post/callbacks/conferenceParticipantLeft/{$request.body#~1webhook_url}/post/responses
+openapi/paths/conferences_{id}_actions_dial_participant.yaml:
+  operation-summary:
+    - '#/post/callbacks/callAnswered/{$request.body#~1webhook_url}/post/summary'
+    - '#/post/callbacks/callHangup/{$request.body#~1webhook_url}/post/summary'
+    - >-
+      #/post/callbacks/conferenceParticipantJoined/{$request.body#~1webhook_url}/post/summary
+    - >-
+      #/post/callbacks/conferenceParticipantLeft/{$request.body#~1webhook_url}/post/summary
+  operation-4xx-response:
+    - '#/post/callbacks/callAnswered/{$request.body#~1webhook_url}/post/responses'
+    - '#/post/callbacks/callHangup/{$request.body#~1webhook_url}/post/responses'
+    - >-
+      #/post/callbacks/conferenceParticipantJoined/{$request.body#~1webhook_url}/post/responses
+    - >-
+      #/post/callbacks/conferenceParticipantLeft/{$request.body#~1webhook_url}/post/responses
+openapi/paths/conferences_{id}_actions_join.yaml:
+  operation-summary:
+    - >-
+      #/post/callbacks/conferenceParticipantJoined/{$request.body#~1webhook_url}/post/summary
+    - >-
+      #/post/callbacks/conferenceParticipantLeft/{$request.body#~1webhook_url}/post/summary
+  operation-4xx-response:
+    - >-
+      #/post/callbacks/conferenceParticipantJoined/{$request.body#~1webhook_url}/post/responses
+    - >-
+      #/post/callbacks/conferenceParticipantLeft/{$request.body#~1webhook_url}/post/responses
+openapi/paths/conferences_{id}_actions_leave.yaml:
+  operation-summary:
+    - >-
+      #/post/callbacks/conferenceParticipantLeft/{$request.body#~1webhook_url}/post/summary
+  operation-4xx-response:
+    - >-
+      #/post/callbacks/conferenceParticipantLeft/{$request.body#~1webhook_url}/post/responses
+openapi/paths/conferences_{id}_actions_play.yaml:
+  operation-summary:
+    - >-
+      #/post/callbacks/conferenceParticipantPlaybackEnded/{$request.body#~1webhook_url}/post/summary
+    - >-
+      #/post/callbacks/conferenceParticipantPlaybackStarted/{$request.body#~1webhook_url}/post/summary
+    - >-
+      #/post/callbacks/conferencePlaybackEnded/{$request.body#~1webhook_url}/post/summary
+    - >-
+      #/post/callbacks/conferencePlaybackStarted/{$request.body#~1webhook_url}/post/summary
+  operation-4xx-response:
+    - >-
+      #/post/callbacks/conferenceParticipantPlaybackEnded/{$request.body#~1webhook_url}/post/responses
+    - >-
+      #/post/callbacks/conferenceParticipantPlaybackStarted/{$request.body#~1webhook_url}/post/responses
+    - >-
+      #/post/callbacks/conferencePlaybackEnded/{$request.body#~1webhook_url}/post/responses
+    - >-
+      #/post/callbacks/conferencePlaybackStarted/{$request.body#~1webhook_url}/post/responses
+openapi/paths/conferences_{id}_actions_record_stop.yaml:
+  operation-summary:
+    - >-
+      #/post/callbacks/conferenceRecordingSaved/{$request.body#~1webhook_url}/post/summary
+  operation-4xx-response:
+    - >-
+      #/post/callbacks/conferenceRecordingSaved/{$request.body#~1webhook_url}/post/responses
+openapi/paths/conferences_{id}_actions_speak.yaml:
+  operation-summary:
+    - >-
+      #/post/callbacks/conferenceParticipantSpeakEnded/{$request.body#~1webhook_url}/post/summary
+    - >-
+      #/post/callbacks/conferenceParticipantSpeakStarted/{$request.body#~1webhook_url}/post/summary
+    - >-
+      #/post/callbacks/conferenceSpeakEnded/{$request.body#~1webhook_url}/post/summary
+    - >-
+      #/post/callbacks/conferenceSpeakStarted/{$request.body#~1webhook_url}/post/summary
+  operation-4xx-response:
+    - >-
+      #/post/callbacks/conferenceParticipantSpeakEnded/{$request.body#~1webhook_url}/post/responses
+    - >-
+      #/post/callbacks/conferenceParticipantSpeakStarted/{$request.body#~1webhook_url}/post/responses
+    - >-
+      #/post/callbacks/conferenceSpeakEnded/{$request.body#~1webhook_url}/post/responses
+    - >-
+      #/post/callbacks/conferenceSpeakStarted/{$request.body#~1webhook_url}/post/responses
+openapi/paths/conferences_{id}_actions_stop.yaml:
+  operation-summary:
+    - >-
+      #/post/callbacks/conferenceParticipantPlaybackEnded/{$request.body#~1webhook_url}/post/summary
+  operation-4xx-response:
+    - >-
+      #/post/callbacks/conferenceParticipantPlaybackEnded/{$request.body#~1webhook_url}/post/responses
+openapi/paths/custom_storage_credentials_{connection_id}.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/put/responses'
+    - '#/post/responses'
+    - '#/delete/responses'
+openapi/components/parameters/ConnectionId.yaml:
+  spec:
+    - '#/in'
+    - '#/name'
+    - '#/required'
+    - '#/schema'
+openapi/paths/customer_service_requests.yaml:
+  operation-parameters-unique:
+    - '#/get/parameters/8'
+  operation-summary:
+    - >-
+      #/post/callbacks/CustomerServiceRequestStatusChanged/{$request.body#~1webhook_url}/post/summary
+  operation-4xx-response:
+    - >-
+      #/post/callbacks/CustomerServiceRequestStatusChanged/{$request.body#~1webhook_url}/post/responses
+openapi/paths/detail_records.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/dialogflow_connections_{connection_id}.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/put/responses'
+    - '#/post/responses'
+    - '#/delete/responses'
+openapi/paths/document_links.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/documents.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/documents_{id}.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/delete/responses'
+    - '#/patch/responses'
+openapi/paths/documents_{id}_download.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/faxes.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/post/responses'
+    - >-
+      #/post/callbacks/fax.delivered/{$response.body#~1data~1webhook_url}/post/responses
+    - >-
+      #/post/callbacks/fax.failed/{$response.body#~1data~1webhook_url}/post/responses
+    - >-
+      #/post/callbacks/fax.media.processed/{$response.body#~1data~1webhook_url}/post/responses
+    - >-
+      #/post/callbacks/fax.queued/{$response.body#~1data~1webhook_url}/post/responses
+    - >-
+      #/post/callbacks/fax.sending.started/{$response.body#~1data~1webhook_url}/post/responses
+  operation-summary:
+    - >-
+      #/post/callbacks/fax.delivered/{$response.body#~1data~1webhook_url}/post/summary
+    - >-
+      #/post/callbacks/fax.failed/{$response.body#~1data~1webhook_url}/post/summary
+    - >-
+      #/post/callbacks/fax.media.processed/{$response.body#~1data~1webhook_url}/post/summary
+    - >-
+      #/post/callbacks/fax.queued/{$response.body#~1data~1webhook_url}/post/summary
+    - >-
+      #/post/callbacks/fax.sending.started/{$response.body#~1data~1webhook_url}/post/summary
+openapi/paths/faxes_{id}.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/delete/responses'
+openapi/paths/inventory_coverage.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/ledger_billing_group_reports.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+openapi/paths/ledger_billing_group_reports_{id}.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/media.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/post/responses'
+openapi/paths/media_{media_name}.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/put/responses'
+    - '#/delete/responses'
+openapi/paths/media_{media_name}_download.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/messages.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+    - >-
+      #/post/callbacks/deliveryUpdate/{$request.body#~1webhook_url}/post/responses
+  operation-summary:
+    - '#/post/callbacks/deliveryUpdate/{$request.body#~1webhook_url}/post/summary'
+openapi/paths/messages_long_code.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+    - >-
+      #/post/callbacks/deliveryUpdate/{$request.body#~1webhook_url}/post/responses
+  operation-summary:
+    - '#/post/callbacks/deliveryUpdate/{$request.body#~1webhook_url}/post/summary'
+openapi/paths/messages_number_pool.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+    - >-
+      #/post/callbacks/deliveryUpdate/{$request.body#~1webhook_url}/post/responses
+  operation-summary:
+    - '#/post/callbacks/deliveryUpdate/{$request.body#~1webhook_url}/post/summary'
+openapi/paths/messages_short_code.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+    - >-
+      #/post/callbacks/deliveryUpdate/{$request.body#~1webhook_url}/post/responses
+  operation-summary:
+    - '#/post/callbacks/deliveryUpdate/{$request.body#~1webhook_url}/post/summary'
+openapi/paths/messages_{id}.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/messaging_hosted_number_orders.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/post/responses'
+openapi/paths/messaging_hosted_number_orders_{id}.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/messaging_hosted_number_orders_{id}_actions_file_upload.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+openapi/paths/messaging_hosted_numbers_{id}.yaml:
+  operation-4xx-response:
+    - '#/delete/responses'
+openapi/paths/messaging_profile_metrics.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/messaging_profiles.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/post/responses'
+    - >-
+      #/post/callbacks/deliveryUpdate/{$request.body#~1webhook_url}/post/responses
+    - >-
+      #/post/callbacks/inboundMessage/{$request.body#~1webhook_url}/post/responses
+    - >-
+      #/post/callbacks/replacedLinkClick/{$request.body#~1webhook_url}/post/responses
+  operation-summary:
+    - '#/post/callbacks/deliveryUpdate/{$request.body#~1webhook_url}/post/summary'
+    - '#/post/callbacks/inboundMessage/{$request.body#~1webhook_url}/post/summary'
+    - >-
+      #/post/callbacks/replacedLinkClick/{$request.body#~1webhook_url}/post/summary
+openapi/paths/messaging_profiles_{id}.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/delete/responses'
+    - '#/patch/responses'
+openapi/paths/messaging_profiles_{id}_metrics.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/messaging_profiles_{id}_phone_numbers.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/messaging_profiles_{id}_short_codes.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/messaging_url_domains.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/mobile_operator_networks.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/notification_channels.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/post/responses'
+openapi/paths/notification_channels_{id}.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/delete/responses'
+    - '#/patch/responses'
+openapi/paths/notification_event_conditions.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/notification_events.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/notification_profiles.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/post/responses'
+openapi/paths/notification_profiles_{id}.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/delete/responses'
+    - '#/patch/responses'
+openapi/paths/notification_settings.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/post/responses'
+openapi/paths/notification_settings_{id}.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/delete/responses'
+openapi/paths/number_block_orders.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/post/responses'
+    - >-
+      #/post/callbacks/numberOrderStatusUpdate/{$request.body#~1webhook_url}/post/responses
+  operation-summary:
+    - >-
+      #/post/callbacks/numberOrderStatusUpdate/{$request.body#~1webhook_url}/post/summary
+openapi/paths/number_block_orders_{number_block_order_id}.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/number_order_documents.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/post/responses'
+openapi/paths/number_order_documents_{number_order_document_id}.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/patch/responses'
+openapi/paths/number_order_phone_numbers.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/number_order_phone_numbers_{number_order_phone_number_id}.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/patch/responses'
+openapi/paths/number_orders.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/post/responses'
+    - >-
+      #/post/callbacks/numberOrderStatusUpdate/{$request.body#~1webhook_url}/post/responses
+  operation-summary:
+    - >-
+      #/post/callbacks/numberOrderStatusUpdate/{$request.body#~1webhook_url}/post/summary
+openapi/paths/number_orders_{number_order_id}.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/patch/responses'
+openapi/paths/number_reservations.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/post/responses'
+openapi/paths/number_reservations_{number_reservation_id}.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/number_reservations_{number_reservation_id}_actions_extend.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+openapi/paths/ota_updates.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/ota_updates_{id}.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/phone_number_blocks_jobs.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/phone_number_blocks_jobs_delete_phone_number_block.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+openapi/paths/phone_number_blocks_jobs_{id}.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/phone_numbers.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/phone_numbers_csv_downloads.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/post/responses'
+openapi/paths/phone_numbers_csv_downloads_{id}.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/phone_numbers_inbound_channels.yaml:
+  operation-4xx-response:
+    - '#/patch/responses'
+openapi/paths/phone_numbers_jobs.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/phone_numbers_jobs_delete_phone_numbers.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+openapi/paths/phone_numbers_jobs_update_emergency_settings.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+openapi/paths/phone_numbers_jobs_update_phone_numbers.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+openapi/paths/phone_numbers_jobs_{id}.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/phone_numbers_messaging.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/phone_numbers_voice.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/phone_numbers_{id}.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/delete/responses'
+    - '#/patch/responses'
+openapi/paths/phone_numbers_{id}_actions_enable_emergency.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+openapi/paths/phone_numbers_{id}_messaging.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/patch/responses'
+openapi/paths/phone_numbers_{id}_voice.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/patch/responses'
+openapi/paths/phone_numbers_regulatory_requirements.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/private_wireless_gateways.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/reports_batch_mdr_reports.yaml:
+  operation-summary:
+    - '#/get/summary'
+    - '#/post/summary'
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/post/responses'
+openapi/paths/reports_batch_mdr_reports_{id}.yaml:
+  operation-summary:
+    - '#/get/summary'
+    - '#/delete/summary'
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/delete/responses'
+openapi/paths/reports_cdr_usage_reports_sync.yaml:
+  operation-summary:
+    - '#/get/summary'
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/reports_mdr_usage_reports.yaml:
+  operation-summary:
+    - '#/get/summary'
+    - '#/post/summary'
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/post/responses'
+openapi/paths/reports_mdr_usage_reports_sync.yaml:
+  operation-summary:
+    - '#/get/summary'
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/reports_mdr_usage_reports_{id}.yaml:
+  operation-summary:
+    - '#/get/summary'
+    - '#/delete/summary'
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/delete/responses'
+openapi/paths/reports_mdrs.yaml:
+  operation-summary:
+    - '#/get/summary'
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/reports_wdrs.yaml:
+  operation-summary:
+    - '#/get/summary'
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/requirement_types.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/requirement_types_{id}.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/requirements.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/requirements_{id}.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/room_compositions.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/room_participants.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/room_recordings.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/room_sessions.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/room_sessions_{room_session_id}_actions_end.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+openapi/paths/room_sessions_{room_session_id}_actions_kick.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+openapi/paths/room_sessions_{room_session_id}_actions_mute.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+openapi/paths/room_sessions_{room_session_id}_actions_unmute.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+openapi/paths/room_sessions_{room_session_id}_participants.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/rooms.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/rooms_{room_id}_sessions.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/short_codes.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/short_codes_{id}.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/patch/responses'
+openapi/paths/sim_card_actions.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/sim_card_actions_{id}.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/sim_card_data_usage_notifications.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/post/responses'
+openapi/paths/sim_card_data_usage_notifications_{id}.yaml:
+  operation-4xx-response:
+    - '#/delete/responses'
+    - '#/patch/responses'
+openapi/paths/sim_card_group_actions.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/sim_card_group_actions_{id}.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/sim_card_groups.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/post/responses'
+openapi/paths/sim_card_groups_{id}.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/delete/responses'
+    - '#/patch/responses'
+openapi/paths/sim_card_groups_{id}_actions_remove_private_wireless_gateway.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+openapi/paths/sim_card_groups_{id}_actions_set_private_wireless_gateway.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+openapi/paths/sim_card_orders.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/post/responses'
+openapi/paths/sim_cards.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/sim_cards_actions_validate_registration_codes.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+openapi/paths/sim_cards_{id}.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/delete/responses'
+    - '#/patch/responses'
+openapi/paths/sim_cards_{id}_actions_disable.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+openapi/paths/sim_cards_{id}_actions_remove_public_ip.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+openapi/paths/sim_cards_{id}_actions_set_public_ip.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+openapi/paths/sim_cards_{id}_actions_set_standby.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+openapi/paths/sim_cards_{sim_card_id}_device_details.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/sim_cards_{sim_card_id}_network_preferences.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/put/responses'
+    - '#/delete/responses'
+openapi/paths/sim_cards_{sim_card_id}_public_ip.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/sim_cards_{sim_card_id}_wireless_connectivity_logs.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/sub_number_orders.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/sub_number_orders_{sub_number_order_id}.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/patch/responses'
+openapi/paths/verified_calls_display_profiles.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/post/responses'
+openapi/components/schemas/CreateVerifiedCallsDisplayProfileRequest.yaml:
+  no-unresolved-refs:
+    - '#/properties/call_reasons'
+    - '#/properties/display_name'
+    - '#/properties/logo_url'
+    - '#/properties/phone_numbers'
+openapi/paths/verified_calls_display_profiles_{id}.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/delete/responses'
+    - '#/patch/responses'
+openapi/components/schemas/UpdateVerifiedCallsDisplayProfileRequest.yaml:
+  no-unresolved-refs:
+    - '#/properties/call_reasons'
+    - '#/properties/phone_numbers'
+openapi/paths/verified_calls_display_profiles_{id}_verification_request.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+openapi/paths/whatsapp_business_accounts.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/whatsapp_business_accounts_{id}.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/whatsapp_business_accounts_{id}_phone_numbers.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/whatsapp_business_accounts_{id}_whatsapp_message_templates.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/post/responses'
+openapi/paths/whatsapp_business_accounts_{id}_whatsapp_message_templates_{name}.yaml:
+  operation-4xx-response:
+    - '#/delete/responses'
+openapi/paths/whatsapp_contacts.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+openapi/paths/whatsapp_detail_record_reports.yaml:
+  operation-summary:
+    - '#/get/summary'
+    - '#/post/summary'
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/post/responses'
+openapi/paths/whatsapp_detail_record_reports_{id}.yaml:
+  operation-summary:
+    - '#/get/summary'
+    - '#/delete/summary'
+  operation-4xx-response:
+    - '#/delete/responses'
+openapi/paths/whatsapp_media.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+openapi/paths/whatsapp_media_{whatsapp_user_id}_{media_id}.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/delete/responses'
+openapi/paths/whatsapp_messages.yaml:
+  operation-4xx-response:
+    - '#/post/responses'
+openapi/paths/whatsapp_messages_{message_id}.yaml:
+  operation-4xx-response:
+    - '#/patch/responses'
+openapi/paths/whatsapp_phone_numbers_{id}.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/patch/responses'
+openapi/paths/whatsapp_phone_numbers_{id}_about.yaml:
+  operation-4xx-response:
+    - '#/patch/responses'
+openapi/paths/whatsapp_phone_numbers_{id}_photo.yaml:
+  operation-4xx-response:
+    - '#/get/responses'
+    - '#/patch/responses'
+openapi/paths/whatsapp_usage_aggregations.yaml:
+  operation-summary:
+    - '#/get/summary'
+  operation-4xx-response:
+    - '#/get/responses'
+openapi/paths/wireless_detail_records_reports.yaml:
+  operation-4xx-response:
+    - '#/get/responses'

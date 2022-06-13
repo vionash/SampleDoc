@@ -1,0 +1,9 @@
+content:
+  application/json:
+    schema:
+      properties:
+        data:
+          $ref: ../schemas/NumberOrderPhoneNumber.yaml
+      title: Number Order Phone Number Response
+      type: object
+description: Successful response with details about a number order phone number.

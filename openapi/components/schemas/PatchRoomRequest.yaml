@@ -1,0 +1,44 @@
+properties:
+  enable_recording:
+    default: false
+    description: Enable or disable recording for that room.
+    example: true
+    type: boolean
+  max_participants:
+    default: 10
+    description: >-
+      The maximum amount of participants allowed in a room. If new participants
+      try to join after that limit is reached, their request will be rejected.
+    example: 10
+    maximum: 50
+    minimum: 2
+    type: integer
+  unique_name:
+    description: The unique (within the Telnyx account scope) name of the room.
+    example: My room
+    type: string
+  webhook_event_failover_url:
+    default: ''
+    description: >-
+      The failover URL where webhooks related to this room will be sent if
+      sending to the primary URL fails. Must include a scheme, such as 'https'.
+    example: https://failover.example.com
+    format: url
+    nullable: true
+    type: string
+  webhook_event_url:
+    description: >-
+      The URL where webhooks related to this room will be sent. Must include a
+      scheme, such as 'https'.
+    example: https://example.com
+    format: url
+    type: string
+  webhook_timeout_secs:
+    default: null
+    description: Specifies how many seconds to wait before timing out a webhook.
+    example: 25
+    maximum: 30
+    minimum: 0
+    nullable: true
+    type: integer
+type: object

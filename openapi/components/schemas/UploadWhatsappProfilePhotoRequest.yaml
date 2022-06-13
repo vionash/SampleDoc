@@ -1,0 +1,11 @@
+example:
+  photo: example photo
+properties:
+  photo:
+    description: Must be an image with exactly 640x640px dimensions.
+    format: binary
+    type: string
+required:
+  - photo
+title: UploadWhatsappProfilePhotoRequest
+type: object

@@ -1,0 +1,102 @@
+properties:
+  activation_settings:
+    $ref: ./PortingOrderActivationSettings.yaml
+  created_at:
+    description: ISO 8601 formatted date indicating when the resource was created.
+    example: '2021-03-19T10:07:15.527Z'
+    format: date-time
+    readOnly: true
+    type: string
+  customer_reference:
+    description: A customer-specified reference number for customer bookkeeping purposes
+    example: Acct 123abc
+    type: string
+  description:
+    description: A description of the porting order
+    example: FP Telnyx
+    readOnly: true
+    type: string
+  documents:
+    $ref: ./PortingOrderDocuments.yaml
+  end_user:
+    $ref: ./PortingOrderEndUser.yaml
+  id:
+    description: Uniquely identifies this porting order
+    example: f1486bae-f067-460c-ad43-73a92848f902
+    format: uuid
+    readOnly: true
+    type: string
+  misc:
+    $ref: ./PortingOrderMisc.yaml
+  old_service_provider_ocn:
+    description: Identifies the old service provider
+    example: Unreal Communications
+    readOnly: true
+    type: string
+  parent_support_key:
+    description: >-
+      A key to reference for the porting order group when contacting Telnyx
+      customer support. This information is not available for porting orders in
+      `draft` state
+    example: pr_123abc
+    readOnly: true
+    type: string
+  phone_number_configuration:
+    $ref: ./PortingOrderPhoneNumberConfiguration.yaml
+  phone_number_type:
+    description: The type of the phone number
+    enum:
+      - landline
+      - local
+      - mobile
+      - national
+      - shared_cost
+      - toll_free
+    example: local
+    type: string
+  porting_phone_numbers_count:
+    description: Count of phone numbers associated with this porting order
+    example: 1
+    readOnly: true
+    type: integer
+  record_type:
+    description: Identifies the type of the resource.
+    example: porting_order
+    readOnly: true
+    type: string
+  requirements:
+    description: List of documentation requirements for porting numbers.
+    items:
+      $ref: ./PortingOrderRequirement.yaml
+    type: array
+  requirements_met:
+    description: Is true when the required documentation is met
+    example: false
+    type: boolean
+  status:
+    $ref: ./PortingOrderStatus.yaml
+  support_key:
+    description: >-
+      A key to reference this porting order when contacting Telnyx customer
+      support. This information is not available in draft porting orders.
+    example: sr_123abc
+    readOnly: true
+    type: string
+  updated_at:
+    description: ISO 8601 formatted date indicating when the resource was created.
+    example: '2021-03-19T10:07:15.527Z'
+    format: date-time
+    readOnly: true
+    type: string
+  user_feedback:
+    $ref: ./PortingOrderUserFeedback.yaml
+  user_id:
+    description: Identifies the user (or organization) who requested the porting order
+    example: 40d68ba2-0847-4df2-be9c-b0e0cb673e75
+    format: uuid
+    type: string
+  webhook_url:
+    example: https://example.com/porting_webhooks
+    format: uri
+    type: string
+type: object

@@ -1,0 +1,46 @@
+delete:
+  operationId: deleteMessagingProfile
+  parameters:
+    - $ref: ../components/parameters/MessagingProfileId.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/MessagingProfileResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Delete a messaging profile
+  tags:
+    - Messaging Profiles
+  x-latency-category: responsive
+get:
+  operationId: retrieveMessagingProfile
+  parameters:
+    - $ref: ../components/parameters/MessagingProfileId.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/MessagingProfileResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Retrieve a messaging profile
+  tags:
+    - Messaging Profiles
+  x-latency-category: responsive
+patch:
+  operationId: updateMessagingProfile
+  parameters:
+    - $ref: ../components/parameters/MessagingProfileId.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/UpdateMessagingProfileRequest.yaml
+    description: New Messaging Profile object
+    required: true
+  responses:
+    '200':
+      $ref: ../components/responses/MessagingProfileResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Update a messaging profile
+  tags:
+    - Messaging Profiles
+  x-latency-category: responsive

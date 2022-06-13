@@ -1,0 +1,42 @@
+example:
+  call_control_id: v2:T02llQxIyaRkhfRKxgAP8nY511EhFLizdvdUKJiSw8d6A9BborherQ
+  call_leg_id: 2dc6fc34-f9e0-11ea-b68e-02420a0f7768
+  call_session_id: 2dc1b3c8-f9e0-11ea-bc5a-02420a0f7768
+  is_alive: false
+  record_type: call
+properties:
+  call_control_id:
+    description: Unique identifier and token for controlling the call.
+    example: v2:T02llQxIyaRkhfRKxgAP8nY511EhFLizdvdUKJiSw8d6A9BborherQ
+    type: string
+  call_leg_id:
+    description: ID that is unique to the call and can be used to correlate webhook events
+    example: 428c31b6-7af4-4bcb-b7f5-5013ef9657c1
+    type: string
+  call_session_id:
+    description: >-
+      ID that is unique to the call session and can be used to correlate webhook
+      events. Call session is a group of related call legs that logically belong
+      to the same phone call, e.g. an inbound and outbound leg of a transferred
+      call
+    example: 428c31b6-7af4-4bcb-b68e-5013ef9657c1
+    type: string
+  is_alive:
+    description: >-
+      Indicates whether the call is alive or not. For Dial command it will
+      always be `false` (dialing is asynchronous).
+    example: true
+    type: boolean
+  record_type:
+    enum:
+      - call
+    example: call
+    type: string
+required:
+  - call_control_id
+  - call_leg_id
+  - call_session_id
+  - is_alive
+  - record_type
+title: Call
+type: object

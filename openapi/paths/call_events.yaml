@@ -1,0 +1,32 @@
+get:
+  description: >
+    Filters call events by given filter parameters. Events are ordered by
+    `event_timestamp`. If filter for `call_leg_id` or `call_session_id` is not
+    present, it only filters events from the last 24 hours.
+
+
+    **Note**: Only one `filter[event_timestamp]` can be passed.
+  operationId: listCallEvents
+  parameters:
+    - $ref: ../components/parameters/FilterCallLegId.yaml
+    - $ref: ../components/parameters/FilterCallSessionId.yaml
+    - $ref: ../components/parameters/FilterCallEventStatus.yaml
+    - $ref: ../components/parameters/FilterCallEventType.yaml
+    - $ref: ../components/parameters/FilterCallEventTimestampGreaterThan.yaml
+    - $ref: >-
+        ../components/parameters/FilterCallEventTimestampGreaterThanOrEqualTo.yaml
+    - $ref: ../components/parameters/FilterCallEventTimestampLessThan.yaml
+    - $ref: ../components/parameters/FilterCallEventTimestampLessThanOrEqualTo.yaml
+    - $ref: ../components/parameters/FilterCallEventTimestampEqualTo.yaml
+    - $ref: ../components/parameters/PageNumber.yaml
+    - $ref: ../components/parameters/PageSize.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/ListCallEventsResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: List call events
+  tags:
+    - Debugging
+  x-group-parameters: 'true'
+  x-latency-category: responsive

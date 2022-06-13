@@ -1,0 +1,7 @@
+description: The page number to load
+in: query
+name: page[number]
+schema:
+  default: 1
+  minimum: 1
+  type: integer

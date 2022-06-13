@@ -1,0 +1,9 @@
+content:
+  application/json:
+    schema:
+      properties:
+        data:
+          $ref: ../schemas/TexmlApplication.yaml
+      title: Texml Application Response
+      type: object
+description: Successful response

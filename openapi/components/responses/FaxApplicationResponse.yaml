@@ -1,0 +1,9 @@
+content:
+  application/json:
+    schema:
+      properties:
+        data:
+          $ref: ../schemas/FaxApplication.yaml
+      title: Fax Application Response
+      type: object
+description: Successful response

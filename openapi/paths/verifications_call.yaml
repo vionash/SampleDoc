@@ -1,0 +1,21 @@
+post:
+  operationId: createVerificationCall
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/CreateVerificationRequestCall.yaml
+    required: true
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CreateVerificationResponse.yaml
+      description: Expected verifications response to a valid request.
+    '400':
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Trigger a Call verification
+  tags:
+    - Verify
+  x-latency-category: responsive

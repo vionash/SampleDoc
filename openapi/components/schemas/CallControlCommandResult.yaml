@@ -1,0 +1,8 @@
+example:
+  result: ok
+properties:
+  result:
+    example: ok
+    type: string
+title: Call Control Command Result
+type: object

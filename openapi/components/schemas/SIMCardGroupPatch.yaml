@@ -1,0 +1,20 @@
+properties:
+  data_limit:
+    description: >-
+      Upper limit on the amount of data the SIM cards, within the group, can
+      use.
+    properties:
+      amount:
+        example: '2048.1'
+        format: decimal
+        type: string
+      unit:
+        example: MB
+        type: string
+    type: object
+  name:
+    description: A user friendly name for the SIM card group.
+    example: My Test Group
+    type: string
+title: SIMCardGroupPatch
+type: object

@@ -1,0 +1,120 @@
+properties:
+  cost:
+    description: An object representing the total cost of the order.
+    example:
+      amount: '2.52'
+      currency: USD
+    properties:
+      amount:
+        description: A string representing the cost amount.
+        example: '2.32'
+        type: string
+      currency:
+        description: Filter by ISO 4217 currency string.
+        example: USD
+        format: currency
+        type: string
+    type: object
+  created_at:
+    description: >-
+      ISO 8601 formatted date-time indicating when the resource was last
+      created.
+    example: '2018-02-02T22:25:27.521Z'
+    readOnly: true
+    type: string
+  id:
+    description: Identifies the resource.
+    example: 6a09cdc3-8948-47f0-aa62-74ac943d6c58
+    format: uuid
+    readOnly: true
+    type: string
+  order_address:
+    description: >-
+      An object representing the address information from when the order was
+      submitted.
+    example:
+      administrative_area: IL
+      country_code: US
+      extended_address: Suite 504
+      id: '1293384261075731499'
+      locality: Chicago
+      postal_code: '60654'
+      street_address: 311 W Superior St
+    properties:
+      administrative_area:
+        description: State or province where the address is located.
+        example: IL
+        type: string
+      country_code:
+        description: >-
+          The mobile operator two-character (ISO 3166-1 alpha-2) origin country
+          code.
+        example: US
+        type: string
+      extended_address:
+        description: Supplemental field for address information.
+        example: Suite 504
+        type: string
+      id:
+        description: Uniquely identifies the address for the order.
+        example: '1293384261075731499'
+        format: int64
+        type: string
+      locality:
+        description: The name of the city where the address is located.
+        example: Chicago
+        type: string
+      postal_code:
+        description: Postal code for the address.
+        example: '60654'
+        type: string
+      street_address:
+        description: The name of the street where the address is located.
+        example: 311 W Superior St
+        type: string
+    readOnly: true
+    type: object
+  quantity:
+    description: The amount of SIM cards requested in the SIM card order.
+    example: 21
+    minimum: 1
+    type: integer
+  record_type:
+    description: Identifies the type of the resource.
+    example: sim_card_order
+    readOnly: true
+    type: string
+  status:
+    description: >-
+      The current status of the SIM Card order.<ul> <li><code>pending</code> -
+      the order is waiting to be processed.</li> <li><code>processing</code> -
+      the order is currently being processed.</li>
+      <li><code>ready_to_ship</code> - the order is ready to be shipped to the
+      specified <b>address</b>.</li> <li><code>shipped</code> - the order was
+      shipped and is on its way to be delivered to the specified
+      <b>address</b>.</li> <li><code>delivered</code> - the order was delivered
+      to the specified <b>address</b>.</li> <li><code>canceled</code> - the
+      order was canceled.</li> </ul>
+    enum:
+      - pending
+      - processing
+      - ready_to_ship
+      - shipped
+      - delivered
+      - canceled
+    example: pending
+    type: string
+  tracking_url:
+    description: The URL used to get tracking information about the order.
+    example: http://www.example.com/
+    format: url
+    type: string
+  updated_at:
+    description: >-
+      ISO 8601 formatted date-time indicating when the resource was last
+      updated.
+    example: '2018-02-02T22:25:27.521Z'
+    readOnly: true
+    type: string
+title: SIMCardOrder
+type: object

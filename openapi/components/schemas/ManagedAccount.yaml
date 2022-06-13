@@ -1,0 +1,77 @@
+properties:
+  api_key:
+    description: The managed account's V2 API access key
+    example: KEY0174227C1D16D1B180A8FF742AD37F70_1bA4vlJKHpZcJGaSXaadFu
+    type: string
+  api_token:
+    description: The managed account's V1 API token
+    example: x6oexQNHTs-fZ7-QsDMOeg
+    type: string
+  api_user:
+    description: The manager account's email, which serves as the V1 API user identifier
+    example: managed_account@example.com
+    type: string
+  balance:
+    $ref: ./ManagedAccountBalance.yaml
+  created_at:
+    description: ISO 8601 formatted date indicating when the resource was created.
+    example: '2018-02-02T22:25:27.521Z'
+    type: string
+  email:
+    description: The managed account's email.
+    example: user@example.com
+    format: email
+    type: string
+  id:
+    description: Uniquely identifies the managed account.
+    example: f65ceda4-6522-4ad6-aede-98de83385123
+    format: UUID
+    type: string
+  managed_account_allow_custom_pricing:
+    description: >-
+      Boolean value that indicates if the managed account is able to have custom
+      pricing set for it or not. If false, uses the pricing of the manager
+      account. Defaults to false. There may be time lag between when the value
+      is changed and pricing changes take effect.
+    example: true
+    type: boolean
+  manager_account_id:
+    description: The ID of the manager account associated with the managed account.
+    example: f65ceda4-6522-4ad6-aede-98de83385123
+    type: string
+  organization_name:
+    description: The organization the managed account is associated with.
+    example: Example Company LLC
+    type: string
+  record_type:
+    description: Identifies the type of the resource.
+    enum:
+      - managed_account
+    example: managed_account
+    type: string
+  rollup_billing:
+    description: >-
+      Boolean value that indicates if the billing information and charges to the
+      managed account "roll up" to the manager account. If true, the managed
+      account will not have its own balance and will use the shared balance with
+      the manager account. This value cannot be changed after account creation
+      without going through Telnyx support as changes require manual updates to
+      the account ledger. Defaults to false.
+    example: false
+    type: boolean
+  updated_at:
+    description: ISO 8601 formatted date indicating when the resource was updated.
+    example: '2018-02-02T22:25:27.521Z'
+    type: string
+required:
+  - record_type
+  - id
+  - email
+  - api_key
+  - api_user
+  - api_token
+  - manager_account_id
+  - created_at
+  - updated_at
+title: ManagedAccount
+type: object

@@ -1,0 +1,7 @@
+description: Activation Job Identifier
+in: path
+name: activationJobId
+required: true
+schema:
+  format: uuid
+  type: string

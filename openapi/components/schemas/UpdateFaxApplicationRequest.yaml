@@ -1,0 +1,79 @@
+example:
+  active: false
+  anchorsite_override: Amsterdam, Netherlands
+  application_name: fax-router
+  inbound:
+    channel_limit: 10
+    sip_subdomain: example
+    sip_subdomain_receive_settings: only_my_connections
+  outbound:
+    channel_limit: 10
+    outbound_voice_profile_id: '1293384261075731499'
+  webhook_event_failover_url: https://failover.example.com
+  webhook_event_url: https://example.com
+  webhook_timeout_secs: 25
+properties:
+  active:
+    $ref: ./ConnectionActive.yaml
+  anchorsite_override:
+    $ref: ./AnchorsiteOverride.yaml
+  application_name:
+    $ref: ./ApplicationName.yaml
+  fax_email_recipient:
+    $ref: ./FaxEmailRecipient.yaml
+  inbound:
+    properties:
+      channel_limit:
+        default: null
+        description: >-
+          When set, this will limit the number of concurrent inbound calls to
+          phone numbers associated with this connection.
+        example: 10
+        type: integer
+      sip_subdomain:
+        default: null
+        description: >-
+          Specifies a subdomain that can be used to receive Inbound calls to a
+          Connection, in the same way a phone number is used, from a SIP
+          endpoint. Example: the subdomain "example.sip.telnyx.com" can be
+          called from any SIP endpoint by using the SIP URI
+          "sip:@example.sip.telnyx.com" where the user part can be any
+          alphanumeric value. Please note TLS encrypted calls are not allowed
+          for subdomain calls.
+        example: example
+        type: string
+      sip_subdomain_receive_settings:
+        default: from_anyone
+        description: >-
+          This option can be enabled to receive calls from: "Anyone" (any SIP
+          endpoint in the public Internet) or "Only my connections" (any
+          connection assigned to the same Telnyx user).
+        enum:
+          - only_my_connections
+          - from_anyone
+        example: only_my_connections
+        type: string
+    type: object
+  outbound:
+    properties:
+      channel_limit:
+        default: null
+        description: >-
+          When set, this will limit the number of concurrent outbound calls to
+          phone numbers associated with this connection.
+        example: 10
+        type: integer
+      outbound_voice_profile_id:
+        $ref: ./OutboundVoiceProfileId.yaml
+    type: object
+  webhook_event_failover_url:
+    $ref: ./WebhookEventFailoverUrl.yaml
+  webhook_event_url:
+    $ref: ./WebhookEventUrl.yaml
+  webhook_timeout_secs:
+    $ref: ./WebhookTimeoutSecs.yaml
+required:
+  - application_name
+  - webhook_event_url
+title: Update Fax Application Request
+type: object

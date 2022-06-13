@@ -1,0 +1,112 @@
+example:
+  call_control_id: >-
+    v2:v2:T02llQxIyaRkhfRKxgAP8nY511EhFLizdvdUKJiSw8d6A9BborherQczRrZvZakpWxBlpw48KyZQ
+  call_leg_id: 3a15df2d-c801-4729-adf5-b56dd42e2abb
+  conference:
+    id: 41b9acd4-f4da-4ff5-a85c-e07e90b53f46
+    name: '1'
+  created_at: '2019-01-23T18:10:02.574Z'
+  end_conference_on_exit: true
+  id: dfadada7-af74-47bc-83a4-554275f55f5c
+  muted: false
+  on_hold: true
+  record_type: participant
+  soft_end_conference_on_exit: true
+  status: joining
+  updated_at: '2019-01-23T18:10:02.574Z'
+  whisper_call_control_ids:
+    - v2:Sg1xxxQ_U3ixxxyXT_VDNI3xxxazZdg6Vxxxs4-GNYxxxVaJPOhFMRQ
+    - v2:qqpb0mmvd-ovhhBr0BUQQn0fld5jIboaaX3-De0DkqXHzbf8d75xkw
+properties:
+  call_control_id:
+    description: Call Control ID associated with the partiipant of the conference
+    example: >-
+      v2:v2:T02llQxIyaRkhfRKxgAP8nY511EhFLizdvdUKJiSw8d6A9BborherQczRrZvZakpWxBlpw48KyZQ
+    type: string
+  call_leg_id:
+    description: Uniquely identifies the call leg associated with the participant
+    example: 3fa85f64-5717-4562-b3fc-2c963f66afa6
+    type: string
+  conference:
+    description: Info about the conference that the participant is in
+    properties:
+      id:
+        description: Uniquely identifies the conference
+        example: 3fa85f64-5717-4562-b3fc-2c963f66afa6
+        type: string
+      name:
+        description: Name of the conference
+        example: All hands meeting
+        type: string
+    type: object
+  created_at:
+    description: ISO 8601 formatted date of when the participant was created
+    example: '2019-01-23T18:10:02.574Z'
+    type: string
+  end_conference_on_exit:
+    description: >-
+      Whether the conference will end and all remaining participants be hung up
+      after the participant leaves the conference.
+    example: true
+    type: boolean
+  id:
+    description: Uniquely identifies the participant
+    example: 3fa85f64-5717-4562-b3fc-2c963f66afa6
+    type: string
+  muted:
+    description: Whether the participant is muted.
+    example: true
+    type: boolean
+  on_hold:
+    description: Whether the participant is put on_hold.
+    example: true
+    type: boolean
+  record_type:
+    enum:
+      - participant
+    example: participant
+    type: string
+  soft_end_conference_on_exit:
+    description: >-
+      Whether the conference will end after the participant leaves the
+      conference.
+    example: true
+    type: boolean
+  status:
+    description: >-
+      The status of the participant with respect to the lifecycle within the
+      conference
+    enum:
+      - joining
+      - joined
+      - left
+    example: joining
+    type: string
+  updated_at:
+    description: ISO 8601 formatted date of when the participant was last updated
+    example: '2019-01-23T18:10:02.574Z'
+    type: string
+  whisper_call_control_ids:
+    description: Array of unique call_control_ids the participant can whisper to..
+    example:
+      - v2:Sg1xxxQ_U3ixxxyXT_VDNI3xxxazZdg6Vxxxs4-GNYxxxVaJPOhFMRQ
+      - v2:qqpb0mmvd-ovhhBr0BUQQn0fld5jIboaaX3-De0DkqXHzbf8d75xkw
+    items:
+      type: string
+    type: array
+required:
+  - record_type
+  - id
+  - call_leg_id
+  - call_control_id
+  - conference
+  - whisper_call_control_ids
+  - created_at
+  - updated_at
+  - end_conference_on_exit
+  - soft_end_conference_on_exit
+  - status
+  - muted
+  - on_hold
+title: Participant
+type: object

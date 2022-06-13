@@ -1,0 +1,17 @@
+get:
+  operationId: listMessagingProfileMetrics
+  parameters:
+    - $ref: ../components/parameters/PageNumber.yaml
+    - $ref: ../components/parameters/PageSize.yaml
+    - $ref: ../components/parameters/MessagingProfileMetric.yaml
+    - $ref: ../components/parameters/MessagingProfileMetricTimeFrame.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/ListMessagingProfileMetrics.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: List messaging profile metrics
+  tags:
+    - Messaging Profiles
+  x-group-parameters: 'true'
+  x-latency-category: responsive

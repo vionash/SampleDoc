@@ -1,0 +1,43 @@
+properties:
+  created_at:
+    description: ISO 8601 formatted date-time indicating when the resource was created.
+    example: '2018-02-02T22:25:27.521Z'
+    readOnly: true
+    type: string
+  end_time:
+    description: ISO 8601 formatted date-time indicating the end time.
+    example: '2018-02-02T22:25:27.521Z'
+    type: string
+  id:
+    description: Identifies the resource.
+    example: 6a09cdc3-8948-47f0-aa62-74ac943d6c58
+    format: uuid
+    readOnly: true
+    type: string
+  record_type:
+    example: detail_records_report
+    readOnly: true
+    type: string
+  report_url:
+    description: The URL where the report content, when generated, will be published to.
+    example: http://example.com
+    type: string
+  start_time:
+    description: ISO 8601 formatted date-time indicating the start time.
+    example: '2018-02-02T22:25:27.521Z'
+    type: string
+  status:
+    description: Indicates the status of the report, which is updated asynchronously.
+    enum:
+      - pending
+      - complete
+      - failed
+      - deleted
+    example: pending
+    type: string
+  updated_at:
+    description: ISO 8601 formatted date-time indicating when the resource was updated.
+    example: '2018-02-02T22:25:27.521Z'
+    readOnly: true
+    type: string
+type: object

@@ -1,0 +1,40 @@
+get:
+  description: Returns a list of your porting phone numbers.
+  operationId: listPortingPhoneNumbers
+  parameters:
+    - $ref: ../components/parameters/PageNumber.yaml
+    - $ref: ../components/parameters/PageSize.yaml
+    - $ref: ../components/parameters/FilterByPortingOrderID.yaml
+    - $ref: ../components/parameters/FilterByPortingOrderIdIn.yaml
+    - $ref: ../components/parameters/FilterBySupportKeyEq.yaml
+    - $ref: ../components/parameters/FilterBySupportKeyIn.yaml
+    - $ref: ../components/parameters/FilterByPhoneNumber.yaml
+    - $ref: ../components/parameters/FilterByPhoneNumberIn.yaml
+    - description: Filter results by porting order status
+      in: query
+      name: filter[porting_order_status]
+      schema:
+        enum:
+          - draft
+          - in-process
+          - submitted
+          - exception
+          - foc-date-confirmed
+          - cancel-pending
+          - ported
+          - cancelled
+        example: in-process
+        type: string
+    - $ref: ../components/parameters/FilterByPortingOrderActivationStatus.yaml
+    - $ref: ../components/parameters/FilterByPortabilityStatus.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/ListPortingPhoneNumbers.yaml
+    '401':
+      description: Unauthorized
+    '422':
+      description: Unprocessable entity. Check message field in response for details.
+  summary: List all porting phone numbers
+  tags:
+    - Porting Order
+  x-latency-category: responsive

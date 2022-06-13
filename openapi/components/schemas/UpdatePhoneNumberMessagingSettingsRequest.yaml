@@ -1,0 +1,12 @@
+example:
+  messaging_product: P2P
+  messaging_profile_id: dd50eba1-a0c0-4563-9925-b25e842a7cb6
+properties:
+  messaging_product:
+    description: The requested messaging product the number should be on
+    example: P2P
+    type: string
+  messaging_profile_id:
+    description: Unique identifier for a messaging profile.
+    type: string
+type: object

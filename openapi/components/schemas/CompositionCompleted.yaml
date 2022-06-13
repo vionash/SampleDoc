@@ -1,0 +1,78 @@
+example:
+  event_type: video.room.composition.completed
+  id: d51754fc-6888-4b0e-8f29-fc3ae41250cd
+  occurred_at: '2022-03-02 04:47:29.980874Z'
+  payload:
+    composition_id: 5970ce77-4aeb-4e18-ac8c-3effca0c145a
+    download_url: https://www.example.com
+    duration_secs: 53
+    format: mp4
+    resolution: 1280x720
+    room_id: 2fbf2c0d-b6aa-463f-aeed-83ce298be978
+    session_id: 7c4da191-2600-4df6-a35e-0ecae6caa5d3
+    size_mb: 2.6
+  record_type: event
+properties:
+  event_type:
+    description: The type of event being delivered.
+    enum:
+      - video.room.composition.completed
+    example: video.room.composition.completed
+    type: string
+  id:
+    description: Uniquely identify the event.
+    example: 0ccc7b54-4df3-4bca-a65a-3da1ecc777f0
+    format: uuid
+    type: string
+  occurred_at:
+    description: ISO 8601 datetime of when the event occurred.
+    example: '2018-02-02T22:25:27.521992Z'
+    format: date-time
+    type: string
+  payload:
+    properties:
+      composition_id:
+        description: Composition ID that identifies the room composition.
+        example: 0ccc7b54-4df3-4bca-a65a-35a1ecc777f0
+        format: uuid
+        type: string
+      download_url:
+        description: Url to download the room composition.
+        example: https://www.example.com
+        type: string
+      duration_secs:
+        description: Room composition duration in seconds.
+        example: 67
+        type: integer
+      format:
+        description: Format of the room composition.
+        example: mp4
+        type: string
+      resolution:
+        description: Format of the room composition.
+        example: 1280x720
+        type: string
+      room_id:
+        description: Room ID associated with the room composition.
+        example: 0ccc7b54-4df3-4bca-a65a-35a1ecc777f0
+        format: uuid
+        type: string
+      session_id:
+        description: Session ID associated with the room composition.
+        example: 0ccc7b54-4df3-4bca-a65a-3da1ecc777f0
+        format: uuid
+        type: string
+      size_mb:
+        description: Room composition size in MB.
+        example: 10.5
+        format: float
+        type: number
+    type: object
+  record_type:
+    description: An identifier for the type of the resource.
+    enum:
+      - event
+    example: event
+    type: string
+title: Composition Completed
+type: object

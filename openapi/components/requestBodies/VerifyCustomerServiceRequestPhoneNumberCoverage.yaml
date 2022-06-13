@@ -1,0 +1,16 @@
+content:
+  application/json:
+    schema:
+      properties:
+        phone_numbers:
+          description: The phone numbers list to be verified.
+          items:
+            description: A valid US phone number in E164 format.
+            example: '+1234567890'
+            pattern: ^\+1\d{10}$
+            type: string
+          type: array
+      required:
+        - phone_numbers
+      type: object
+required: true

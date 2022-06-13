@@ -1,0 +1,59 @@
+properties:
+  country_code:
+    example: US
+    readOnly: true
+    type: string
+  created_at:
+    description: An ISO 8901 datetime string denoting when the number order was created.
+    example: '2018-01-01T00:00:00.000000Z'
+    format: datetime
+    readOnly: true
+    type: string
+  id:
+    example: 12ade33a-21c0-473b-b055-b3c836e1c292
+    format: uuid
+    readOnly: true
+    type: string
+  order_request_id:
+    example: 12ade33a-21c0-473b-b055-b3c836e1c293
+    format: uuid
+    readOnly: true
+    type: string
+  phone_number_type:
+    enum:
+      - local
+      - toll_free
+      - mobile
+      - national
+      - shared_cost
+      - landline
+    example: local
+    type: string
+  phone_numbers_count:
+    description: The count of phone numbers in the number order.
+    example: 1
+    readOnly: true
+    type: integer
+  record_type:
+    example: sub_number_order
+    readOnly: true
+    type: string
+  regulatory_requirements:
+    items:
+      $ref: ./SubNumberOrderRegulatoryRequirement.yaml
+    type: array
+  requirements_met:
+    description: True if all requirements are met for every phone number, false otherwise.
+    example: true
+    readOnly: true
+    type: boolean
+  updated_at:
+    description: An ISO 8901 datetime string for when the number order was updated.
+    example: '2018-01-01T00:00:00.000000Z'
+    format: datetime
+    readOnly: true
+    type: string
+  user_id:
+    example: d70873cd-7c98-401a-81b6-b1ae08246995
+    format: uuid
+    type: string

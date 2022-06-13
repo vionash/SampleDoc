@@ -1,0 +1,42 @@
+post:
+  callbacks:
+    callBridged:
+      '{$request.body#/webhook_url}':
+        post:
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  $ref: ../components/schemas/CallBridgedEvent.yaml
+            required: true
+          responses:
+            '200':
+              description: >-
+                The server must return an HTTP 200, otherwise we will reattempt
+                delivery at the failover webhook URL.
+  description: |
+    Bridge two call control calls.
+
+    **Expected Webhooks:**
+
+    - `call.bridged` for Leg A
+    - `call.bridged` for Leg B
+  operationId: callBridge
+  parameters:
+    - $ref: ../components/parameters/CallControlId.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/BridgeRequest.yaml
+    description: Bridge call request
+    required: true
+  responses:
+    '200':
+      $ref: ../components/responses/CallControlCommandResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Bridge calls
+  tags:
+    - Call Commands
+  x-latency-category: interactive

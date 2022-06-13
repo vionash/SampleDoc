@@ -1,0 +1,7 @@
+content:
+  '*':
+    schema:
+      format: binary
+      title: The requested media.
+      type: string
+description: Successful response

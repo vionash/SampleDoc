@@ -1,0 +1,18 @@
+properties:
+  customer_reference:
+    description: Optional reference string for customer tracking.
+    example: MY REF 001
+    type: string
+  filename:
+    description: The filename of the document.
+    example: test-document.pdf
+    type: string
+  url:
+    description: >-
+      If the file is already hosted publicly, you can provide a URL and have the
+      documents service fetch it for you.
+    example: https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf
+    type: string
+required:
+  - url
+type: object

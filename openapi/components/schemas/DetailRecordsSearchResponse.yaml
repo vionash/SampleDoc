@@ -1,0 +1,8 @@
+properties:
+  data:
+    items:
+      $ref: ./DetailRecord.yaml
+    type: array
+  meta:
+    $ref: ./PaginationMeta.yaml
+type: object

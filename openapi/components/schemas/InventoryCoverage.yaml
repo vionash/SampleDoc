@@ -1,0 +1,48 @@
+example:
+  count: 3
+  coverage_type: number
+  group: '318'
+  group_type: npa
+  number_range: 1
+  number_type: did
+  phone_number_type: local
+  record_type: inventory_coverage_group
+properties:
+  count:
+    example: 3
+    type: integer
+  coverage_type:
+    enum:
+      - number
+      - block
+    example: number
+    type: string
+  group:
+    example: '318'
+    type: string
+  group_type:
+    example: npa
+    type: string
+  number_range:
+    example: 1
+    type: integer
+  number_type:
+    enum:
+      - did
+      - toll-free
+    example: did
+    type: string
+  phone_number_type:
+    enum:
+      - local
+      - toll_free
+      - national
+      - landline
+      - shared_cost
+      - mobile
+    example: local
+    type: string
+  record_type:
+    example: inventory_coverage_group
+    type: string
+type: object

@@ -1,0 +1,10 @@
+description: Date/time by Unix epoch
+example:
+  timestamp: 123456789
+properties:
+  timestamp:
+    description: Epoch timestamp in seconds
+    format: int32
+    type: integer
+title: Date Time by Unix Epoch
+type: object

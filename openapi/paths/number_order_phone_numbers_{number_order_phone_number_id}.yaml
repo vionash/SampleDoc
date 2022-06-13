@@ -1,0 +1,44 @@
+get:
+  description: Get an existing number order phone number.
+  operationId: retrieveNumberOrderPhoneNumber
+  parameters:
+    - description: The number order phone number ID.
+      in: path
+      name: number_order_phone_number_id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      $ref: ../components/responses/NumberOrderPhoneNumberResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Retrieve a number order phone number.
+  tags:
+    - Number Orders
+  x-latency-category: responsive
+patch:
+  description: Updates a number order phone number.
+  operationId: updateNumberOrderPhoneNumber
+  parameters:
+    - description: The number order phone number ID.
+      in: path
+      name: number_order_phone_number_id
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/UpdateNumberOrderPhoneNumberRequest.yaml
+    required: true
+  responses:
+    '200':
+      $ref: ../components/responses/NumberOrderPhoneNumberResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Update a number order phone number.
+  tags:
+    - Number Orders
+  x-latency-category: responsive

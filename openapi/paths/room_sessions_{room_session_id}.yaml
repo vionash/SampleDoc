@@ -1,0 +1,27 @@
+get:
+  operationId: ViewRoomSession
+  parameters:
+    - description: The unique identifier of a room session.
+      in: path
+      name: room_session_id
+      required: true
+      schema:
+        example: 0ccc7b54-4df3-4bca-a65a-3da1ecc777f0
+        format: uuid
+        type: string
+    - description: To decide if room participants should be included in the response.
+      in: query
+      name: include_participants
+      schema:
+        example: true
+        type: boolean
+  responses:
+    '200':
+      $ref: ../components/responses/GetRoomSessionResponse.yaml
+    '404':
+      $ref: ../components/responses/ResourceNotFound.yaml
+  summary: View a room session.
+  tags:
+    - Room Sessions
+  x-endpoint-cost: light
+  x-latency-category: responsive

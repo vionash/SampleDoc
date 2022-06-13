@@ -1,0 +1,55 @@
+example:
+  best_effort: false
+  cost_information:
+    currency: USD
+    monthly_cost: '6.54'
+    upfront_cost: '3.21'
+  features:
+    - name: sms
+    - name: voice
+  phone_number: '+19705555098'
+  quickship: true
+  record_type: available_phone_number
+  region_information:
+    - region_name: US
+      region_type: country_code
+  reservable: true
+  vanity_format: ''
+properties:
+  best_effort:
+    description: >-
+      Specifies whether the phone number is an exact match based on the search
+      criteria or not.
+    example: false
+    type: boolean
+  cost_information:
+    $ref: ./CostInformation.yaml
+  features:
+    items:
+      $ref: ./Feature.yaml
+    type: array
+  phone_number:
+    example: '+19705555098'
+    type: string
+  quickship:
+    description: >-
+      Specifies whether the phone number can receive calls immediately after
+      purchase or not.
+    example: true
+    type: boolean
+  record_type:
+    enum:
+      - available_phone_number
+    example: available_phone_number
+    type: string
+  region_information:
+    items:
+      $ref: ./RegionInformation.yaml
+    type: array
+  reservable:
+    description: Specifies whether the phone number can be reserved before purchase or not.
+    example: true
+    type: boolean
+  vanity_format:
+    type: string
+type: object

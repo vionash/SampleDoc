@@ -1,0 +1,35 @@
+properties:
+  connection_id:
+    description: The connection ID to send the fax with.
+    example: '234423'
+    type: string
+  from:
+    $ref: ./From.yaml
+  media_name:
+    $ref: ./MediaName.yaml
+  media_url:
+    $ref: ./MediaUrl.yaml
+  monochrome:
+    default: false
+    description: The flag to enable monochrome, true black and white fax results.
+    type: boolean
+  quality:
+    $ref: ./Quality.yaml
+  store_media:
+    default: false
+    description: >-
+      Should fax media be stored on temporary URL. It does not support
+      media_name, they can't be submitted together.
+    type: boolean
+  t38_enabled:
+    default: true
+    description: The flag to disable the T.38 protocol.
+    type: boolean
+  to:
+    $ref: ./To.yaml
+required:
+  - connection_id
+  - from
+  - to
+title: Send fax request
+type: object

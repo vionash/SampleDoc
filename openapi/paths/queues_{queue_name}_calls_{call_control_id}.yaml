@@ -1,0 +1,20 @@
+get:
+  description: Retrieve an existing call from an existing queue
+  operationId: retrieveCallFromQueue
+  parameters:
+    - description: Uniquely identifies the queue by name
+      in: path
+      name: queue_name
+      required: true
+      schema:
+        type: string
+    - $ref: ../components/parameters/CallControlId.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/QueueCallResponse.yaml
+    '404':
+      $ref: ../components/responses/NotFoundResponse.yaml
+  summary: Retrieve a call from a queue
+  tags:
+    - Queue Commands
+  x-latency-category: interactive

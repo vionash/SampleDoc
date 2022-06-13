@@ -1,0 +1,8 @@
+content:
+  application/json:
+    schema:
+      properties:
+        data:
+          $ref: ../schemas/RoomParticipant.yaml
+      type: object
+description: Get room participant response.

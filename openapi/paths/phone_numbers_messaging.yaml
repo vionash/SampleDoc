@@ -1,0 +1,16 @@
+get:
+  operationId: listPhoneNumbersWithMessagingSettings
+  parameters:
+    - $ref: ../components/parameters/PageNumber.yaml
+    - $ref: ../components/parameters/PageSize.yaml
+  responses:
+    '200':
+      $ref: >-
+        ../components/responses/ListPhoneNumbersWithMessagingSettingsResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: List phone numbers with messaging settings
+  tags:
+    - Number Configurations
+  x-group-parameters: 'true'
+  x-latency-category: responsive

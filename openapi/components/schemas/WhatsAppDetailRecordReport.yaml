@@ -1,0 +1,30 @@
+properties:
+  created_at:
+    example: '2020-05-01T00:00:00-06:00'
+    format: date-time
+    type: string
+  download_link:
+    example: https://portal-cdrs-usage.s3.amazonaws.com
+    type: string
+  end_date:
+    example: '2020-05-01T00:00:00-06:00'
+    format: date-time
+    type: string
+  id:
+    example: ab76c3b6-80cd-11eb-9439-0242ac130002
+    type: string
+  record_type:
+    example: whatsapp_detail_record_report
+    type: string
+  start_date:
+    example: '2020-05-01T00:00:00-06:00'
+    format: date-time
+    type: string
+  status:
+    enum:
+      - PENDING
+      - COMPLETE
+      - FAILED
+      - EXPIRED
+    type: string
+type: object

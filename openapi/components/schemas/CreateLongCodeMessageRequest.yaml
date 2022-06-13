@@ -1,0 +1,69 @@
+example:
+  from: '+18445550001'
+  media_urls:
+    - http://example.com
+  subject: From Telnyx!
+  text: Hello, World!
+  to: '+13125550002'
+  type: MMS
+  use_profile_webhooks: true
+  webhook_failover_url: https://backup.example.com/hooks
+  webhook_url: http://example.com/webhooks
+properties:
+  auto_detect:
+    default: false
+    description: >-
+      Automatically detect if an SMS message is unusually long and exceeds a
+      recommended limit of message parts.
+    type: boolean
+  from:
+    description: Phone number, in +E.164 format, used to send the message.
+    format: address
+    type: string
+  media_urls:
+    description: |-
+      A list of media URLs. The total media size must be less than 1 MB.
+
+      **Required for MMS**
+    items:
+      format: url
+      type: string
+    type: array
+  subject:
+    description: Subject of multimedia message
+    type: string
+  text:
+    description: |-
+      Message body (i.e., content) as a non-empty string.
+
+      **Required for SMS**
+    type: string
+  to:
+    $ref: ./ToNumber.yaml
+  type:
+    description: The protocol for sending the message, either SMS or MMS.
+    enum:
+      - SMS
+      - MMS
+    type: string
+  use_profile_webhooks:
+    default: true
+    description: >-
+      If the profile this number is associated with has webhooks, use them for
+      delivery notifications. If webhooks are also specified on the message
+      itself, they will be attempted first, then those on the profile.
+    type: boolean
+  webhook_failover_url:
+    description: >-
+      The failover URL where webhooks related to this message will be sent if
+      sending to the primary URL fails.
+    format: url
+    type: string
+  webhook_url:
+    description: The URL where webhooks related to this message will be sent.
+    format: url
+    type: string
+required:
+  - from
+  - to
+type: object

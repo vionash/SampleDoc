@@ -1,0 +1,12 @@
+content:
+  application/json:
+    schema:
+      properties:
+        data:
+          items:
+            $ref: ../schemas/PortingOrderRequirementDetail.yaml
+          type: array
+        meta:
+          $ref: ../schemas/PaginationMeta.yaml
+      type: object
+description: Successful response

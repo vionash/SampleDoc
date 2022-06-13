@@ -1,0 +1,10 @@
+properties:
+  data:
+    items:
+      $ref: ./CustomerFacingFQDNsResponseSchema.yaml
+    title: Data
+    type: array
+  meta:
+    $ref: ./PaginationMeta.yaml
+title: CustomerFacingFQDNsListResponse
+type: object

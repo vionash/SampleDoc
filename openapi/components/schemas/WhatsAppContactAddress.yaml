@@ -1,0 +1,40 @@
+example:
+  city: Menlo Park
+  country: United States
+  country_code: us
+  state: CA
+  street: 1 Hacker Way
+  type: HOME
+  zip: '94025'
+properties:
+  city:
+    description: City name
+    type: string
+  country:
+    description: Full country name
+    type: string
+  country_code:
+    description: Two-letter country abbreviation
+    type: string
+  state:
+    description: State abbreviation
+    type: string
+  street:
+    description: Street number and name
+    type: string
+  type:
+    description: 'Standard Values: HOME, WORK'
+    type: string
+  zip:
+    description: ZIP code
+    type: string
+required:
+  - city
+  - country
+  - country_code
+  - state
+  - street
+  - type
+  - zip
+title: Address
+type: object

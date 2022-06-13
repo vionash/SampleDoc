@@ -1,0 +1,26 @@
+description: The request body when creating a verification.
+properties:
+  call_timeout_secs:
+    description: >-
+      Must be less than the profile's default_verification_timeout_secs or
+      timeout_secs, whichever is lesser.
+    example: 30
+    type: integer
+  phone_number:
+    description: +E164 formatted phone number.
+    example: '+13035551234'
+    type: string
+  timeout_secs:
+    description: The number of seconds the verification code is valid for.
+    example: 300
+    type: integer
+  verify_profile_id:
+    description: The identifier of the associated Verify profile.
+    example: 12ade33a-21c0-473b-b055-b3c836e1c292
+    format: uuid
+    type: string
+required:
+  - phone_number
+  - verify_profile_id
+title: CreateVerificationRequestCall
+type: object

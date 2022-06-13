@@ -1,0 +1,18 @@
+post:
+  operationId: createLedgerBillingGroupReport
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/NewLedgerBillingGroupReport.yaml
+    description: New ledger billing group report parameters
+    required: true
+  responses:
+    '200':
+      $ref: ../components/responses/CreateLedgerBillingGroupReportResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Create a ledger billing group report
+  tags:
+    - Reports
+  x-latency-category: background

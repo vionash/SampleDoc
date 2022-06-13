@@ -1,0 +1,7 @@
+description: It includes the associated SIM card group object in the response when present.
+in: query
+name: include_sim_card_group
+schema:
+  default: false
+  example: true
+  type: boolean

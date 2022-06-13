@@ -1,0 +1,5 @@
+properties:
+  data:
+    $ref: ./RecordingStarted.yaml
+title: Recording Started Event
+type: object

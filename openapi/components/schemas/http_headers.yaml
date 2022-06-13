@@ -1,0 +1,5 @@
+description: List of headers, limited to 10kB.
+items:
+  example: 'Header-Name: header value'
+  type: string
+type: array

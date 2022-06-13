@@ -1,0 +1,8 @@
+content:
+  application/json:
+    schema:
+      properties:
+        data:
+          $ref: ../schemas/WdrReport.yaml
+      type: object
+description: Successful response

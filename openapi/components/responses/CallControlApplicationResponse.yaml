@@ -1,0 +1,9 @@
+content:
+  application/json:
+    schema:
+      properties:
+        data:
+          $ref: ../schemas/CallControlApplication.yaml
+      title: Call Control Application Response
+      type: object
+description: Successful response with details about a call control application.

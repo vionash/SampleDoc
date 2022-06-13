@@ -1,0 +1,5 @@
+description: Filter by status
+in: query
+name: filter[status]
+schema:
+  type: string

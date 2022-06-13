@@ -1,0 +1,10 @@
+example:
+  result: ok
+properties:
+  result:
+    example: ok
+    type: string
+required:
+  - result
+title: Conference Command Result
+type: object

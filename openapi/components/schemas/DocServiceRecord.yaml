@@ -1,0 +1,23 @@
+properties:
+  created_at:
+    description: ISO 8601 formatted date-time indicating when the resource was created.
+    example: '2018-02-02T22:25:27.521Z'
+    readOnly: true
+    type: string
+  id:
+    description: Identifies the resource.
+    example: 6a09cdc3-8948-47f0-aa62-74ac943d6c58
+    format: uuid
+    readOnly: true
+    type: string
+  record_type:
+    description: Identifies the type of the resource.
+    example: sample_record_type
+    readOnly: true
+    type: string
+  updated_at:
+    description: ISO 8601 formatted date-time indicating when the resource was updated.
+    example: '2018-02-02T22:25:27.521Z'
+    readOnly: true
+    type: string
+type: object

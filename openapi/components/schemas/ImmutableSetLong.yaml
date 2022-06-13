@@ -1,0 +1,8 @@
+example: '[1234567890L, 9876543210L]'
+items:
+  format: int64
+  type: integer
+properties:
+  empty:
+    type: boolean
+type: array

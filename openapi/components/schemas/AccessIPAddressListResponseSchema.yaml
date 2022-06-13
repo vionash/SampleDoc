@@ -1,0 +1,13 @@
+properties:
+  data:
+    items:
+      $ref: ./AccessIPAddressResponseSchema.yaml
+    title: Data
+    type: array
+  meta:
+    $ref: ./PaginationMeta.yaml
+required:
+  - data
+  - meta
+title: AccessIPAddressListResponseSchema
+type: object

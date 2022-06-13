@@ -1,0 +1,6 @@
+description: >-
+  A list of mobile operator networks and the priority that should be applied
+  when the SIM is connecting to the network.
+items:
+  $ref: ./MobileOperatorNetworkPreferencesResponse.yaml
+type: array

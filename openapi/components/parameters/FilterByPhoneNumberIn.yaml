@@ -1,0 +1,8 @@
+description: Filter results by a list of phone numbers
+in: query
+name: filter[phone_number][in][]
+schema:
+  items:
+    example: '+12003151212'
+    type: string
+  type: array

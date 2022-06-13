@@ -1,0 +1,35 @@
+description: Use this field to modify sound effects, for example adjust the pitch.
+example:
+  octaves: 0.1
+  pitch: '0.8'
+  semitone: -2
+  track: both
+properties:
+  octaves:
+    description: Adjust the pitch in octaves, values should be between -1 and 1, default 0
+    example: -0.5
+    format: double
+    type: number
+  pitch:
+    description: >-
+      Set the pitch directly, value should be > 0, default 1 (lower = lower
+      tone)
+    example: 0.8
+    format: double
+    type: number
+  semitone:
+    description: >-
+      Adjust the pitch in semitones, values should be between -14 and 14,
+      default 0
+    example: -10
+    format: double
+    type: number
+  track:
+    default: outbound
+    description: >-
+      The track to which the sound modifications will be applied. Accepted
+      values are `inbound`, `outbound`, or `both`
+    example: both
+    type: string
+title: Sound modifications
+type: object

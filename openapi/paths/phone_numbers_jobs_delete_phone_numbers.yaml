@@ -1,0 +1,29 @@
+post:
+  description: >-
+    Creates a new background job to delete a batch of numbers. At most one
+    thousand numbers can be updated per API call.
+  operationId: createPhoneNumbersJobDeletePhoneNumbers
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/PhoneNumbersJobDeletePhoneNumbersRequest.yaml
+    required: true
+  responses:
+    '202':
+      content:
+        application/json:
+          schema:
+            properties:
+              data:
+                $ref: ../components/schemas/PhoneNumbersJob.yaml
+            title: Phone Numbers Job Delete Phone Numbers
+            type: object
+      description: Phone numbers job delete phone numbers requested.
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Delete a batch of numbers
+  tags:
+    - Number Background Jobs
+  x-group-parameters: 'true'
+  x-latency-category: background

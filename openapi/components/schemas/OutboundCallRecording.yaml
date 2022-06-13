@@ -1,0 +1,43 @@
+example:
+  call_recording_caller_phone_numbers:
+    - '+19705555098'
+  call_recording_channels: dual
+  call_recording_format: mp3
+  call_recording_type: by_caller_phone_number
+properties:
+  call_recording_caller_phone_numbers:
+    description: >-
+      When call_recording_type is 'by_caller_phone_number', only outbound calls
+      using one of these numbers will be recorded. Numbers must be specified in
+      E164 format.
+    example:
+      - '+19705555098'
+    items:
+      type: string
+    type: array
+  call_recording_channels:
+    default: single
+    description: >-
+      When using 'dual' channels, the final audio file will be a stereo
+      recording with the first leg on channel A, and the rest on channel B.
+    enum:
+      - single
+      - dual
+    example: dual
+    type: string
+  call_recording_format:
+    default: wav
+    description: The audio file format for calls being recorded.
+    enum:
+      - wav
+      - mp3
+    example: mp3
+    type: string
+  call_recording_type:
+    description: Specifies which calls are recorded.
+    enum:
+      - all
+      - none
+      - by_caller_phone_number
+    type: string
+type: object

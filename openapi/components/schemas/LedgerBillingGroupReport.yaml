@@ -1,0 +1,45 @@
+example:
+  created_at: '2019-10-15T10:07:15.527Z'
+  id: f5586561-8ff0-4291-a0ac-84fe544797bd
+  organization_id: f5586561-8ff0-4291-a0ac-84fe544797bd
+  record_type: ledger_billing_group_report
+  report_url: https://example.com
+  updated_at: '2019-10-15T10:07:15.527Z'
+properties:
+  created_at:
+    description: ISO 8601 formatted date indicating when the resource was created.
+    format: date-time
+    type: string
+  id:
+    description: Identifies the type of resource.
+    format: uuid
+    type: string
+  organization_id:
+    description: Uniquely identifies the organization that owns the resource.
+    format: uuid
+    type: string
+  record_type:
+    description: Identifies the type of the resource.
+    enum:
+      - ledger_billing_group_report
+    example: ledger_billing_group_report
+    type: string
+  report_url:
+    description: External url of the ledger billing group report, if the status is complete
+    format: string
+    nullable: true
+    type: string
+  status:
+    description: Status of the ledger billing group report
+    enum:
+      - pending
+      - complete
+      - failed
+      - deleted
+    format: string
+    type: string
+  updated_at:
+    description: ISO 8601 formatted date indicating when the resource was updated.
+    format: date-time
+    type: string
+type: object

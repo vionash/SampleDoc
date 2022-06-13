@@ -1,0 +1,12 @@
+description: Filters records to those with a least one status in the list.
+in: query
+name: filter[status][in][]
+schema:
+  items:
+    enum:
+      - pending
+      - completed
+      - failed
+    example: pending
+    type: string
+  type: array

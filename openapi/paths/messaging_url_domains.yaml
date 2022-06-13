@@ -1,0 +1,15 @@
+get:
+  operationId: listMessagingUrlDomains
+  parameters:
+    - $ref: ../components/parameters/PageNumber.yaml
+    - $ref: ../components/parameters/PageSize.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/ListMessagingUrlDomains.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: List messaging URL domains
+  tags:
+    - Messaging URL Domains
+  x-group-parameters: 'true'
+  x-latency-category: responsive

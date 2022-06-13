@@ -1,0 +1,6 @@
+description: The direction of the fax.
+enum:
+  - inbound
+  - outbound
+example: outbound
+type: string

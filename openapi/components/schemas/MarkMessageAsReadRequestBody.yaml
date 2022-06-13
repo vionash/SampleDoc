@@ -1,0 +1,16 @@
+example:
+  status: read
+  whatsapp_user_id: '15125551212'
+properties:
+  status:
+    default: read
+    type: string
+  whatsapp_user_id:
+    description: The user's WhatsApp ID.
+    example: '15125551212'
+    type: string
+required:
+  - whatsapp_user_id
+  - status
+title: Mark Message As Read Request Body
+type: object

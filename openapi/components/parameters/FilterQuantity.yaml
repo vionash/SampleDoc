@@ -1,0 +1,6 @@
+description: Filter orders by how many SIM cards were ordered.
+in: query
+name: filter[quantity]
+schema:
+  example: 21
+  type: integer

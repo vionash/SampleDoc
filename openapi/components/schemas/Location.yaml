@@ -1,0 +1,25 @@
+example:
+  address: <Location's Address>
+  latitude: <Latitude>
+  longitude: <Longitude>
+  name: <Location Name>
+properties:
+  address:
+    description: Address of the location. Only displayed if name is present.
+    type: string
+  latitude:
+    description: Latitude of the location
+    type: string
+  longitude:
+    description: Longitude of the location
+    type: string
+  name:
+    description: Name of the location
+    type: string
+required:
+  - longitude
+  - latitude
+  - name
+  - address
+title: Location
+type: object

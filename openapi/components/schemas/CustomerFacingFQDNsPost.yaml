@@ -1,0 +1,11 @@
+properties:
+  description:
+    title: Description
+    type: string
+  fqdn:
+    title: Fully Qualified Domain Name (FQDN)
+    type: string
+required:
+  - fqdn
+title: CustomerFacingFQDNsResponseSchema
+type: object

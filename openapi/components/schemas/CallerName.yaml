@@ -1,0 +1,12 @@
+properties:
+  caller_name:
+    description: The name of the requested phone number's owner as per the CNAM database
+    example: TELNYX LLC
+    type: string
+  error_code:
+    description: >-
+      A caller-name lookup specific error code, expressed as a stringified
+      5-digit integer
+    example: '10001'
+    type: string
+type: object

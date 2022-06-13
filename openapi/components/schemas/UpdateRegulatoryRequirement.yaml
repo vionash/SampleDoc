@@ -1,0 +1,12 @@
+properties:
+  field_value:
+    description: >-
+      The value of the requirement, this could be an id to a resource or a
+      string value.
+    example: 45f45a04-b4be-4592-95b1-9306b9db2b21
+    type: string
+  requirement_id:
+    description: Unique id for a requirement.
+    example: 8ffb3622-7c6b-4ccc-b65f-7a3dc0099576
+    format: uuid
+    type: string

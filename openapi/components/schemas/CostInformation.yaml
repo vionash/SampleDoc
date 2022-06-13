@@ -1,0 +1,16 @@
+example:
+  currency: USD
+  monthly_cost: '6.54'
+  upfront_cost: '3.21'
+properties:
+  currency:
+    description: The ISO 4217 code for the currency.
+    example: USD
+    type: string
+  monthly_cost:
+    example: '6.54'
+    type: string
+  upfront_cost:
+    example: '3.21'
+    type: string
+type: object

@@ -1,0 +1,19 @@
+description: Contact organization information
+example:
+  company: WhatsApp
+  department: Design
+  title: Manager
+properties:
+  company:
+    description: Name of the contact's company
+    type: string
+  department:
+    description: Name of the contact's department
+    type: string
+  title:
+    description: Contact's business title
+    type: string
+required:
+  - company
+title: Organization
+type: object

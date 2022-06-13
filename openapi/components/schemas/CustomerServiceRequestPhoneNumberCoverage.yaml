@@ -1,0 +1,20 @@
+properties:
+  has_csr_coverage:
+    description: Indicates whether the phone number is covered or not.
+    example: true
+    type: boolean
+  phone_number:
+    description: The phone number that is being verified.
+    example: '+12223334444'
+    type: string
+  reason:
+    description: >-
+      The reason why the phone number is not covered. Only returned if
+      `has_csr_coverage` is false.
+    example: The phone number '+19999999999' is invalid.
+    type: string
+  record_type:
+    description: Identifies the type of the resource.
+    example: customer_service_request_phone_number_coverage
+    type: string
+type: object

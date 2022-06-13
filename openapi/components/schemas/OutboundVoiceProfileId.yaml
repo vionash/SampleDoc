@@ -1,0 +1,5 @@
+description: Identifies the associated outbound voice profile.
+example: '1293384261075731499'
+format: int64
+title: Outbound Voice Profile ID
+type: string

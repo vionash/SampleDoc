@@ -1,0 +1,7 @@
+description: >-
+  The URL where webhooks related to this connection will be sent. Must include a
+  scheme, such as 'https'.
+example: https://example.com
+format: url
+title: Webhook Event URL
+type: string

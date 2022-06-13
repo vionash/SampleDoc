@@ -1,0 +1,13 @@
+properties:
+  end_date:
+    example: '2021-05-01T00:00:00-06:00'
+    format: date-time
+    type: string
+  start_date:
+    example: '2021-05-01T00:00:00-06:00'
+    format: date-time
+    type: string
+required:
+  - end_date
+  - start_date
+type: object

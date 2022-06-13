@@ -1,0 +1,5 @@
+properties:
+  data:
+    $ref: ./CallGatherEnded.yaml
+title: Call Gather Ended Event
+type: object

@@ -1,0 +1,41 @@
+get:
+  description: Lists recordings for the authenticated user
+  operationId: listRecordings
+  parameters:
+    - description: Return only recordings associated with a given conference
+      in: query
+      name: filter[conference_id]
+      required: false
+      schema:
+        example: 428c31b6-7af4-4bcb-b7f5-5013ef9657c1
+        type: string
+    - description: Return only recordings created later than or at given ISO 8601 datetime
+      in: query
+      name: filter[created_at][gte]
+      required: false
+      schema:
+        example: '2019-03-29T11:10:00Z'
+        type: string
+    - description: >-
+        Return only recordings created earlier than or at given ISO 8601
+        datetime
+      in: query
+      name: filter[created_at][lte]
+      required: false
+      schema:
+        example: '2019-03-29T11:10:00Z'
+        type: string
+    - $ref: ../components/parameters/PageNumber.yaml
+    - $ref: ../components/parameters/PageSize.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/ListRecordingsResponse.yaml
+    '401':
+      $ref: ../components/responses/UnauthorizedResponse.yaml
+    '422':
+      $ref: ../components/responses/UnprocessableEntityResponse.yaml
+  summary: List recordings
+  tags:
+    - Recordings Commands
+  x-group-parameters: 'true'
+  x-latency-category: interactive

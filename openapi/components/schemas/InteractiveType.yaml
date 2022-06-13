@@ -1,0 +1,8 @@
+description: An enumeration.
+enum:
+  - list
+  - button
+  - product
+  - product_list
+title: InteractiveType
+type: string

@@ -1,0 +1,18 @@
+description: >-
+  The WhatsApp Business API Client will attempt to format the date/time based on
+  a specified localization.
+example:
+  component:
+    day_of_month: 25
+    day_of_week: 5
+    hour: 15
+    minute: 33
+    month: 2
+    year: 1977
+properties:
+  component:
+    $ref: ./DateTimeComponent.yaml
+  unix_epoch:
+    $ref: ./DateTimeUnixEpoch.yaml
+title: Date Time Object
+type: object

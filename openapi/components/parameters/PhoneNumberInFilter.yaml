@@ -1,0 +1,8 @@
+description: Filters records to those with at least one number in the list.
+in: query
+name: filter[phone_number][in][]
+schema:
+  items:
+    example: '+12441239999'
+    type: string
+  type: array

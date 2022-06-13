@@ -1,0 +1,15 @@
+example:
+  id: 464bd54e-a328-4b11-a131-28e6793cb6f2
+  record_type: messaging_url_domain
+  url_domain: http://example.com
+  use_case: test
+properties:
+  id:
+    type: string
+  record_type:
+    type: string
+  url_domain:
+    type: string
+  use_case:
+    type: string
+type: object

@@ -1,0 +1,13 @@
+properties:
+  backend:
+    enum:
+      - gcs
+    example: gcs
+    type: string
+  configuration:
+    $ref: ./GCSConfigurationData.yaml
+required:
+  - backend
+  - configuration
+title: Google Cloud Storage Configuration
+type: object

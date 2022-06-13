@@ -1,0 +1,23 @@
+properties:
+  created_at:
+    description: ISO 8601 formatted date-time indicating when the resource was created.
+    example: '2018-02-02T22:25:27.521Z'
+    readOnly: true
+    type: string
+  mobile_operator_networks_preferences:
+    $ref: ./MobileOperatorNetworksPreferencesResponse.yaml
+  record_type:
+    example: sim_card_network_preferences
+    readOnly: true
+    type: string
+  sim_card_id:
+    example: 6b14e151-8493-4fa1-8664-1cc4e6d14158
+    format: uuid
+    type: string
+  updated_at:
+    description: ISO 8601 formatted date-time indicating when the resource was updated.
+    example: '2018-02-02T22:25:27.521Z'
+    readOnly: true
+    type: string
+title: SIMCardNetworkPreference
+type: object

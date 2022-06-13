@@ -1,0 +1,37 @@
+post:
+  description: >-
+    Start recording the conference. Recording will stop on conference end, or
+    via the Stop Recording command.
+
+
+    **Expected Webhooks:**
+
+
+    - `conference.recording.saved`
+  operationId: conferenceStartRecording
+  parameters:
+    - description: Specifies the conference to record by id or name
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/StartRecordingRequest.yaml
+    required: true
+  responses:
+    '200':
+      $ref: ../components/responses/ConferenceCommandResponse.yaml
+    '401':
+      $ref: ../components/responses/UnauthorizedResponse.yaml
+    '404':
+      $ref: ../components/responses/NotFoundResponse.yaml
+    '422':
+      $ref: ../components/responses/UnprocessableEntityResponse.yaml
+  summary: Conference recording start
+  tags:
+    - Conference Commands
+  x-latency-category: interactive

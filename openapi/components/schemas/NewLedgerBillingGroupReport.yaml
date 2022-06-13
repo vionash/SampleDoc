@@ -1,0 +1,12 @@
+example:
+  month: 10
+  year: 2019
+properties:
+  month:
+    description: Month of the ledger billing group report
+    example: 10
+    type: integer
+  year:
+    description: Year of the ledger billing group report
+    example: 2019
+    type: integer

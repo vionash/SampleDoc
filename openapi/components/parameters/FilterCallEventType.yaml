@@ -1,0 +1,10 @@
+description: Event type
+in: query
+name: filter[type]
+required: false
+schema:
+  enum:
+    - command
+    - webhook
+  example: webhook
+  type: string

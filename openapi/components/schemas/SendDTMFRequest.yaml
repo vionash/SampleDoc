@@ -1,0 +1,36 @@
+example:
+  client_state: aGF2ZSBhIG5pY2UgZGF5ID1d
+  command_id: 891510ac-f3e4-11e8-af5b-de00688a4901
+  digits: 1www2WABCDw9
+  duration_millis: 500
+properties:
+  client_state:
+    description: >-
+      Use this field to add state to every subsequent webhook. It must be a
+      valid Base-64 encoded string.
+    example: aGF2ZSBhIG5pY2UgZGF5ID1d
+    type: string
+  command_id:
+    description: >-
+      Use this field to avoid duplicate commands. Telnyx will ignore any command
+      with the same `command_id` for the same `call_control_id`.
+    example: 891510ac-f3e4-11e8-af5b-de00688a4901
+    type: string
+  digits:
+    description: >-
+      DTMF digits to send. Valid digits are 0-9, A-D, *, and #. Pauses can be
+      added using w (0.5s) and W (1s).
+    example: 1www2WABCDw9
+    type: string
+  duration_millis:
+    default: 250
+    description: >-
+      Specifies for how many milliseconds each digit will be played in the audio
+      stream. Ranges from 100 to 500ms
+    example: 500
+    format: int32
+    type: integer
+required:
+  - digits
+title: Send DTMF Request
+type: object

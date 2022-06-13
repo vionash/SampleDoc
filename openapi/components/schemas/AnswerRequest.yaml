@@ -1,0 +1,58 @@
+example:
+  client_state: aGF2ZSBhIG5pY2UgZGF5ID1d
+  command_id: 891510ac-f3e4-11e8-af5b-de00688a4901
+  webhook_url: https://www.example.com/server-b/
+  webhook_url_method: POST
+properties:
+  billing_group_id:
+    description: >-
+      Use this field to set the Billing Group ID for the call. Must be a valid
+      and existing Billing Group ID.
+    example: f5586561-8ff0-4291-a0ac-84fe544797bd
+    format: uuid
+    type: string
+  client_state:
+    description: >-
+      Use this field to add state to every subsequent webhook. It must be a
+      valid Base-64 encoded string.
+    example: aGF2ZSBhIG5pY2UgZGF5ID1d
+    type: string
+  command_id:
+    description: >-
+      Use this field to avoid duplicate commands. Telnyx will ignore any command
+      with the same `command_id` for the same `call_control_id`.
+    example: 891510ac-f3e4-11e8-af5b-de00688a4901
+    type: string
+  sound_modifications:
+    $ref: ./SoundModifications.yaml
+  stream_track:
+    default: inbound_track
+    description: Specifies which track should be streamed.
+    enum:
+      - inbound_track
+      - outbound_track
+      - both_tracks
+    example: both_tracks
+    type: string
+  stream_url:
+    description: >-
+      The destination WebSocket address where the stream is going to be
+      delivered.
+    example: wss://www.example.com/websocket
+    type: string
+  webhook_url:
+    description: >-
+      Use this field to override the URL for which Telnyx will send subsequent
+      webhooks to for this call.
+    example: https://www.example.com/server-b/
+    type: string
+  webhook_url_method:
+    default: POST
+    description: HTTP request type used for `webhook_url`.
+    enum:
+      - POST
+      - GET
+    example: GET
+    type: string
+title: Answer Request
+type: object

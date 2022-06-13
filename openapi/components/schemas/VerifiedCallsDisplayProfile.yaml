@@ -1,0 +1,168 @@
+example:
+  business_identity:
+    name: My Business Identity
+    record_type: business_identity
+  call_reasons:
+    - display_profile_id: 8014539e-fc3b-4696-a26a-d13adb05463f
+      google_verification_status: APPROVED
+      id: 615d79f5-0e2a-425f-925f-abfb1a160428
+      reason: Your order is completed
+      record_type: call_reason
+  display_name: Acme Inc.
+  id: 6786c69b-0063-47de-865f-cf64b7e7f59e
+  logo_url: https://acme.com/logo.png
+  name: My Verified Calls Display Profile
+  organization_id: 633514e3-32d7-4d26-a959-1bc67c4f435d
+  phone_numbers:
+    - display_profile_id: 8014539e-fc3b-4696-a26a-d13adb05463f
+      google_verification_status: APPROVED
+      id: 'c43eabe9-59f3-4a46-909b-774d7f360d3d '
+      phone_number: '+12345678'
+      record_type: phone_number
+  record_type: verified_calls_display_profile
+  status: VERIFICATION_STATE_VERIFIED
+properties:
+  business_identity:
+    description: The associated Business Identity
+    properties:
+      name:
+        description: The name of the business identity on the telnyx platform
+        example: Telnyx
+        type: string
+      record_type:
+        example: business_identity
+        type: string
+    type: object
+  call_reasons:
+    items:
+      description: The Call Reason to be displayed to the call recipient
+      properties:
+        delete:
+          description: Marks the Phone Number to be removed from the Display Profile
+          type: boolean
+        display_profile_id:
+          example: c6feda4e-6501-4db9-a21f-665e5b4ce2ba
+          format: uuid
+          readOnly: true
+          type: string
+        google_approval_info:
+          description: Additional information about the decision, if available.
+          readOnly: true
+          type: string
+        google_verification_status:
+          description: The approval status of this individual call reason in Google
+          enum:
+            - STATE_UNSPECIFIED
+            - PENDING_APPROVAL
+            - APPROVED
+            - DENIED
+            - PENDING_REMOVAL
+          readOnly: true
+          type: string
+        id:
+          example: c6feda4e-6501-4db9-a21f-665e5b4ce2ba
+          format: uuid
+          readOnly: true
+          type: string
+        reason:
+          description: The Call Reason text to be displayed to the call recipient
+          example: Your order was completed
+          type: string
+        record_type:
+          example: phone_number
+          readOnly: true
+          type: string
+      type: object
+    type: array
+  created_at:
+    description: >-
+      An ISO 8601 datetime string for when the display profile was added to the
+      Telnyx platform
+    example: '2018-01-01T00:00:00Z'
+    format: datetime
+    readOnly: true
+    type: string
+  display_name:
+    description: The display name to be shown as the caller name in phones
+    example: Acme Inc.
+    type: string
+  id:
+    example: c6feda4e-6501-4db9-a21f-665e5b4ce2ba
+    format: uuid
+    readOnly: true
+    type: string
+  logo_url:
+    description: >-
+      The URL pointing to a public image file that will be displayed during
+      calls in phones
+    example: https://acme.com/logo.png
+    type: string
+  name:
+    description: The Verified Calls Display Profile's name
+    example: My Verified Calls Display Profile
+    type: string
+  phone_numbers:
+    items:
+      description: >-
+        A Phone Number that can make phone calls displaying the configured brand
+        information
+      properties:
+        delete:
+          description: Marks the Phone Number to be removed from the Display Profile
+          type: boolean
+        display_profile_id:
+          example: c6feda4e-6501-4db9-a21f-665e5b4ce2ba
+          format: uuid
+          readOnly: true
+          type: string
+        google_approval_info:
+          description: Additional information about the decision, if available.
+          readOnly: true
+          type: string
+        google_verification_status:
+          description: The approval status of this individual phone number in Google
+          enum:
+            - STATE_UNSPECIFIED
+            - PENDING_APPROVAL
+            - APPROVED
+            - DENIED
+            - PENDING_REMOVAL
+          readOnly: true
+          type: string
+        id:
+          example: c6feda4e-6501-4db9-a21f-665e5b4ce2ba
+          format: uuid
+          readOnly: true
+          type: string
+        phone_number:
+          description: The phone number in e164 format
+          example: '+15001340938'
+          format: e164
+          type: string
+        record_type:
+          example: phone_number
+          readOnly: true
+          type: string
+      type: object
+    type: array
+  record_type:
+    example: verified_calls_display_profile
+    readOnly: true
+    type: string
+  status:
+    description: The approval status of the Verified Calls Display Profile in Google
+    enum:
+      - VERIFICATION_STATE_UNSPECIFIED
+      - VERIFICATION_STATE_UNVERIFIED
+      - VERIFICATION_STATE_PENDING
+      - VERIFICATION_STATE_VERIFIED
+      - VERIFICATION_STATE_SUSPENDED_IN_GMB
+    readOnly: true
+    type: string
+  updated_at:
+    description: An ISO 8601 datetime string for when the display profile was updated
+    example: '2018-01-01T00:00:00Z'
+    format: datetime
+    readOnly: true
+    type: string
+type: object

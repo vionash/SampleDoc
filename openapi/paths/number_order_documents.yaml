@@ -1,0 +1,49 @@
+get:
+  description: Gets a paginated list of number order documents.
+  operationId: listNumberOrderDocuments
+  parameters:
+    - description: Filter number order documents by `requirement_id`.
+      in: query
+      name: filter[requirement_id]
+      schema:
+        type: string
+    - description: Filter number order documents after this datetime.
+      in: query
+      name: filter[created_at][gt]
+      schema:
+        type: string
+    - description: Filter number order documents from before this datetime.
+      in: query
+      name: filter[created_at][lt]
+      schema:
+        type: string
+    - $ref: ../components/parameters/PageNumber.yaml
+    - $ref: ../components/parameters/PageSize.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/ListNumberOrderDocumentsResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: List number order documents
+  tags:
+    - Number Order Documents
+  x-group-parameters: 'true'
+  x-latency-category: responsive
+post:
+  description: Upload a phone number order document.
+  operationId: createNumberOrderDocument
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/CreateNumberOrderDocumentRequest.yaml
+    required: true
+  responses:
+    '200':
+      $ref: ../components/responses/NumberOrderDocumentResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Create a number order document
+  tags:
+    - Number Order Documents
+  x-latency-category: responsive

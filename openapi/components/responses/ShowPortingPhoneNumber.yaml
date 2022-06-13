@@ -1,0 +1,16 @@
+content:
+  application/json:
+    schema:
+      properties:
+        data:
+          $ref: ../schemas/PortingPhoneNumber.yaml
+        meta:
+          properties:
+            porting_order_url:
+              description: Link to list porting order
+              example: /porting_orders/a700d03c-4062-4091-8189-1b75216cf7a2
+              format: uri
+              type: string
+          type: object
+      type: object
+description: Successful response

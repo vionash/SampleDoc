@@ -1,0 +1,6 @@
+description: Filters requirement types to those whose name contains a certain string.
+in: query
+name: filter[name][contains]
+schema:
+  example: utility bill
+  type: string

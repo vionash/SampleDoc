@@ -1,0 +1,6 @@
+description: The total monetary amount of the order.
+in: query
+name: filter[cost.amount]
+schema:
+  example: '2.53'
+  type: string

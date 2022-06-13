@@ -1,0 +1,9 @@
+content:
+  application/json:
+    schema:
+      properties:
+        data:
+          $ref: ../schemas/NumberReservation.yaml
+      title: Number Reservation Response
+      type: object
+description: Successful response with details about a number reservation.

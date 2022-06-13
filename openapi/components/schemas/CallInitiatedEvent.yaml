@@ -1,0 +1,5 @@
+properties:
+  data:
+    $ref: ./CallInitiated.yaml
+title: Call Initiated Event
+type: object

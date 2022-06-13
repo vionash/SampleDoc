@@ -1,0 +1,50 @@
+example:
+  call_forwarding:
+    call_forwarding_enabled: true
+    forwarding_type: always
+    forwards_to: '+13035559123'
+  call_recording:
+    inbound_call_recording_channels: single
+    inbound_call_recording_enabled: true
+    inbound_call_recording_format: wav
+  cnam_listing:
+    cnam_listing_details: example
+    cnam_listing_enabled: true
+  media_features:
+    accept_any_rtp_packets_enabled: true
+    media_handling_mode: default
+    rtp_auto_adjust_enabled: true
+    t38_fax_gateway_enabled: true
+  tech_prefix_enabled: true
+  translated_number: '+13035559999'
+  usage_payment_method: pay-per-minute
+properties:
+  call_forwarding:
+    $ref: ./CallForwarding.yaml
+  call_recording:
+    $ref: ./CallRecording.yaml
+  cnam_listing:
+    $ref: ./CnamListing.yaml
+  media_features:
+    $ref: ./MediaFeatures.yaml
+  tech_prefix_enabled:
+    default: false
+    description: Controls whether a tech prefix is enabled for this phone number.
+    type: boolean
+  translated_number:
+    description: >-
+      This field allows you to rewrite the destination number of an inbound call
+      before the call is routed to you. The value of this field may be any
+      alphanumeric value, and the value will replace the number originally
+      dialed.
+    type: string
+  usage_payment_method:
+    default: pay-per-minute
+    description: >-
+      Controls whether a number is billed per minute or uses your concurrent
+      channels.
+    enum:
+      - pay-per-minute
+      - channel
+    type: string
+type: object

@@ -1,0 +1,57 @@
+get:
+  description: Returns the dynamic emergency endpoints according to filters
+  operationId: listDyanmicEmergencyEndpoints
+  parameters:
+    - description: Filter by status.
+      in: query
+      name: filter[status]
+      required: false
+      schema:
+        enum:
+          - pending
+          - activated
+          - rejected
+        type: string
+    - description: Filter by country code.
+      in: query
+      name: filter[country_code]
+      required: false
+      schema:
+        type: string
+    - $ref: ../components/parameters/PageNumber.yaml
+    - $ref: ../components/parameters/PageSize.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/listDynamicEmergencyEndpoints.yaml
+    '401':
+      description: Unauthorized
+    '404':
+      description: Resource not found
+    '422':
+      description: Unprocessable entity. Check message field in response for details.
+  summary: List dynamic emergency endpoints
+  tags:
+    - Dynamic Emergency Endpoints
+  x-latency-category: responsive
+post:
+  description: Creates a dynamic emergency endpoints.
+  operationId: createDyanmicEmergencyEndpoint
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/DynamicEmergencyEndpoint.yaml
+    required: true
+  responses:
+    '201':
+      $ref: ../components/responses/DynamicEmergencyEndpointResponse.yaml
+    '401':
+      description: Unauthorized
+    '404':
+      description: Resource not found
+    '422':
+      description: Unprocessable entity. Check message field in response for details.
+  summary: Create a dynamic emergency endpoint.
+  tags:
+    - Dynamic Emergency Endpoints
+  x-latency-category: responsive

@@ -1,0 +1,19 @@
+get:
+  description: Gets a single phone number reservation.
+  operationId: retrieveNumberReservation
+  parameters:
+    - description: The number reservation ID.
+      in: path
+      name: number_reservation_id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      $ref: ../components/responses/NumberReservationResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Retrieve a number reservation
+  tags:
+    - Number Reservations
+  x-latency-category: responsive

@@ -1,0 +1,16 @@
+example:
+  service_account: >-
+    {"type":"service_account","project_id":"dialogflow-init-123-456789","private_key_id":"9a66104a-4f71-45fb-a3c4-b256a2223882","private_key":"-----BEGIN
+    PRIVATE KEY-----n-----END
+    PRIVATE","client_email":"example@example.com","client_id":"235914430018928359003","auth_uri":"http://example.com","token_uri":"http://example.com","auth_provider_x509_cert_url":"http://example.com","client_x509_cert_url":"http://example.com"}
+properties:
+  service_account:
+    description: The JSON map to connect your Dialoglow account.
+    example: >-
+      {"service_account":{"type":"service_account","project_id":"dialogflow-init-123-456789","private_key_id":"9a66104a-4f71-45fb-a3c4-b256a2223882","private_key":"-----BEGIN
+      PRIVATE KEY-----n-----END
+      PRIVATE","client_email":"example@example.com","client_id":"235914430018928359003","auth_uri":"http://example.com","token_uri":"http://example.com","auth_provider_x509_cert_url":"http://example.com","client_x509_cert_url":"http://example.com"}}
+    type: object
+required:
+  - service_account
+type: object

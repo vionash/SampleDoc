@@ -1,0 +1,28 @@
+description: >
+  The set of features available for a specific messaging use case (SMS or MMS).
+  Features
+
+  can vary depending on the characteristics the phone number, as well as its
+  current
+
+  product configuration.
+example:
+  domestic_two_way: true
+  international_inbound: false
+  international_outbound: true
+nullable: true
+properties:
+  domestic_two_way:
+    description: Send messages to and receive messages from numbers in the same country.
+    type: boolean
+  international_inbound:
+    description: Receive messages from numbers in other countries.
+    type: boolean
+  international_outbound:
+    description: Send messages to numbers in other countries.
+    type: boolean
+required:
+  - domestic_two_way
+  - international_inbound
+  - international_outbound
+type: object

@@ -1,0 +1,46 @@
+delete:
+  operationId: deleteBillingGroup
+  parameters:
+    - $ref: ../components/parameters/BillingGroupId.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/DeleteBillingGroupResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Delete a billing group
+  tags:
+    - Billing Groups
+  x-latency-category: responsive
+get:
+  operationId: retrieveBillingGroup
+  parameters:
+    - $ref: ../components/parameters/BillingGroupId.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/RetrieveBillingGroupResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Retrieve a billing group
+  tags:
+    - Billing Groups
+  x-latency-category: responsive
+patch:
+  operationId: updateBillingGroup
+  parameters:
+    - $ref: ../components/parameters/BillingGroupId.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/UpdateBillingGroup.yaml
+    description: Update billing group object
+    required: true
+  responses:
+    '200':
+      $ref: ../components/responses/UpdateBillingGroupResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Update a billing group
+  tags:
+    - Billing Groups
+  x-latency-category: responsive

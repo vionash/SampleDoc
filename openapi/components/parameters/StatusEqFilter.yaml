@@ -1,0 +1,10 @@
+description: Filters records to those with a specific status.
+in: query
+name: filter[status][eq]
+schema:
+  enum:
+    - pending
+    - completed
+    - failed
+  example: pending
+  type: string

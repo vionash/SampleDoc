@@ -1,0 +1,105 @@
+example:
+  active: false
+  anchorsite_override: '"Latency"'
+  application_name: call-router
+  dtmf_type: Inband
+  first_command_timeout: true
+  first_command_timeout_secs: 10
+  inbound:
+    channel_limit: 10
+    sip_subdomain: example
+    sip_subdomain_receive_settings: only_my_connections
+  outbound:
+    channel_limit: 10
+    outbound_voice_profile_id: '1293384261075731499'
+  webhook_api_version: '1'
+  webhook_event_failover_url: https://failover.example.com
+  webhook_event_url: https://example.com
+  webhook_timeout_secs: 25
+properties:
+  active:
+    default: true
+    description: Specifies whether the connection can be used.
+    type: boolean
+  anchorsite_override:
+    default: '"Latency"'
+    description: >
+      <code>Latency</code> directs Telnyx to route media through the site with
+      the lowest round-trip time to the user's connection. Telnyx calculates
+      this time using ICMP ping messages. This can be disabled by specifying a
+      site to handle all media.
+    enum:
+      - '"Latency"'
+      - '"Chicago, IL"'
+      - '"Ashburn, VA"'
+      - '"San Jose, CA"'
+    example: '"Amsterdam, Netherlands"'
+    type: string
+  application_name:
+    description: A user-assigned name to help manage the application.
+    example: call-router
+    type: string
+  dtmf_type:
+    default: RFC 2833
+    description: >-
+      Sets the type of DTMF digits sent from Telnyx to this Connection. Note
+      that DTMF digits sent to Telnyx will be accepted in all formats.
+    enum:
+      - RFC 2833
+      - Inband
+      - SIP INFO
+    example: Inband
+    type: string
+  first_command_timeout:
+    default: false
+    description: >-
+      Specifies whether calls to phone numbers associated with this connection
+      should hangup after timing out.
+    example: true
+    type: boolean
+  first_command_timeout_secs:
+    default: 30
+    description: Specifies how many seconds to wait before timing out a dial command.
+    example: 10
+    type: integer
+  inbound:
+    $ref: ./CallControlApplicationInbound.yaml
+  outbound:
+    $ref: ./CallControlApplicationOutbound.yaml
+  webhook_api_version:
+    default: '1'
+    description: Determines which webhook format will be used, Telnyx API v1 or v2.
+    enum:
+      - '1'
+      - '2'
+    example: '1'
+    type: string
+  webhook_event_failover_url:
+    default: ''
+    description: >-
+      The failover URL where webhooks related to this connection will be sent if
+      sending to the primary URL fails. Must include a scheme, such as 'https'.
+    example: https://failover.example.com
+    format: url
+    nullable: true
+    type: string
+  webhook_event_url:
+    description: >-
+      The URL where webhooks related to this connection will be sent. Must
+      include a scheme, such as 'https'.
+    example: https://example.com
+    format: url
+    type: string
+  webhook_timeout_secs:
+    default: null
+    description: Specifies how many seconds to wait before timing out a webhook.
+    example: 25
+    maximum: 30
+    minimum: 0
+    nullable: true
+    type: integer
+required:
+  - application_name
+  - webhook_event_url
+title: Update Call Control Application Request
+type: object

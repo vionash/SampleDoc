@@ -1,0 +1,101 @@
+post:
+  callbacks:
+    callAnswered:
+      '{$request.body#/webhook_url}':
+        post:
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  $ref: ../components/schemas/CallAnsweredEvent.yaml
+            required: true
+          responses:
+            '200':
+              description: >-
+                The server must return an HTTP 200, otherwise we will reattempt
+                delivery at the failover webhook URL.
+    callHangup:
+      '{$request.body#/webhook_url}':
+        post:
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  $ref: ../components/schemas/CallHangupEvent.yaml
+            required: true
+          responses:
+            '200':
+              description: >-
+                The server must return an HTTP 200, otherwise we will reattempt
+                delivery at the failover webhook URL.
+    conferenceParticipantJoined:
+      '{$request.body#/webhook_url}':
+        post:
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  $ref: ../components/schemas/ConferenceParticipantJoinedEvent.yaml
+            required: true
+          responses:
+            '200':
+              description: >-
+                The server must return an HTTP 200, otherwise we will reattempt
+                delivery at the failover webhook URL.
+    conferenceParticipantLeft:
+      '{$request.body#/webhook_url}':
+        post:
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  $ref: ../components/schemas/ConferenceParticipantLeftEvent.yaml
+            required: true
+          responses:
+            '200':
+              description: >-
+                The server must return an HTTP 200, otherwise we will reattempt
+                delivery at the failover webhook URL.
+  description: >
+    Dials a phone number and, when the call is answered, automatically joins
+    them into the specified conference.
+
+
+    **Expected Webhooks:**
+
+
+    - `call.hangup`
+
+    - `call.answered`
+
+    - `conference.participant.joined`
+
+    - `conference.participant.left`
+  operationId: conferenceDialParticipantIn
+  parameters:
+    - description: Uniquely identifies the conference by id or name
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/ConferenceCallRequest.yaml
+    description: Dial Into Conference request object
+    required: true
+  responses:
+    '200':
+      $ref: ../components/responses/ConferenceCommandResponse.yaml
+    '401':
+      $ref: ../components/responses/UnauthorizedResponse.yaml
+    '404':
+      $ref: ../components/responses/NotFoundResponse.yaml
+    '422':
+      $ref: ../components/responses/UnprocessableEntityResponse.yaml
+  summary: Dial a new participant into a conference
+  tags:
+    - Conference Commands
+  x-latency-category: interactive

@@ -1,0 +1,13 @@
+properties:
+  data:
+    items:
+      $ref: ./AccessIPRangeResponseSchema.yaml
+    title: Data
+    type: array
+  meta:
+    $ref: ./PaginationMeta.yaml
+required:
+  - data
+  - meta
+title: AccessIPRangeListResponseSchema
+type: object

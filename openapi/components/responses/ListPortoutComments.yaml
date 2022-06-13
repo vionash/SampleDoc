@@ -1,0 +1,12 @@
+content:
+  application/json:
+    schema:
+      properties:
+        data:
+          items:
+            $ref: ../schemas/PortoutComment.yaml
+          type: array
+        meta:
+          $ref: ../schemas/Metadata.yaml
+      type: object
+description: Portout Comments

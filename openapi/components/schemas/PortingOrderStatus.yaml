@@ -1,0 +1,21 @@
+description: Porting order status
+properties:
+  details:
+    description: A list of 0 or more details about this porting order's status
+    items:
+      $ref: ./PortingOrdersExceptionType.yaml
+    type: array
+  value:
+    description: The current status of the porting order
+    enum:
+      - draft
+      - in-process
+      - submitted
+      - exception
+      - foc-date-confirmed
+      - ported
+      - canceled
+      - cancel-pending
+    example: ported
+    type: string
+type: object

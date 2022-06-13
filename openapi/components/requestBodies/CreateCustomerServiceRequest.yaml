@@ -1,0 +1,17 @@
+content:
+  application/json:
+    schema:
+      properties:
+        phone_number:
+          description: A valid US phone number in E164 format.
+          example: '+1234567890'
+          pattern: ^\+1\d{10}$
+          type: string
+        webhook_url:
+          description: Callback URL to receive webhook notifications.
+          example: https://example.com/webhook
+          type: string
+      required:
+        - phone_number
+      type: object
+required: true

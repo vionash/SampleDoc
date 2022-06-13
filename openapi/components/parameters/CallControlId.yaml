@@ -1,0 +1,6 @@
+description: Unique identifier and token for controlling the call
+in: path
+name: call_control_id
+required: true
+schema:
+  type: string

@@ -1,0 +1,5 @@
+properties:
+  data:
+    $ref: ./CallStreamingStarted.yaml
+title: Streaming Started Event
+type: object

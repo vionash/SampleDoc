@@ -1,0 +1,31 @@
+items:
+  description: Array containing the content of the message.
+  properties:
+    currency:
+      $ref: ./Currency.yaml
+    date_time:
+      $ref: ./DateTimeObject.yaml
+    document:
+      $ref: ./Document.yaml
+    image:
+      $ref: ./Image.yaml
+    text:
+      type: string
+    type:
+      description: Describes the parameter type.
+      enum:
+        - text
+        - currency
+        - date_time
+        - image
+        - document
+        - video
+      type: string
+    video:
+      $ref: ./Video.yaml
+  required:
+    - type
+  title: Template Parameters
+  type: object
+title: Template Component Parameters
+type: array

@@ -1,0 +1,6 @@
+description: Filter documents by a list of customer references.
+in: query
+name: filter[customer_reference][in][]
+schema:
+  example: MY REF 001
+  type: string

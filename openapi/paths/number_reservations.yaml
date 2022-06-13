@@ -1,0 +1,59 @@
+get:
+  description: Gets a paginated list of phone number reservations.
+  operationId: listNumberReservations
+  parameters:
+    - description: Filter number reservations by status.
+      in: query
+      name: filter[status]
+      schema:
+        type: string
+    - description: Filter number reservations later than this value.
+      in: query
+      name: filter[created_at][gt]
+      schema:
+        type: string
+    - description: Filter number reservations earlier than this value.
+      in: query
+      name: filter[created_at][lt]
+      schema:
+        type: string
+    - description: Filter number reservations having these phone numbers.
+      in: query
+      name: filter[phone_numbers.phone_number]
+      schema:
+        type: string
+    - description: Filter number reservations via the customer reference set.
+      in: query
+      name: filter[customer_reference]
+      schema:
+        type: string
+    - $ref: ../components/parameters/PageNumber.yaml
+    - $ref: ../components/parameters/PageSize.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/ListNumberReservationsResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: List number reservations
+  tags:
+    - Number Reservations
+  x-group-parameters: 'true'
+  x-latency-category: responsive
+post:
+  description: Creates a Phone Number Reservation for multiple numbers.
+  operationId: createNumberReservation
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/CreateNumberReservationRequest.yaml
+    required: true
+  responses:
+    '200':
+      $ref: ../components/responses/NumberReservationResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Create a number reservation
+  tags:
+    - Number Reservations
+  x-latency-category: responsive

@@ -1,0 +1,7 @@
+properties:
+  bucket:
+    $ref: ./Bucket.yaml
+  credentials:
+    $ref: ./Credentials.yaml
+title: Google Cloud Storage Configuration Data
+type: object

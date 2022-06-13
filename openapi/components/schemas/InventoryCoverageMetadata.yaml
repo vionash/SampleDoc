@@ -1,0 +1,7 @@
+example:
+  total_results: 25
+properties:
+  total_results:
+    example: 25
+    type: integer
+type: object

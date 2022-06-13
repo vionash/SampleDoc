@@ -1,0 +1,19 @@
+properties:
+  field_type:
+    enum:
+      - textual
+      - datetime
+      - address
+      - document
+    example: address
+    readOnly: true
+    type: string
+  record_type:
+    example: phone_number_regulatory_requirement
+    readOnly: true
+    type: string
+  requirement_id:
+    description: Unique id for a requirement.
+    example: 8ffb3622-7c6b-4ccc-b65f-7a3dc0099576
+    format: uuid
+    type: string

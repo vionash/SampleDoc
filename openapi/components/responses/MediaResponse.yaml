@@ -1,0 +1,9 @@
+content:
+  application/json:
+    schema:
+      properties:
+        data:
+          $ref: ../schemas/MediaResource.yaml
+      title: Media resource response
+      type: object
+description: A response describing a media resource

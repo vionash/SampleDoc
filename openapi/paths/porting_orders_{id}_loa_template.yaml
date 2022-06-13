@@ -1,0 +1,14 @@
+get:
+  description: Download a porting order loa template
+  operationId: getPortingOrderLOATemplate
+  parameters:
+    - $ref: ../components/parameters/PathPortingOrderID.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/DownloadLOATemplate.yaml
+    '401':
+      description: Unauthorized
+  summary: Download a porting order loa template
+  tags:
+    - Porting Order
+  x-latency-category: responsive

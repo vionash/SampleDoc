@@ -1,0 +1,65 @@
+properties:
+  connections:
+    items:
+      format: int64
+      type: integer
+    type: array
+  created_at:
+    example: '2020-07-01T00:00:00-06:00'
+    format: date-time
+    type: string
+  directions:
+    items:
+      enum:
+        - INBOUND
+        - OUTBOUND
+      type: string
+    type: array
+  end_date:
+    example: '2020-07-01T00:00:00-06:00'
+    format: date-time
+    type: string
+  filters:
+    items:
+      $ref: ./Filter.yaml
+    type: array
+  id:
+    description: Identifies the resource
+    format: uuid
+    type: string
+  profiles:
+    example: My profile
+    type: string
+  record_type:
+    example: mdr_report
+    type: string
+  record_types:
+    items:
+      enum:
+        - INCOMPLETE
+        - COMPLETED
+        - ERRORS
+      type: string
+    type: array
+  report_name:
+    example: report_name_8hvb45Gu
+    type: string
+  report_url:
+    example: http://portal.telnyx.com/downloads/report_name_8hvb45Gu.csv
+    type: string
+  start_date:
+    example: '2020-07-01T00:00:00-06:00'
+    format: date-time
+    type: string
+  status:
+    enum:
+      - PENDING
+      - COMPLETE
+      - FAILED
+      - EXPIRED
+    type: string
+  updated_at:
+    example: '2020-07-01T00:00:00-06:00'
+    format: date-time
+    type: string
+type: object

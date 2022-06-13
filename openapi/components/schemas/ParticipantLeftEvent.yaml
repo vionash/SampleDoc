@@ -1,0 +1,5 @@
+properties:
+  data:
+    $ref: ./ParticipantLeft.yaml
+title: Participant Left Event
+type: object

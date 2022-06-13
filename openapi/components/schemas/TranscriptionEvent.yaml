@@ -1,0 +1,5 @@
+properties:
+  data:
+    $ref: ./Transcription.yaml
+title: Transcription Event
+type: object

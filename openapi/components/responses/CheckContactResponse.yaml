@@ -1,0 +1,11 @@
+content:
+  application/json:
+    schema:
+      properties:
+        data:
+          items:
+            $ref: ../schemas/CheckContact.yaml
+          type: array
+      title: Check Contact Response
+      type: object
+description: Successful response with details about WhatsApp contact(s).

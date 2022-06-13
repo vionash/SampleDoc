@@ -1,0 +1,5 @@
+description: Filter by name
+in: query
+name: filter[name]
+schema:
+  type: string

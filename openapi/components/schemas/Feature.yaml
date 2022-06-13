@@ -1,0 +1,6 @@
+example:
+  name: sms
+properties:
+  name:
+    example: sms
+    type: string

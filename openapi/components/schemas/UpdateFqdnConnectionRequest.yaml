@@ -1,0 +1,107 @@
+example:
+  active: true
+  anchorsite_override: Latency
+  connection_name: string
+  default_on_hold_comfort_noise_enabled: true
+  dtmf_type: RFC 2833
+  encode_contact_header_enabled: true
+  encrypted_media: SRTP
+  inbound:
+    ani_number_format: +E.164
+    channel_limit: 10
+    codecs:
+      - G722
+    default_routing_method: sequential
+    dnis_number_format: +e164
+    generate_ringback_tone: true
+    isup_headers_enabled: true
+    prack_enabled: true
+    privacy_zone_enabled: true
+    sip_compact_headers_enabled: true
+    sip_region: US
+    sip_subdomain: string
+    sip_subdomain_receive_settings: only_my_connections
+    timeout_1xx_secs: 10
+    timeout_2xx_secs: 10
+  onnet_t38_passthrough_enabled: true
+  rtcp_settings:
+    capture_enabled: true
+    port: rtcp-mux
+    report_frequency_secs: 10
+  transport_protocol: UDP
+  webhook_api_version: '1'
+  webhook_event_failover_url: https://failover.example.com
+  webhook_event_url: https://example.com
+  webhook_timeout_secs: 25
+properties:
+  active:
+    description: Defaults to true
+    type: boolean
+  anchorsite_override:
+    $ref: ./AnchorsiteOverride.yaml
+  connection_name:
+    type: string
+  default_on_hold_comfort_noise_enabled:
+    default: true
+    description: >-
+      When enabled, Telnyx will generate comfort noise when you place the call
+      on hold. If disabled, you will need to generate comfort noise or on hold
+      music to avoid RTP timeout.
+    type: boolean
+  dtmf_type:
+    $ref: ./DtmfType.yaml
+  encode_contact_header_enabled:
+    default: false
+    description: >-
+      Encode the SIP contact header sent by Telnyx to avoid issues for NAT or
+      ALG scenarios.
+    type: boolean
+  encrypted_media:
+    $ref: ./EncryptedMedia.yaml
+  inbound:
+    $ref: ./InboundFqdn.yaml
+  onnet_t38_passthrough_enabled:
+    default: false
+    description: >-
+      Enable on-net T38 if you prefer that the sender and receiver negotiate T38
+      directly when both are on the Telnyx network. If this is disabled, Telnyx
+      will be able to use T38 on just one leg of the call according to each
+      leg's settings.
+    type: boolean
+  rtcp_settings:
+    $ref: ./ConnectionRtcpSettings.yaml
+  transport_protocol:
+    $ref: ./FqdnConnectionTransportProtocol.yaml
+  webhook_api_version:
+    default: '1'
+    description: Determines which webhook format will be used, Telnyx API v1 or v2.
+    enum:
+      - '1'
+      - '2'
+    example: '1'
+    type: string
+  webhook_event_failover_url:
+    default: ''
+    description: >-
+      The failover URL where webhooks related to this connection will be sent if
+      sending to the primary URL fails. Must include a scheme, such as 'https'.
+    example: https://failover.example.com
+    format: url
+    nullable: true
+    type: string
+  webhook_event_url:
+    description: >-
+      The URL where webhooks related to this connection will be sent. Must
+      include a scheme, such as 'https'.
+    example: https://example.com
+    format: url
+    type: string
+  webhook_timeout_secs:
+    default: null
+    description: Specifies how many seconds to wait before timing out a webhook.
+    example: 25
+    maximum: 30
+    minimum: 0
+    nullable: true
+    type: integer
+title: Update FQDN Connection Request

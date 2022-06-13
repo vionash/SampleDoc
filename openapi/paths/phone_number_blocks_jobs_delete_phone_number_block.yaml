@@ -1,0 +1,33 @@
+post:
+  description: >-
+    Creates a new background job to delete all the phone numbers associated with
+    the given block. We will only consider the phone number block as deleted
+    after all phone numbers associated with it are removed, so multiple
+    executions of this job may be necessary in case some of the phone numbers
+    present errors during the deletion process.
+  operationId: createPhoneNumberBlocksJobDeletePhoneNumberBlock
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: >-
+            ../components/schemas/PhoneNumberBlocksJobDeletePhoneNumberBlockRequest.yaml
+    required: true
+  responses:
+    '202':
+      content:
+        application/json:
+          schema:
+            properties:
+              data:
+                $ref: ../components/schemas/PhoneNumberBlocksJob.yaml
+            title: Phone Number Blocks Job Delete Phone Number Block
+            type: object
+      description: Phone number blocks job delete phone numbers requested.
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Deletes all numbers associated with a phone number block
+  tags:
+    - Number Blocks Background Jobs
+  x-group-parameters: 'true'
+  x-latency-category: background

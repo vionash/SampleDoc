@@ -1,0 +1,43 @@
+delete:
+  description: Synchronously delete a Room Recording.
+  operationId: DeleteRoomRecording
+  parameters:
+    - description: The unique identifier of a room recording.
+      in: path
+      name: room_recording_id
+      required: true
+      schema:
+        example: 0ccc7b54-4df3-4bca-a65a-3da1ecc777f0
+        format: uuid
+        type: string
+  responses:
+    '204':
+      description: The resource was deleted successfully.
+    '404':
+      $ref: ../components/responses/ResourceNotFound.yaml
+  summary: Delete a room recording.
+  tags:
+    - Room Recordings
+  x-endpoint-cost: medium
+  x-latency-category: responsive
+get:
+  operationId: ViewRoomRecording
+  parameters:
+    - description: The unique identifier of a room recording.
+      in: path
+      name: room_recording_id
+      required: true
+      schema:
+        example: 0ccc7b54-4df3-4bca-a65a-3da1ecc777f0
+        format: uuid
+        type: string
+  responses:
+    '200':
+      $ref: ../components/responses/GetRoomRecordingResponse.yaml
+    '404':
+      $ref: ../components/responses/ResourceNotFound.yaml
+  summary: View a room recording.
+  tags:
+    - Room Recordings
+  x-endpoint-cost: light
+  x-latency-category: responsive

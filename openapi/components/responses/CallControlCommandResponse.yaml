@@ -1,0 +1,9 @@
+content:
+  application/json:
+    schema:
+      properties:
+        data:
+          $ref: ../schemas/CallControlCommandResult.yaml
+      title: Call Control Command Response
+      type: object
+description: Successful response upon making a call control command.

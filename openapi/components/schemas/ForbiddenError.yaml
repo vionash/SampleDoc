@@ -1,0 +1,17 @@
+allOf:
+  - $ref: ./GenericError.yaml
+  - properties:
+      code:
+        example: '10010'
+      detail:
+        example: >-
+          You do not have permission to perform the requested action on the
+          specified resource or resources.
+      meta:
+        properties:
+          url:
+            example: https://developers.telnyx.com/docs/overview/errors/10010
+            type: string
+        type: object
+      title:
+        example: Authorization failed

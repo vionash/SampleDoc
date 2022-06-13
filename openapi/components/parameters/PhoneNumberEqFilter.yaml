@@ -1,0 +1,6 @@
+description: Filters records to those with a specified number.
+in: query
+name: filter[phone_number][eq]
+schema:
+  example: '+12441239999'
+  type: string

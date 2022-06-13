@@ -1,0 +1,10 @@
+content:
+  application/json:
+    schema:
+      properties:
+        data:
+          items:
+            $ref: ../schemas/PortOutSupportingDocument.yaml
+          type: array
+      type: object
+description: Portout Supporting Documents

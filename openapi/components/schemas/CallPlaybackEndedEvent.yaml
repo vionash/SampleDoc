@@ -1,0 +1,5 @@
+properties:
+  data:
+    $ref: ./CallPlaybackEnded.yaml
+title: Call Playback Ended Event
+type: object

@@ -1,0 +1,8 @@
+allOf:
+  - $ref: ./NumberOrder.yaml
+  - properties:
+      phone_numbers:
+        items:
+          $ref: ./PhoneNumber.yaml
+        type: array
+    type: object

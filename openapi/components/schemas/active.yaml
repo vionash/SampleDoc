@@ -1,0 +1,4 @@
+default: true
+description: The active status of the authentication provider
+example: true
+type: boolean

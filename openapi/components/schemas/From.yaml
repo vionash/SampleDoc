@@ -1,0 +1,3 @@
+description: The phone number, in E.164 format, the fax will be sent from.
+example: '+13125790015'
+type: string

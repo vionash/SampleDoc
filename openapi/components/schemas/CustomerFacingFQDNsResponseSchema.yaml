@@ -1,0 +1,20 @@
+properties:
+  created_at:
+    format: date-time
+    title: Created At
+    type: string
+  description:
+    title: Description
+    type: string
+  fqdn:
+    title: Fully Qualified Domain Name (FQDN)
+    type: string
+  id:
+    title: Id
+    type: string
+  updated_at:
+    format: date-time
+    title: Updated At
+    type: string
+title: CustomerFacingFQDNsResponseSchema
+type: object

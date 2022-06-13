@@ -1,0 +1,15 @@
+default: text
+description: type of the message
+enum:
+  - audio
+  - contacts
+  - document
+  - image
+  - location
+  - template
+  - text
+  - video
+  - voice
+  - unknown
+title: Message Type
+type: string

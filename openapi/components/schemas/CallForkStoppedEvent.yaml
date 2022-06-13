@@ -1,0 +1,5 @@
+properties:
+  data:
+    $ref: ./CallForkStopped.yaml
+title: Call Fork Stopped Event
+type: object

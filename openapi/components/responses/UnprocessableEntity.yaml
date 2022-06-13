@@ -1,0 +1,5 @@
+content:
+  application/json:
+    schema:
+      $ref: ../schemas/Errors.yaml
+description: Unprocessable entity. Check the 'detail' field in response for details.

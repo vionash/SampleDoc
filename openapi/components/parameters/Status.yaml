@@ -1,0 +1,15 @@
+description: The status of a notification setting
+in: query
+name: filter[status][eq]
+schema:
+  enum:
+    - enabled
+    - enable-received
+    - enable-pending
+    - enable-submtited
+    - delete-received
+    - delete-pending
+    - delete-submitted
+    - deleted
+  example: enable-received
+  type: string

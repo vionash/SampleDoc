@@ -1,0 +1,103 @@
+properties:
+  category:
+    description: The template category
+    enum:
+      - ACCOUNT_UPDATE
+      - PAYMENT_UPDATE
+      - PERSONAL_FINANCE_UPDATE
+      - SHIPPING_UPDATE
+      - RESERVATION_UPDATE
+      - ISSUE_RESOLUTION
+      - APPOINTMENT_UPDATE
+      - TRANSPORTATION_UPDATE
+      - TICKET_UPDATE
+      - ALERT_UPDATE
+      - AUTO_REPLY
+    type: string
+  components:
+    description: >-
+      The JSON-formatted components for the this whatsapp message template,
+      please refer to whatsapp documentation on the correct structure for this
+      field
+    format: json
+    type: string
+  language:
+    description: The language of the whatsapp message template
+    enum:
+      - af
+      - sq
+      - ar
+      - az
+      - bn
+      - bg
+      - ca
+      - zh_CN
+      - zh_HK
+      - zh_TW
+      - hr
+      - cs
+      - da
+      - nl
+      - en
+      - en_GB
+      - en_US
+      - et
+      - fil
+      - fi
+      - fr
+      - ka
+      - de
+      - el
+      - gu
+      - ha
+      - he
+      - hi
+      - hu
+      - id
+      - ga
+      - it
+      - ja
+      - kn
+      - kk
+      - rw_RW
+      - ko
+      - ky_KG
+      - lo
+      - lv
+      - lt
+      - mk
+      - ms
+      - ml
+      - mr
+      - nb
+      - fa
+      - pl
+      - pt_BR
+      - pt_PT
+      - pa
+      - ro
+      - ru
+      - sr
+      - sk
+      - sl
+      - es
+      - es_AR
+      - es_ES
+      - es_MX
+      - sw
+      - sv
+      - ta
+      - te
+      - th
+      - tr
+      - uk
+      - ur
+      - uz
+      - vi
+      - zu
+    type: string
+  name:
+    description: A name identifying this whatsapp message template
+    type: string
+title: Create WhatsApp Message Template Request Body
+type: object

@@ -1,0 +1,10 @@
+description: Event status
+in: query
+name: filter[status]
+required: false
+schema:
+  enum:
+    - delivered
+    - failed
+  example: delivered
+  type: string

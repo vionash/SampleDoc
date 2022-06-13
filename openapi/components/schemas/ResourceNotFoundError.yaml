@@ -1,0 +1,15 @@
+allOf:
+  - $ref: ./GenericError.yaml
+  - properties:
+      code:
+        example: '10005'
+      detail:
+        example: The requested resource or URL could not be found.
+      meta:
+        properties:
+          url:
+            example: https://developers.telnyx.com/docs/overview/errors/10005
+            type: string
+        type: object
+      title:
+        example: Resource not found

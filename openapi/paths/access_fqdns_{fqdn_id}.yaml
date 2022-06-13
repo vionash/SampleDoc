@@ -1,0 +1,70 @@
+delete:
+  operationId: DeleteAccessFqdn
+  parameters:
+    - in: path
+      name: fqdn_id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CustomerFacingFQDNsResponseSchema.yaml
+      description: Successful Response
+  summary: Delete Access FQDN
+  tags:
+    - FQDNs
+  x-latency-category: responsive
+get:
+  operationId: ListAccessFqdnById
+  parameters:
+    - in: path
+      name: fqdn_id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CustomerFacingFQDNsResponseSchema.yaml
+      description: Successful Response
+  summary: List an Access FQDN
+  tags:
+    - FQDNs
+  x-latency-category: responsive
+patch:
+  operationId: UpdateAccessFqdn
+  parameters:
+    - in: path
+      name: fqdn_id
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          properties:
+            description:
+              title: Description
+              type: string
+          required:
+            - description
+          title: CustomerFacingFQDNsPatch
+          type: object
+    required: true
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CustomerFacingFQDNsResponseSchema.yaml
+      description: Successful Response
+  summary: Update Access FQDN
+  tags:
+    - FQDNs
+  x-latency-category: responsive

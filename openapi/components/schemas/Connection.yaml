@@ -1,0 +1,67 @@
+example:
+  active: true
+  anchorsite_override: Latency
+  connection_name: string
+  created_at: '2018-02-02T22:25:27.521Z'
+  id: 6a09cdc3-8948-47f0-aa62-74ac943d6c58
+  outbound_voice_profile_id: '1293384261075731499'
+  record_type: ip_connection
+  updated_at: '2018-02-02T22:25:27.521Z'
+  webhook_api_version: '1'
+  webhook_event_failover_url: https://failover.example.com
+  webhook_event_url: https://example.com
+properties:
+  active:
+    description: Defaults to true
+    example: true
+    type: boolean
+  anchorsite_override:
+    $ref: ./AnchorsiteOverride.yaml
+  connection_name:
+    example: string
+    type: string
+  created_at:
+    description: ISO 8601 formatted date indicating when the resource was created.
+    example: '2018-02-02T22:25:27.521Z'
+    type: string
+  id:
+    description: Identifies the specific resource.
+    example: 6a09cdc3-8948-47f0-aa62-74ac943d6c58
+    format: int64
+    type: string
+  outbound_voice_profile_id:
+    $ref: ./OutboundVoiceProfileId.yaml
+  record_type:
+    description: Identifies the type of the resource.
+    example: ip_connection
+    type: string
+  updated_at:
+    description: ISO 8601 formatted date indicating when the resource was updated.
+    example: '2018-02-02T22:25:27.521Z'
+    type: string
+  webhook_api_version:
+    default: '1'
+    description: Determines which webhook format will be used, Telnyx API v1 or v2.
+    enum:
+      - '1'
+      - '2'
+    example: '1'
+    type: string
+  webhook_event_failover_url:
+    default: ''
+    description: >-
+      The failover URL where webhooks related to this connection will be sent if
+      sending to the primary URL fails.
+    example: https://failover.example.com
+    format: url
+    nullable: true
+    type: string
+  webhook_event_url:
+    default: null
+    description: The URL where webhooks related to this connection will be sent.
+    example: https://example.com
+    format: url
+    nullable: true
+    type: string
+title: Connection
+type: object

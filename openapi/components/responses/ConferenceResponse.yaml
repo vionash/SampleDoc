@@ -1,0 +1,9 @@
+content:
+  application/json:
+    schema:
+      properties:
+        data:
+          $ref: ../schemas/Conference.yaml
+      title: Conference Response
+      type: object
+description: Successful response with details about a conference.

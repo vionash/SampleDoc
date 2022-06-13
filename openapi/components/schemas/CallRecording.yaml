@@ -1,0 +1,27 @@
+description: The call recording settings for a phone number.
+example:
+  inbound_call_recording_channels: single
+  inbound_call_recording_enabled: true
+  inbound_call_recording_format: wav
+properties:
+  inbound_call_recording_channels:
+    default: single
+    description: >-
+      When using 'dual' channels, final audio file will be stereo recorded with
+      the first leg on channel A, and the rest on channel B.
+    enum:
+      - single
+      - dual
+    type: string
+  inbound_call_recording_enabled:
+    default: false
+    description: When enabled, any inbound call to this number will be recorded.
+    type: boolean
+  inbound_call_recording_format:
+    default: wav
+    description: The audio file format for calls being recorded.
+    enum:
+      - wav
+      - mp3
+    type: string
+type: object

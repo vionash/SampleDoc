@@ -1,0 +1,5 @@
+properties:
+  data:
+    $ref: ./callRecordingError.yaml
+title: Call Recording Error Event
+type: object

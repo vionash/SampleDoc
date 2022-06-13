@@ -1,0 +1,8 @@
+content:
+  application/json:
+    schema:
+      properties:
+        data:
+          $ref: ../schemas/RoomSession.yaml
+      type: object
+description: Get room session response.

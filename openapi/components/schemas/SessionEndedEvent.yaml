@@ -1,0 +1,5 @@
+properties:
+  data:
+    $ref: ./SessionEnded.yaml
+title: Session Ended Event
+type: object

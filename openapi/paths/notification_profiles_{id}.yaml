@@ -1,0 +1,70 @@
+delete:
+  description: Delete a notification profile.
+  operationId: deleteNotificationProfile
+  parameters:
+    - $ref: ../components/parameters/Id.yaml
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            properties:
+              data:
+                $ref: ../components/schemas/NotificationProfile.yaml
+            type: object
+      description: A Notification Profile response
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Delete a notification profile
+  tags:
+    - Notifications
+  x-latency-category: responsive
+get:
+  description: Retrieve a notification profile.
+  operationId: retrieveNotificationProfile
+  parameters:
+    - $ref: ../components/parameters/Id.yaml
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            properties:
+              data:
+                $ref: ../components/schemas/NotificationProfile.yaml
+            type: object
+      description: A Notification Profile response
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Retrieve a notification profile
+  tags:
+    - Notifications
+  x-latency-category: responsive
+patch:
+  description: Update a notification profile.
+  operationId: updateNotificationProfile
+  parameters:
+    - $ref: ../components/parameters/Id.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/NotificationProfile.yaml
+    description: Update notification profile object
+    required: true
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            properties:
+              data:
+                $ref: ../components/schemas/NotificationProfile.yaml
+            type: object
+      description: A Notification Profile response
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Update a notification profile
+  tags:
+    - Notifications
+  x-latency-category: responsive

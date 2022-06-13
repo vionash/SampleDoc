@@ -1,0 +1,77 @@
+properties:
+  administrative_area:
+    example: IL
+    type: string
+  country_code:
+    enum:
+      - US
+      - CA
+      - PR
+    example: US
+    type: string
+  created_at:
+    description: ISO 8601 formatted date of when the resource was created
+    example: '2018-02-02T22:25:27.521Z'
+    readOnly: true
+    type: string
+  extended_address:
+    type: string
+  house_number:
+    example: 311
+    type: string
+  house_suffix:
+    type: string
+  id:
+    example: 0ccc7b54-4df3-4bca-a65a-3da1ecc777f1
+    readOnly: true
+    type: string
+  locality:
+    example: Chicago
+    type: string
+  postal_code:
+    example: '60654'
+    type: string
+  record_type:
+    description: Identifies the type of the resource.
+    example: dynamic_emergency_address
+    readOnly: true
+    type: string
+  sip_geolocation_id:
+    description: >-
+      Unique location reference string to be used in SIP INVITE from /
+      p-asserted headers.
+    example: XYZ123
+    readOnly: true
+    type: string
+  status:
+    description: Status of dynamic emergency address
+    enum:
+      - pending
+      - activated
+      - rejected
+    example: pending
+    readOnly: true
+    type: string
+  street_name:
+    example: Superior
+    type: string
+  street_post_directional:
+    type: string
+  street_pre_directional:
+    example: W
+    type: string
+  street_suffix:
+    type: string
+  updated_at:
+    description: ISO 8601 formatted date of when the resource was last updated
+    example: '2018-02-02T22:25:27.521Z'
+    readOnly: true
+    type: string
+required:
+  - house_number
+  - street_name
+  - locality
+  - administrative_area
+  - postal_code
+  - country_coude
+type: object

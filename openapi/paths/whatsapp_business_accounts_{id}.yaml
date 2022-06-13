@@ -1,0 +1,27 @@
+get:
+  operationId: retrieveWhatsappBusinessAccount
+  parameters:
+    - description: Identifies the WhatsApp Business Account
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            properties:
+              data:
+                $ref: ../components/schemas/WhatsappBusinessAccount.yaml
+            title: WhatsApp Business Account
+            type: object
+      description: WhatsApp Business Account details
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Retrieves a WhatsApp Business Account
+  tags:
+    - WhatsApp Business Account
+  x-group-parameters: 'true'
+  x-latency-category: responsive

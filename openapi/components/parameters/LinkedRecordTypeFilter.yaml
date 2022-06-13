@@ -1,0 +1,6 @@
+description: The `linked_record_type` of the document to filter on.
+in: query
+name: filter[linked_record_type]
+schema:
+  example: porting_order
+  type: string

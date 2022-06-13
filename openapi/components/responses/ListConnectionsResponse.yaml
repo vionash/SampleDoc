@@ -1,0 +1,13 @@
+content:
+  application/json:
+    schema:
+      properties:
+        data:
+          items:
+            $ref: ../schemas/Connection.yaml
+          type: array
+        meta:
+          $ref: ../schemas/PaginationMeta.yaml
+      title: List Connections Response
+      type: object
+description: Successful response with a list of connections.

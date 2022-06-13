@@ -1,0 +1,15 @@
+get:
+  operationId: retrieveMessagingProfileDetailedMetrics
+  parameters:
+    - $ref: ../components/parameters/MessagingProfileId.yaml
+    - $ref: ../components/parameters/MessagingProfileMetricTimeFrame.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/RetrieveMessagingProfileMetrics.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Retrieve messaging profile metrics
+  tags:
+    - Messaging Profiles
+  x-group-parameters: 'true'
+  x-latency-category: responsive

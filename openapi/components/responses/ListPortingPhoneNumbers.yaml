@@ -1,0 +1,16 @@
+content:
+  application/json:
+    schema:
+      properties:
+        data:
+          items:
+            $ref: ../schemas/PortingPhoneNumber.yaml
+          type: array
+        meta:
+          $ref: ../schemas/PaginationMeta.yaml
+      type: object
+  text/csv:
+    schema:
+      example: "phone_number,phone_number_type,porting_order_id,support_key,porting_order_status\r\n+12003155566,local,5f940c35-ef28-4408-bb95-af73b047d589,sr_a12345,draft\r\n"
+      type: string
+description: Successful response

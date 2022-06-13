@@ -1,0 +1,15 @@
+description: Filter results by status
+in: query
+name: filter[status]
+schema:
+  enum:
+    - draft
+    - in-process
+    - submitted
+    - exception
+    - foc-date-confirmed
+    - cancel-pending
+    - ported
+    - cancelled
+  example: in-process
+  type: string

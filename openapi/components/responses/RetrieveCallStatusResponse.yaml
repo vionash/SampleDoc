@@ -1,0 +1,9 @@
+content:
+  application/json:
+    schema:
+      properties:
+        data:
+          $ref: ../schemas/Call.yaml
+      title: Retrieve Call Status Response
+      type: object
+description: Successful response with details about a call status.

@@ -1,0 +1,5 @@
+properties:
+  data:
+    $ref: ./ConferenceParticipantLeft.yaml
+title: Conference Participant Left Event
+type: object

@@ -1,0 +1,29 @@
+properties:
+  fast_portable:
+    description: Indicates whether this phone number is FastPort eligible
+    example: true
+    readOnly: true
+    type: boolean
+  not_portable_reason:
+    description: >-
+      If this phone number is not portable, explains why. Empty string if the
+      number is portable.
+    example: No coverage
+    readOnly: true
+    type: string
+  phone_number:
+    description: The +E.164 formatted phone number this result is about
+    example: '+13125550123'
+    readOnly: true
+    type: string
+  portable:
+    description: Indicates whether this phone number is portable
+    example: true
+    readOnly: true
+    type: boolean
+  record_type:
+    description: Identifies the type of the resource.
+    example: portability_check_result
+    readOnly: true
+    type: string
+type: object

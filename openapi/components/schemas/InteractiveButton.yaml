@@ -1,0 +1,15 @@
+properties:
+  reply:
+    allOf:
+      - $ref: ./InteractiveButtonReply.yaml
+    description: Reply button details.
+    title: Reply
+  type:
+    allOf:
+      - $ref: ./InteractiveButtonType.yaml
+    default: reply
+    description: The only supported type is reply (for Reply Button Messages).
+required:
+  - reply
+title: InteractiveButton
+type: object

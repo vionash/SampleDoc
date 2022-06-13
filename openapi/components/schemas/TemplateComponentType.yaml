@@ -1,0 +1,6 @@
+description: An enumeration.
+enum:
+  - header
+  - body
+title: TemplateComponentType
+type: string

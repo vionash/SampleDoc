@@ -1,0 +1,71 @@
+post:
+  callbacks:
+    callPlaybackEnded:
+      '{$request.body#/webhook_url}':
+        post:
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  $ref: ../components/schemas/CallPlaybackEndedEvent.yaml
+            required: true
+          responses:
+            '200':
+              description: >-
+                The server must return an HTTP 200, otherwise we will reattempt
+                delivery at the failover webhook URL.
+    callPlaybackStarted:
+      '{$request.body#/webhook_url}':
+        post:
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  $ref: ../components/schemas/CallPlaybackStartedEvent.yaml
+            required: true
+          responses:
+            '200':
+              description: >-
+                The server must return an HTTP 200, otherwise we will reattempt
+                delivery at the failover webhook URL.
+  description: >
+    Play an audio file on the call. If multiple play audio commands are issued
+    consecutively,
+
+    the audio files will be placed in a queue awaiting playback.
+
+
+    *Notes:*
+
+
+    - When `overlay` is enabled, `target_legs` is limited to `self`.
+
+    - A customer cannot Play Audio with `overlay=true` unless there is a Play
+    Audio with `overlay=false` actively playing.
+
+
+    **Expected Webhooks:**
+
+
+    - `call.playback.started`
+
+    - `call.playback.ended`
+  operationId: callPlaybackStart
+  parameters:
+    - $ref: ../components/parameters/CallControlId.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/PlayAudioUrlRequest.yaml
+    description: Play audio URL request
+    required: true
+  responses:
+    '200':
+      $ref: ../components/responses/CallControlCommandResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Play audio URL
+  tags:
+    - Call Commands
+  x-latency-category: interactive

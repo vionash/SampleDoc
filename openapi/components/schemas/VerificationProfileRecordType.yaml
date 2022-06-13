@@ -1,0 +1,6 @@
+description: The possible verification profile record types.
+enum:
+  - verification_profile
+example: verification_profile
+title: VerificationProfileRecordType
+type: string

@@ -1,0 +1,6 @@
+properties:
+  admin:
+    $ref: ./PortingOrderEndUserAdmin.yaml
+  location:
+    $ref: ./PortingOrderEndUserLocation.yaml
+type: object

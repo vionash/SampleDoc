@@ -1,0 +1,15 @@
+get:
+  description: |
+    It returns the public IP requested for a SIM card.
+  operationId: SIMCardPublicIPGet
+  parameters:
+    - $ref: ../components/parameters/SIMCardId.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/SIMCardPublicIPResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Get SIM card public IP definition
+  tags:
+    - SIM Cards
+  x-latency-category: responsive

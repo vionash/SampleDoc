@@ -1,0 +1,21 @@
+get:
+  operationId: ViewRoomParticipant
+  parameters:
+    - description: The unique identifier of a room participant.
+      in: path
+      name: room_participant_id
+      required: true
+      schema:
+        example: 0ccc7b54-4df3-4bca-a65a-3da1ecc777f0
+        format: uuid
+        type: string
+  responses:
+    '200':
+      $ref: ../components/responses/GetRoomParticipantResponse.yaml
+    '404':
+      $ref: ../components/responses/ResourceNotFound.yaml
+  summary: View a room participant.
+  tags:
+    - Room Participants
+  x-endpoint-cost: light
+  x-latency-category: responsive

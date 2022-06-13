@@ -1,0 +1,53 @@
+properties:
+  format:
+    default: mp4
+    description: The desired format of the room composition.
+    example: mp4
+    nullable: true
+    type: string
+  resolution:
+    default: 1280x720
+    description: >-
+      The desired resolution (width/height in pixels) of the resulting video of
+      the room composition. Both width and height are required to be between 16
+      and 1280; and width * height should not exceed 1280 * 720
+    example: 800x600
+    nullable: true
+    type: string
+  session_id:
+    description: id of the room session associated with the room composition.
+    example: 0ccc7b54-4df3-4bca-a65a-3da1ecc777b0
+    format: uuid
+    nullable: true
+    type: string
+  video_layout:
+    additionalProperties:
+      $ref: ./VideoRegion.yaml
+    description: Describes the video layout of the room composition in terms of regions.
+    type: object
+  webhook_event_failover_url:
+    default: ''
+    description: >-
+      The failover URL where webhooks related to this room composition will be
+      sent if sending to the primary URL fails. Must include a scheme, such as
+      'https'.
+    example: https://failover.example.com
+    format: url
+    nullable: true
+    type: string
+  webhook_event_url:
+    description: >-
+      The URL where webhooks related to this room composition will be sent. Must
+      include a scheme, such as 'https'.
+    example: https://example.com
+    format: url
+    type: string
+  webhook_timeout_secs:
+    default: null
+    description: Specifies how many seconds to wait before timing out a webhook.
+    example: 25
+    maximum: 30
+    minimum: 0
+    nullable: true
+    type: integer
+type: object

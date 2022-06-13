@@ -1,0 +1,6 @@
+content:
+  '*':
+    schema:
+      format: binary
+      type: string
+description: Successful response

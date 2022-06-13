@@ -1,0 +1,9 @@
+content:
+  application/json:
+    schema:
+      properties:
+        data:
+          $ref: ../schemas/NumberBlockOrder.yaml
+      title: Number Block Order Response
+      type: object
+description: Successful response with details about a number block order.

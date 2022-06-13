@@ -1,0 +1,11 @@
+properties:
+  metrics:
+    items:
+      $ref: ./MessagingProfileMessageTypeMetrics.yaml
+    type: array
+  timestamp:
+    description: The timestamp of the aggregated data.
+    example: '2019-01-23T18:10:02.574Z'
+    readOnly: true
+    type: string
+type: object

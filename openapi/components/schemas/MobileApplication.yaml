@@ -1,0 +1,35 @@
+properties:
+  application_name:
+    description: Name of the appplication to be created
+    example: FlashEmergency
+    type: string
+  created_at:
+    description: ISO 8601 timestamp when the room was created.
+    example: '2021-03-26T17:51:59.588408Z'
+    format: datetime
+    type: string
+  id:
+    description: ID of the appplication that was created
+    example: 0ccc7b54-4df3-4bca-a65a-3da1ecc777f0
+    type: string
+  record_type:
+    example: mobile_application
+    readOnly: true
+    type: string
+  type:
+    description: Type of application to be created (IOS or Android)
+    example: android
+    type: string
+  updated_at:
+    description: ISO 8601 timestamp when the room was updated.
+    example: '2021-03-26T17:51:59.588408Z'
+    format: datetime
+    type: string
+required:
+  - id
+  - application_name
+  - type
+  - record_type
+  - created_at
+  - updated_at
+type: object

@@ -1,0 +1,43 @@
+properties:
+  call_timeout_secs:
+    description: >-
+      This is the number of seconds before the call ends, if the verification
+      makes a call. Note: this will override the `default_call_timeout_secs` on
+      the Verify profile.
+    example: 299
+    type: integer
+  created_at:
+    example: '2020-09-14T17:03:32.965812'
+    type: string
+  id:
+    example: 12ade33a-21c0-473b-b055-b3c836e1c292
+    format: uuid
+    type: string
+  phone_number:
+    description: +E164 formatted phone number.
+    example: '+13035551234'
+    type: string
+  record_type:
+    $ref: ./VerificationRecordType.yaml
+  status:
+    $ref: ./VerificationStatus.yaml
+  timeout_secs:
+    description: >-
+      This is the number of seconds before the code of the request is expired.
+      Once this request has expired, the code will no longer verify the user.
+      Note: this will override the `default_verification_timeout_secs` on the
+      Verify profile.
+    example: 300
+    type: integer
+  updated_at:
+    example: '2020-09-14T17:03:32.965812'
+    type: string
+  verification_type:
+    $ref: ./VerificationType.yaml
+  verify_profile_id:
+    description: The identifier of the associated Verify profile.
+    example: 12ade33a-21c0-473b-b055-b3c836e1c292
+    format: uuid
+    type: string
+title: Verification
+type: object

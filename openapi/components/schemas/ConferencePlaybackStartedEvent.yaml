@@ -1,0 +1,5 @@
+properties:
+  data:
+    $ref: ./ConferencePlaybackStarted.yaml
+title: Conference Playback Started Event
+type: object

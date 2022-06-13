@@ -1,0 +1,27 @@
+description: An object representing the available notifications.
+properties:
+  created_at:
+    description: ISO 8601 formatted date indicating when the resource was created.
+    example: '2019-10-15T10:07:15.527Z'
+    format: date-time
+    type: string
+  enabled:
+    example: true
+    type: boolean
+  id:
+    description: A UUID.
+    example: d5c395cd-9864-4609-b5e2-3f9fd4ce201a
+    readOnly: true
+    type: string
+  name:
+    description: A human readable name.
+    example: Emergency Number Dialed
+    type: string
+  notification_category:
+    example: Calls
+    type: string
+  updated_at:
+    description: ISO 8601 formatted date indicating when the resource was updated.
+    example: '2019-10-15T10:07:15.527Z'
+    format: date-time
+    type: string

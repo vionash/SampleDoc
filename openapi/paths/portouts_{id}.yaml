@@ -1,0 +1,24 @@
+get:
+  description: Returns the portout request based on the ID provided
+  operationId: findPortoutRequest
+  parameters:
+    - description: Portout id
+      in: path
+      name: id
+      required: true
+      schema:
+        format: uuid
+        type: string
+  responses:
+    '200':
+      $ref: ../components/responses/PortoutResponse.yaml
+    '401':
+      description: Unauthorized
+    '404':
+      description: Resource not found
+    '422':
+      description: Unprocessable entity. Check message field in response for details.
+  summary: Get a portout request
+  tags:
+    - Number Portout
+  x-latency-category: responsive

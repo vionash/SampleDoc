@@ -1,0 +1,13 @@
+content:
+  application/json:
+    schema:
+      example:
+        data:
+          result: ok
+      properties:
+        result:
+          example: ok
+          type: string
+      title: Refresh Fax Response
+      type: object
+description: Refresh fax response

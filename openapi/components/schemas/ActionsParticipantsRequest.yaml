@@ -1,0 +1,23 @@
+properties:
+  exclude:
+    description: List of participant id to exclude from the action.
+    items:
+      example: 7b61621f-62e0-4aad-ab11-9fd19e272e73
+      format: uuid
+      type: string
+    type: array
+  participants:
+    description: >-
+      Either a list of participant id to perform the action on, or the keyword
+      "all" to perform the action on all participant.
+    oneOf:
+      - enum:
+          - all
+        example: all
+        type: string
+      - items:
+          example: 7b61621f-62e0-4aad-ab11-9fd19e272e73
+          format: uuid
+          type: string
+        type: array
+type: object

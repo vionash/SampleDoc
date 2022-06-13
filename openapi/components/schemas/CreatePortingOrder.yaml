@@ -1,0 +1,14 @@
+properties:
+  phone_numbers:
+    description: The list of +E.164 formatted phone numbers
+    example:
+      - '+13035550000'
+      - '+13035550001'
+      - '+13035550002'
+    items:
+      type: string
+    type: array
+required:
+  - phone_numbers
+title: CreatePortingOrder
+type: object

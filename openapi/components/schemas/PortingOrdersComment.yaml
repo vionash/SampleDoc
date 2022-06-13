@@ -1,0 +1,33 @@
+properties:
+  body:
+    description: Body of comment
+    example: Great experience so far
+    type: string
+  created_at:
+    description: ISO 8601 formatted date indicating when the resource was created.
+    example: '2021-03-19T10:07:15.527Z'
+    format: date-time
+    type: string
+  id:
+    example: f1486bae-f067-460c-ad43-73a92848f902
+    format: uuid
+    type: string
+  porting_order_id:
+    example: f1486bae-f067-460c-ad43-73a92848f902
+    format: uuid
+    type: string
+  record_type:
+    description: Identifies the type of the resource.
+    example: porting_comment
+    type: string
+  user_type:
+    description: >-
+      Indicates whether this comment was created by a Telnyx Admin, user, or
+      system
+    enum:
+      - admin
+      - user
+      - system
+    example: user
+    type: string
+type: object

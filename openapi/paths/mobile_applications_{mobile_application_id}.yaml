@@ -1,0 +1,126 @@
+delete:
+  description: Deletes a mobile application based on the given `id`
+  operationId: deleteMobileApplicationById
+  parameters:
+    - description: The unique identifier of a mobile application
+      in: path
+      name: mobile_application_id
+      required: true
+      schema:
+        example: 0ccc7b54-4df3-4bca-a65a-3da1ecc777f0
+        format: uuid
+        type: string
+  responses:
+    '204':
+      description: The mobile application was deleted successfully
+    '401':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Errors.yaml
+      description: Unauthorized request
+    '404':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Errors.yaml
+      description: Resource not found
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Errors.yaml
+      description: Unable to process request
+  summary: Deletes a mobile application
+  tags:
+    - Mobile Applications
+  x-latency-category: responsive
+get:
+  description: Retrieves a mobile application based on the given `id`
+  operationId: getMobileApplicationById
+  parameters:
+    - description: The unique identifier of a mobile application
+      in: path
+      name: mobile_application_id
+      required: true
+      schema:
+        example: 0ccc7b54-4df3-4bca-a65a-3da1ecc777f0
+        format: uuid
+        type: string
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/MobileApplicationResponse.yaml
+      description: Successful get mobile application response
+    '401':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Errors.yaml
+      description: Unauthorized request
+    '404':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Errors.yaml
+      description: Resource not found
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Errors.yaml
+      description: Unable to process request
+  summary: Retrieves a given mobile application
+  tags:
+    - Mobile Applications
+  x-latency-category: responsive
+patch:
+  description: Updates a mobile application based on the given `id`
+  operationId: updateMobileApplicationById
+  parameters:
+    - description: The unique identifier of a mobile application
+      in: path
+      name: mobile_application_id
+      required: true
+      schema:
+        example: 0ccc7b54-4df3-4bca-a65a-3da1ecc777f0
+        format: uuid
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/CreateMobileApplicationRequest.yaml
+    description: Mobile application parameters that need to be sent in the request
+    required: true
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/MobileApplicationResponse.yaml
+      description: The modile application was updated successfully
+    '401':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Errors.yaml
+      description: Unauthorized request
+    '404':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Errors.yaml
+      description: Resource not found
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Errors.yaml
+      description: Unable to process request
+  summary: Updates a mobile application
+  tags:
+    - Mobile Applications
+  x-latency-category: responsive

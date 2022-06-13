@@ -1,0 +1,30 @@
+properties:
+  cidr_block:
+    title: Cidr Block
+    type: string
+  created_at:
+    format: date-time
+    title: Created At
+    type: string
+  description:
+    title: Description
+    type: string
+  id:
+    title: Id
+    type: string
+  status:
+    $ref: ./CloudflareSyncStatus.yaml
+  updated_at:
+    format: date-time
+    title: Updated At
+    type: string
+  user_id:
+    title: User Id
+    type: string
+required:
+  - id
+  - cidr_block
+  - status
+  - user_id
+title: AccessIPRangeResponseSchema
+type: object

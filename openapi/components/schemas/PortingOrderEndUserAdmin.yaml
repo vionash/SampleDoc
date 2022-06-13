@@ -1,0 +1,34 @@
+properties:
+  account_number:
+    description: The authorized person's account number with the current service provider
+    example: 123abc
+    type: string
+  auth_person_name:
+    description: Name of person authorizing the porting order
+    example: Porter McPortersen II
+    type: string
+  billing_phone_number:
+    description: Billing phone number associated with these phone numbers
+    example: 13035551234
+    type: string
+  business_identifier:
+    description: >-
+      European business identification number. Applicable only in the European
+      Union
+    example: abc123
+    type: string
+  entity_name:
+    description: Person Name or Company name requesting the port
+    example: Porter McPortersen
+    type: string
+  pin_passcode:
+    description: >-
+      PIN/passcode possibly required by the old service provider for extra
+      verification
+    example: 1234
+    type: string
+  tax_identifier:
+    description: European tax identification number. Applicable only in the European Union
+    example: 1234abcd
+    type: string
+type: object

@@ -1,0 +1,15 @@
+description: ''
+example:
+  id: gBEGkYiEB1VXAglK1ZEqA1YKPrU
+  record_type: whatsapp_message_id
+properties:
+  id:
+    type: string
+  record_type:
+    description: Identifies the type of the resource.
+    enum:
+      - whatsapp_message_id
+    readOnly: true
+    type: string
+title: Message
+type: object

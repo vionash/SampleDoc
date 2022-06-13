@@ -1,0 +1,22 @@
+properties:
+  connection_id:
+    description: identifies the connection to set on the numbers when ported
+    example: f1486bae-f067-460c-ad43-73a92848f902
+    type: string
+  emergency_address_id:
+    description: identifies the emergency address to set on the numbers when ported
+    example: f1486bae-f067-460c-ad43-73a92848f902
+    type: string
+  messaging_profile_id:
+    description: identifies the messaging profile to set on the numbers when ported
+    example: f1486bae-f067-460c-ad43-73a92848f901
+    type: string
+  tags:
+    example:
+      - abc
+      - '123'
+    items:
+      description: Tag to set on the numbers when ported
+      type: string
+    type: array
+type: object

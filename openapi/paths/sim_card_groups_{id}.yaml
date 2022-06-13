@@ -1,0 +1,48 @@
+delete:
+  description: Permanently deletes a SIM card group
+  operationId: SimCardGroupDelete
+  parameters:
+    - $ref: ../components/parameters/ResourceId.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/DeleteSimCardGroupResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Delete a SIM card group
+  tags:
+    - SIM Card Groups
+  x-latency-category: responsive
+get:
+  description: Returns the details regarding a specific SIM card group
+  operationId: SimCardGroupsGet
+  parameters:
+    - $ref: ../components/parameters/ResourceId.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/GetSimCardGroupResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Get SIM card group
+  tags:
+    - SIM Card Groups
+  x-latency-category: responsive
+patch:
+  description: Updates a SIM card group
+  operationId: SimCardGroupUpdate
+  parameters:
+    - $ref: ../components/parameters/ResourceId.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/SIMCardGroupPatch.yaml
+    required: true
+  responses:
+    '200':
+      $ref: ../components/responses/UpdateSimCardGroupResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Update a SIM card group
+  tags:
+    - SIM Card Groups
+  x-latency-category: responsive

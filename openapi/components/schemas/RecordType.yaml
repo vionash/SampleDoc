@@ -1,0 +1,5 @@
+description: Identifies the type of the resource.
+enum:
+  - event
+example: event
+type: string

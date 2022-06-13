@@ -1,0 +1,80 @@
+delete:
+  description: >-
+    Deletes the Verified Calls Display Profile. This action will fail if any
+    verification requests have been made for this Verified Calls Display
+    Profile. Please contact support@telnyx.com in case you want to delete a
+    Verified Calls Display Profile in that situation.
+  operationId: deleteVerifiedCallsDisplayProfile
+  parameters:
+    - description: Identifies the Verified Calls Display Profile
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      $ref: ../components/responses/displayVerifiedCallsDisplayProfileResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Deletes the Verified Calls Display Profile
+  tags:
+    - Verified Calls Display Profile
+  x-endpoint-cost: medium
+  x-group-parameters: 'true'
+  x-latency-category: responsive
+get:
+  operationId: displayVerifiedCallsDisplayProfile
+  parameters:
+    - description: Identifies the Verified Calls Display Profile
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      $ref: ../components/responses/displayVerifiedCallsDisplayProfileResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Display the Verified Calls Display Profile
+  tags:
+    - Verified Calls Display Profile
+  x-endpoint-cost: light
+  x-group-parameters: 'true'
+  x-latency-category: responsive
+patch:
+  description: >-
+    Update an existing Verified Calls Display Profile and allows adding/removing
+    nested Call Reasons and Phone Numbers. Different attributes can be updated
+    depending on the Verified Calls Display Profile's status: For the
+    VERIFICATION_STATE_PENDING status, no fields can be updated. For the
+    VERIFICATION_STATE_VERIFIED status, it is allowed only to add/remove Call
+    Reaons and Phone Numbers. For the other statuses, all fields can be updated.
+    All existing Call Reasons and Phone Numbers must be sent during the request,
+    or the update will fail.
+  operationId: updateVerifiedCallsDisplayProfile
+  parameters:
+    - description: Identifies the Verified Calls Display Profile
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/UpdateVerifiedCallsDisplayProfileRequest.yaml
+    required: true
+  responses:
+    '200':
+      description: Verified Calls Display Profile was updated.
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Update a Verified Calls Display Profile
+  tags:
+    - Verified Calls Display Profile
+  x-endpoint-cost: medium
+  x-group-parameters: 'true'
+  x-latency-category: responsive

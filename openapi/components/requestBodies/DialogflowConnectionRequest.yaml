@@ -1,0 +1,8 @@
+content:
+  application/json:
+    schema:
+      $ref: ../schemas/DialogflowConnection.yaml
+description: >-
+  The params expected to create/update a Dialogflow ES Connection for given
+  connection_id.
+required: true

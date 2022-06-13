@@ -1,0 +1,20 @@
+content:
+  application/json:
+    schema:
+      properties:
+        data:
+          items:
+            properties:
+              amount:
+                example: 1
+                type: integer
+              tag:
+                example: a_tag
+                type: string
+            type: object
+          type: array
+        meta:
+          $ref: ../schemas/PaginationMeta.yaml
+      title: List Tags Response
+      type: object
+description: Successful response with multiple tags

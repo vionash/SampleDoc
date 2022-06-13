@@ -1,0 +1,12 @@
+properties:
+  data:
+    items:
+      $ref: ./Verification.yaml
+    type: array
+  meta:
+    $ref: ./Meta.yaml
+required:
+  - data
+  - meta
+title: ListVerificationsResponse
+type: object

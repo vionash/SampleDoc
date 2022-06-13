@@ -1,0 +1,44 @@
+properties:
+  carrier_passthrough_fee:
+    example: '0'
+    type: string
+  connection:
+    example: all
+    type: string
+  cost:
+    example: '0'
+    type: string
+  currency:
+    example: USD
+    type: string
+  delivered:
+    example: '0'
+    type: string
+  direction:
+    example: outbound
+    type: string
+  message_type:
+    example: SMS
+    type: string
+  parts:
+    example: '0'
+    type: string
+  product:
+    example: outbound
+    type: string
+  profile_id:
+    example: All
+    type: string
+  received:
+    example: '0'
+    type: string
+  sent:
+    example: '0'
+    type: string
+  tags:
+    example: All
+    type: string
+  tn_type:
+    example: TF
+    type: string
+type: object

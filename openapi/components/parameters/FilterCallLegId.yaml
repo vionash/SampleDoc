@@ -1,0 +1,7 @@
+description: The unique identifier of an individual call leg.
+in: query
+name: filter[call_leg_id]
+required: false
+schema:
+  format: uuid
+  type: string

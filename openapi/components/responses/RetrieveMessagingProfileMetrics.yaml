@@ -1,0 +1,9 @@
+content:
+  application/json:
+    schema:
+      properties:
+        data:
+          $ref: ../schemas/MessagingProfileDetailedMetrics.yaml
+      title: Retrieve Messaging Profile Metrics Response
+      type: object
+description: Successful response with details about a messaging profile's metrics.

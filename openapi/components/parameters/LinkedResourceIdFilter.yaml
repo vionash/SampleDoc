@@ -1,0 +1,7 @@
+description: The `linked_resource_id` of the document to filter on.
+in: query
+name: filter[linked_resource_id]
+schema:
+  example: 6a09cdc3-8948-47f0-aa62-74ac943d6c58
+  format: uuid
+  type: string

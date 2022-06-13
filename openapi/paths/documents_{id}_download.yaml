@@ -1,0 +1,14 @@
+get:
+  description: Download a document.
+  operationId: downloadDocServiceDocument
+  parameters:
+    - $ref: ../components/parameters/Id.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/DownloadDocServiceDocumentResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Download a document
+  tags:
+    - Documents
+  x-latency-category: responsive

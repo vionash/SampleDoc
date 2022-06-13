@@ -1,0 +1,23 @@
+properties:
+  aggregation_type:
+    enum:
+      - NO_AGGREGATION
+      - PROFILE
+      - TAGS
+    type: string
+  end_date:
+    example: '2020-07-01T00:00:00-06:00'
+    format: date-time
+    type: string
+  profiles:
+    example: My profile
+    type: string
+  start_date:
+    example: '2020-07-01T00:00:00-06:00'
+    format: date-time
+    type: string
+required:
+  - aggregation_type
+  - end_date
+  - start_date
+type: object

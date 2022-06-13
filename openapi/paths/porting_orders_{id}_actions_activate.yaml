@@ -1,0 +1,16 @@
+post:
+  description: Activate every numbers of a porting order asynchronously.
+  operationId: activatePortingOrder
+  parameters:
+    - $ref: ../components/parameters/PathPortingOrderID.yaml
+  responses:
+    '202':
+      $ref: ../components/responses/ShowPortingOrdersActivationJob.yaml
+    '401':
+      description: Unauthorized
+    '422':
+      description: Unprocessable entity. Check message field in response for details.
+  summary: Activates every number on a porting order.
+  tags:
+    - Porting Order
+  x-latency-category: responsive

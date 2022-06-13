@@ -1,0 +1,33 @@
+post:
+  description: Preview SIM card order purchases.
+  operationId: SimCardOrdersPreview
+  requestBody:
+    content:
+      application/json:
+        schema:
+          properties:
+            address_id:
+              description: Uniquely identifies the address for the order.
+              example: '1293384261075731499'
+              format: int64
+              type: string
+            quantity:
+              description: >-
+                The amount of SIM cards that the user would like to purchase in
+                the SIM card order.
+              example: 21
+              minimum: 1
+              type: integer
+          required:
+            - quantity
+            - address_id
+          type: object
+  responses:
+    '202':
+      $ref: ../components/responses/SIMCardOrdersPreviewResponse.yaml
+    '422':
+      $ref: ../components/responses/UnprocessableEntity.yaml
+  summary: Preview SIM card orders
+  tags:
+    - SIM Card Orders
+  x-latency-category: responsive

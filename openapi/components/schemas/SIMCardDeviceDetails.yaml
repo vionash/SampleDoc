@@ -1,0 +1,33 @@
+properties:
+  brand_name:
+    description: Brand of the device where the SIM card is being used in.
+    example: Apple
+    readOnly: true
+    type: string
+  device_type:
+    description: Type of the device where the SIM card is being used in.
+    example: Tablet
+    readOnly: true
+    type: string
+  imei:
+    description: IMEI of the device where the SIM card is being used in.
+    example: '457032284023794'
+    format: int64
+    readOnly: true
+    type: string
+  model_name:
+    description: Brand of the device where the SIM card is being used in.
+    example: iPad Pro 11 2020 Cellular
+    readOnly: true
+    type: string
+  operating_system:
+    description: Operating system of the device where the SIM card is being used in.
+    example: iOS 12
+    readOnly: true
+    type: string
+  record_type:
+    example: device_details
+    readOnly: true
+    type: string
+title: SIMCardDeviceDetails
+type: object

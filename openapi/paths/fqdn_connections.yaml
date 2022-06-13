@@ -1,0 +1,44 @@
+get:
+  description: Returns a list of your FQDN connections.
+  operationId: listFqdnConnections
+  parameters:
+    - $ref: ../components/parameters/PageNumber.yaml
+    - $ref: ../components/parameters/PageSize.yaml
+    - $ref: ../components/parameters/FilterConnectionName.yaml
+    - $ref: ../components/parameters/SortConnection.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/ListFqdnConnectionsResponse.yaml
+    '400':
+      description: Bad request
+    '401':
+      description: Unauthorized
+    '404':
+      description: Resource not found
+  summary: List FQDN connections
+  tags:
+    - FQDN Connections
+  x-endpoint-cost: medium
+  x-group-parameters: 'true'
+  x-latency-category: responsive
+post:
+  description: Creates a FQDN connection.
+  operationId: createFqdnConnection
+  parameters: []
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/CreateFqdnConnectionRequest.yaml
+    description: Parameters that can be defined during FQDN connection creation
+    required: true
+  responses:
+    '201':
+      $ref: ../components/responses/FqdnConnectionResponse.yaml
+    '422':
+      description: Bad request
+  summary: Create an FQDN connection
+  tags:
+    - FQDN Connections
+  x-endpoint-cost: medium
+  x-latency-category: responsive

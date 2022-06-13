@@ -1,0 +1,53 @@
+properties:
+  assigned_resources:
+    description: >-
+      A list of the resources that have been assigned to the Private Wireless
+      Gateway
+    items:
+      $ref: ./PWGAssignedResourcesSummary.yaml
+    type: array
+  created_at:
+    description: ISO 8601 formatted date-time indicating when the resource was created.
+    example: '2018-02-02T22:25:27.521Z'
+    readOnly: true
+    type: string
+  id:
+    description: Identifies the resource.
+    example: 6a09cdc3-8948-47f0-aa62-74ac943d6c58
+    format: uuid
+    readOnly: true
+    type: string
+  ip_range:
+    default: null
+    description: >-
+      IP block used to assign IPs to the SIM cards in the Private Wireless
+      Gateway.
+    example: 100.64.1.0/24
+    readOnly: true
+    type: string
+  name:
+    description: The private wireless gateway name.
+    example: My private wireless gateway
+    type: string
+  network_id:
+    description: The identification of the related network resource.
+    example: 6a09cdc3-8948-47f0-aa62-74ac943d6c58
+    format: uuid
+    type: string
+  record_type:
+    example: private_wireless_gateway
+    readOnly: true
+    type: string
+  region_code:
+    default: ashburn-va
+    description: The geographical region where the Private Wireless Gateway is deployed to.
+    example: ashburn-va
+    type: string
+  status:
+    $ref: ./PrivateWirelessGatewayStatus.yaml
+  updated_at:
+    description: ISO 8601 formatted date-time indicating when the resource was updated.
+    example: '2018-02-02T22:25:27.521Z'
+    readOnly: true
+    type: string
+type: object

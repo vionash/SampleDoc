@@ -1,0 +1,9 @@
+content:
+  application/json:
+    schema:
+      properties:
+        data:
+          $ref: ../schemas/QueueCall.yaml
+      title: Queue Call Response
+      type: object
+description: Successful response with details about a call in a queue.

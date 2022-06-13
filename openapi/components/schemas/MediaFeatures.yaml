@@ -1,0 +1,37 @@
+description: The media features settings for a phone number.
+example:
+  accept_any_rtp_packets_enabled: true
+  media_handling_mode: default
+  rtp_auto_adjust_enabled: true
+  t38_fax_gateway_enabled: true
+properties:
+  accept_any_rtp_packets_enabled:
+    default: false
+    description: >-
+      When enabled, Telnyx will accept RTP packets from any customer-side IP
+      address and port, not just those to which Telnyx is sending RTP.
+    type: boolean
+  media_handling_mode:
+    default: default
+    description: >-
+      Controls how media is handled for the phone number. default: media routed
+      through Telnyx with transcode support. proxy: media routed through Telnyx
+      with no transcode support.
+    enum:
+      - default
+      - proxy
+    type: string
+  rtp_auto_adjust_enabled:
+    default: true
+    description: >-
+      When RTP Auto-Adjust is enabled, the destination RTP address port will be
+      automatically changed to match the source of the incoming RTP packets.
+    type: boolean
+  t38_fax_gateway_enabled:
+    default: false
+    description: >-
+      Controls whether Telnyx will accept a T.38 re-INVITE for this phone
+      number. Note that Telnyx will not send a T.38 re-INVITE; this option only
+      controls whether one will be accepted.
+    type: boolean
+type: object

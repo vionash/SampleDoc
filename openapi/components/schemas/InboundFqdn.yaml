@@ -1,0 +1,143 @@
+example:
+  ani_number_format: +E.164
+  channel_limit: 10
+  codecs:
+    - G722
+  default_routing_method: sequential
+  dnis_number_format: +e164
+  generate_ringback_tone: true
+  isup_headers_enabled: true
+  prack_enabled: true
+  privacy_zone_enabled: true
+  sip_compact_headers_enabled: true
+  sip_region: US
+  sip_subdomain: test
+  sip_subdomain_receive_settings: only_my_connections
+  timeout_1xx_secs: 10
+  timeout_2xx_secs: 20
+properties:
+  ani_number_format:
+    default: E.164-national
+    description: >-
+      This setting allows you to set the format with which the caller's number
+      (ANI) is sent for inbound phone calls.
+    enum:
+      - +E.164
+      - E.164
+      - +E.164-national
+      - E.164-national
+    type: string
+  channel_limit:
+    default: null
+    description: >-
+      When set, this will limit the total number of inbound calls to phone
+      numbers associated with this connection.
+    nullable: true
+    type: integer
+  codecs:
+    default:
+      - G722
+      - G711U
+      - G711A
+      - G729
+      - OPUS
+      - H.264
+    description: >-
+      Defines the list of codecs that Telnyx will send for inbound calls to a
+      specific number on your portal account, in priority order. This only works
+      when the Connection the number is assigned to uses Media Handling mode:
+      default. OPUS and H.264 codecs are available only when using TCP or TLS
+      transport for SIP.
+    items:
+      type: string
+    type: array
+  default_routing_method:
+    default: null
+    description: >-
+      Default routing method to be used when a number is associated with the
+      connection. Must be one of the routing method types or null, other values
+      are not allowed.
+    enum:
+      - sequential
+      - round-robin
+    nullable: true
+    type: string
+  dnis_number_format:
+    default: e164
+    enum:
+      - +e164
+      - e164
+      - national
+      - sip_username
+    type: string
+  generate_ringback_tone:
+    default: false
+    description: >-
+      Generate ringback tone through 183 session progress message with early
+      media.
+    type: boolean
+  isup_headers_enabled:
+    default: false
+    description: >-
+      When set, inbound phone calls will receive ISUP parameters via SIP
+      headers. (Only when available and only when using TCP or TLS transport.)
+    type: boolean
+  prack_enabled:
+    default: false
+    description: Enable PRACK messages as defined in RFC3262.
+    type: boolean
+  privacy_zone_enabled:
+    default: false
+    description: >-
+      By default, Telnyx does not send caller-id information when the caller has
+      chosen to hide this information. When this option is enabled, Telnyx will
+      send the SIP header Privacy:id plus the caller-id information so that the
+      receiver side can choose when to hide it.
+    type: boolean
+  sip_compact_headers_enabled:
+    default: true
+    description: Defaults to true.
+    type: boolean
+  sip_region:
+    default: US
+    description: >-
+      Selects which `sip_region` to receive inbound calls from. If null, the
+      default region (US) will be used.
+    enum:
+      - US
+      - Europe
+      - Australia
+    type: string
+  sip_subdomain:
+    default: null
+    description: >-
+      Specifies a subdomain that can be used to receive Inbound calls to a
+      Connection, in the same way a phone number is used, from a SIP endpoint.
+      Example: the subdomain "example.sip.telnyx.com" can be called from any SIP
+      endpoint by using the SIP URI "sip:@example.sip.telnyx.com" where the user
+      part can be any alphanumeric value. Please note TLS encrypted calls are
+      not allowed for subdomain calls.
+    nullable: true
+    type: string
+  sip_subdomain_receive_settings:
+    default: from_anyone
+    description: >-
+      This option can be enabled to receive calls from: "Anyone" (any SIP
+      endpoint in the public Internet) or "Only my connections" (any connection
+      assigned to the same Telnyx user).
+    enum:
+      - only_my_connections
+      - from_anyone
+    type: string
+  timeout_1xx_secs:
+    default: 3
+    description: Time(sec) before aborting if connection is not made.
+    maximum: 120
+    minimum: 1
+    type: integer
+  timeout_2xx_secs:
+    default: 90
+    description: 'Time(sec) before aborting if call is unanswered (min: 1, max: 600).'
+    type: integer
+title: Inbound FQDN
+type: object

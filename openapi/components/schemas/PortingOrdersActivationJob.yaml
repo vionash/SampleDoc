@@ -1,0 +1,33 @@
+properties:
+  created_at:
+    description: ISO 8601 formatted date indicating when the resource was created.
+    example: '2021-03-19T10:07:15.527Z'
+    format: date-time
+    readOnly: true
+    type: string
+  id:
+    description: Uniquely identifies this activation job
+    example: f1486bae-f067-460c-ad43-73a92848f902
+    format: uuid
+    readOnly: true
+    type: string
+  record_type:
+    description: Identifies the type of the resource.
+    example: porting_activation_job
+    readOnly: true
+    type: string
+  status:
+    description: Specifies the status of this activation job
+    enum:
+      - created
+      - in-process
+      - completed
+      - failed
+    type: string
+  updated_at:
+    description: ISO 8601 formatted date indicating when the resource was created.
+    example: '2021-03-19T10:07:15.527Z'
+    format: date-time
+    readOnly: true
+    type: string
+type: object

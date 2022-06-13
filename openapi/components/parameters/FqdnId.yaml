@@ -1,0 +1,8 @@
+description: Identifies the resource.
+in: path
+name: id
+required: true
+schema:
+  example: '1517907029795014409'
+  format: int64
+  type: string

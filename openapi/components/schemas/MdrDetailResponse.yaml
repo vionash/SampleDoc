@@ -1,0 +1,76 @@
+properties:
+  cld:
+    description: The destination number for a call, or the callee
+    example: '+1555123456'
+    type: string
+  cli:
+    description: The number associated with the person initiating the call, or the caller
+    example: '+1555123456'
+    type: string
+  cost:
+    description: Final cost. Cost is calculated as rate * parts
+    example: '0.1'
+    type: string
+  created_at:
+    description: Message sent time
+    example: '2020-07-01T00:00:00-06:00'
+    format: date-time
+    type: string
+  currency:
+    description: Currency of the rate and cost
+    enum:
+      - AUD
+      - CAD
+      - EUR
+      - GBP
+      - USD
+    example: USD
+    type: string
+  direction:
+    description: Direction of message - inbound or outbound.
+    example: outbound
+    type: string
+  id:
+    description: Id of message detail record
+    example: 99b637f3-07fd-45ac-b9ca-b87208c24650
+    type: string
+  message_type:
+    description: Type of message
+    enum:
+      - SMS
+      - MMS
+    example: SMS
+    type: string
+  parts:
+    description: >-
+      Number of parts this message has. Max number of character is 160. If
+      message contains more characters then that it will be broken down in
+      multiple parts
+    example: 2
+    type: number
+  profile_name:
+    description: >-
+      Configured profile name. New profiles can be created and configured on
+      Telnyx portal
+    example: configured-profile-name
+    type: string
+  rate:
+    description: Rate applied to the message
+    example: '0.05'
+    type: string
+  record_type:
+    example: mdr_report
+    type: string
+  status:
+    description: Message status
+    enum:
+      - GW_TIMEOUT
+      - DELIVERED
+      - DLR_UNCONFIRMED
+      - DLR_TIMEOUT
+      - RECEIVED
+      - GW_REJECT
+      - FAILED
+    example: DELIVERED
+    type: string
+type: object

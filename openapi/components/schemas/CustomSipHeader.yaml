@@ -1,0 +1,17 @@
+example:
+  name: head_1
+  value: val_1
+properties:
+  name:
+    description: The name of the header to add.
+    example: head_1
+    type: string
+  value:
+    description: The value of the header.
+    example: val_1
+    type: string
+required:
+  - name
+  - value
+title: Custom SIP Header
+type: object

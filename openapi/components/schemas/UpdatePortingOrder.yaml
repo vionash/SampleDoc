@@ -1,0 +1,31 @@
+properties:
+  activation_settings:
+    properties:
+      foc_datetime_requested:
+        description: ISO 8601 formatted Date/Time requested for the FOC date
+        example: '2021-03-19T10:07:15.527Z'
+        format: date-time
+        type: string
+    type: object
+  customer_reference:
+    type: string
+  documents:
+    $ref: ./PortingOrderDocuments.yaml
+  end_user:
+    $ref: ./PortingOrderEndUser.yaml
+  misc:
+    $ref: ./PortingOrderMisc.yaml
+  phone_number_configuration:
+    $ref: ./PortingOrderPhoneNumberConfiguration.yaml
+  requirements:
+    description: List of requirements for porting numbers.
+    items:
+      $ref: ./UpdatePortingOrderRequirement.yaml
+    type: array
+  user_feedback:
+    $ref: ./PortingOrderUserFeedback.yaml
+  webhook_url:
+    format: uri
+    type: string
+title: UpdatePortingOrder
+type: object

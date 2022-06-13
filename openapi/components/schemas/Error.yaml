@@ -1,0 +1,23 @@
+properties:
+  code:
+    format: int
+    type: string
+  detail:
+    type: string
+  meta:
+    type: object
+  source:
+    properties:
+      parameter:
+        description: Indicates which query parameter caused the error.
+        type: string
+      pointer:
+        description: JSON pointer (RFC6901) to the offending entity.
+        format: json-pointer
+        type: string
+    type: object
+  title:
+    type: string
+required:
+  - code
+  - title

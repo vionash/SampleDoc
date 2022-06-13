@@ -1,0 +1,37 @@
+example:
+  cost_information:
+    currency: USD
+    monthly_cost: '6.54'
+    upfront_cost: '3.21'
+  features:
+    - name: sms
+    - name: voice
+  phone_number: '+19705555000'
+  range: 10
+  record_type: available_phone_number_block
+  region_information:
+    - region_name: US
+      region_type: country_code
+properties:
+  cost_information:
+    $ref: ./CostInformation.yaml
+  features:
+    items:
+      $ref: ./Feature.yaml
+    type: array
+  range:
+    example: 10
+    type: integer
+  record_type:
+    enum:
+      - available_phone_number_block
+    example: available_phone_number_block
+    type: string
+  region_information:
+    items:
+      $ref: ./RegionInformation.yaml
+    type: array
+  starting_number:
+    example: '+19705555000'
+    type: string
+type: object

@@ -1,0 +1,13 @@
+content:
+  application/json:
+    schema:
+      properties:
+        data:
+          items:
+            $ref: ../schemas/OutboundVoiceProfile.yaml
+          type: array
+        meta:
+          $ref: ../schemas/PaginationMeta.yaml
+      title: List Outbound Voice Profiles Response
+      type: object
+description: Successful response

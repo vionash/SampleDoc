@@ -1,0 +1,11 @@
+properties:
+  text:
+    description: >-
+      The footer content. Emojis and markdown are supported. Links are
+      supported.
+    title: Text
+    type: string
+required:
+  - text
+title: InteractiveFooter
+type: object

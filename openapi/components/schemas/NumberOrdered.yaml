@@ -1,0 +1,23 @@
+properties:
+  event_type:
+    description: The type of event being delivered.
+    example: number_order.complete
+    type: string
+  id:
+    description: Identifies the type of resource.
+    format: uuid
+    type: string
+  occurred_at:
+    description: ISO 8601 formatted date indicating when the resource was created.
+    format: date-time
+    type: string
+  payload:
+    $ref: ./NumberOrder.yaml
+  record_type:
+    description: Identifies the type of the resource.
+    enum:
+      - event
+    example: event
+    type: string
+title: Number Order Event Data
+type: object

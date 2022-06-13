@@ -1,0 +1,45 @@
+get:
+  description: Returns a list of your IP connections.
+  operationId: listIpConnections
+  parameters:
+    - $ref: ../components/parameters/PageNumber.yaml
+    - $ref: ../components/parameters/PageSize.yaml
+    - $ref: ../components/parameters/FilterConnectionName.yaml
+    - $ref: ../components/parameters/FilterInnerOutboundVoiceProfileId.yaml
+    - $ref: ../components/parameters/SortConnection.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/ListIpConnectionsResponse.yaml
+    '400':
+      description: Bad request
+    '401':
+      description: Unauthorized
+    '404':
+      description: Resource not found
+  summary: List Ip connections
+  tags:
+    - IP Connections
+  x-endpoint-cost: medium
+  x-group-parameters: 'true'
+  x-latency-category: responsive
+post:
+  description: Creates an IP connection.
+  operationId: createIpConnection
+  parameters: []
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/CreateIpConnectionRequest.yaml
+    description: Parameters that can be defined during IP connection creation
+    required: true
+  responses:
+    '201':
+      $ref: ../components/responses/IpConnectionResponse.yaml
+    '422':
+      description: Bad request
+  summary: Create an Ip connection
+  tags:
+    - IP Connections
+  x-endpoint-cost: medium
+  x-latency-category: responsive

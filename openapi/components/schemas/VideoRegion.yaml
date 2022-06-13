@@ -1,0 +1,69 @@
+properties:
+  height:
+    description: Height of the video region
+    example: 360
+    minimum: 16
+    nullable: true
+    type: integer
+  max_columns:
+    description: >-
+      Maximum number of columns of the region's placement grid. By default, the
+      region has as many columns as needed to layout all the specified video
+      sources.
+    example: 3
+    maximum: 1000
+    minimum: 1
+    nullable: true
+    type: integer
+  max_rows:
+    description: >-
+      Maximum number of rows of the region's placement grid. By default, the
+      region has as many rows as needed to layout all the specified video
+      sources.
+    example: 3
+    maximum: 1000
+    minimum: 1
+    nullable: true
+    type: integer
+  video_sources:
+    description: >-
+      Array of video recording ids to be composed in the region. Can be "*" to
+      specify all video recordings in the session
+    items:
+      example: 7b61621f-62e0-4aad-ab11-9fd19e272e73
+      format: uuid
+      type: string
+    type: array
+  width:
+    description: Width of the video region
+    example: 480
+    minimum: 16
+    nullable: true
+    type: integer
+  x_pos:
+    default: 0
+    description: >-
+      X axis value (in pixels) of the region's upper left corner relative to the
+      upper left corner of the whole room composition viewport.
+    example: 100
+    nullable: true
+    type: integer
+  y_pos:
+    default: 0
+    description: >-
+      Y axis value (in pixels) of the region's upper left corner relative to the
+      upper left corner of the whole room composition viewport.
+    example: 100
+    nullable: true
+    type: integer
+  z_pos:
+    default: 0
+    description: >-
+      Regions with higher z_pos values are stacked on top of regions with lower
+      z_pos values
+    example: 1
+    maximum: 99
+    minimum: -99
+    nullable: true
+    type: integer
+type: object

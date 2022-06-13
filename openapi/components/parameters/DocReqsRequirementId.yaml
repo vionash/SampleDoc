@@ -1,0 +1,8 @@
+description: Uniquely identifies the requirement_type record
+example: a9dad8d5-fdbd-49d7-aa23-39bb08a5ebaa
+in: path
+name: id
+required: true
+schema:
+  format: uuid
+  type: string

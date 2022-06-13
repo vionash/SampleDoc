@@ -1,0 +1,9 @@
+description: Filter results by a list of porting order ids
+in: query
+name: filter[porting_order_id][in][]
+schema:
+  items:
+    example: f3575e15-32ce-400e-a4c0-dd78800c20b0
+    format: uuid
+    type: string
+  type: array

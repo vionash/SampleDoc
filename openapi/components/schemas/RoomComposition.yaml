@@ -1,0 +1,135 @@
+example:
+  completed_at: '2022-02-25T05:39:56.377426Z'
+  download_url: null
+  duration_secs: 84
+  ended_at: '2022-02-24T23:22:24.577677Z'
+  format: mp4
+  id: 7103dc53-ee59-4b54-a58b-c77d99ceb037
+  record_type: composition
+  resolution: 1280x720
+  room_id: f981dbb3-228a-44e9-ac54-e87f0e2658b0
+  session_id: 8f728d7b-00e2-4c59-8c27-f564b828df87
+  size_mb: 6
+  started_at: '2022-02-24T23:21:00.077209Z'
+  status: enqueued
+  user_id: 12a04ec9-0f91-4a91-9f3a-a19d9931182e
+  video_layout:
+    first:
+      height: 720
+      video_sources:
+        - '*'
+      width: 1280
+      x_pos: 0
+      y_pos: 0
+      z_pos: 0
+  webhook_event_url: https://webhook.site/544663ce-b692-4f9c-80ed-e5ad97cd5c02
+properties:
+  completed_at:
+    description: ISO 8601 timestamp when the room composition has completed.
+    example: '2021-03-26T17:51:59.588408Z'
+    format: datetime
+    type: string
+  created_at:
+    description: ISO 8601 timestamp when the room composition was created.
+    example: '2021-03-26T17:51:59.588408Z'
+    format: datetime
+    type: string
+  download_url:
+    description: Url to download the composition.
+    example: https://www.example.com
+    type: string
+  duration_secs:
+    description: Shows the room composition duration in seconds.
+    example: 67
+    type: integer
+  ended_at:
+    description: ISO 8601 timestamp when the room composition has ended.
+    example: '2021-03-26T17:51:59.588408Z'
+    format: datetime
+    type: string
+  format:
+    description: Shows format of the room composition.
+    enum:
+      - mp4
+    example: mp4
+    type: string
+  id:
+    description: A unique identifier for the room composition.
+    example: 0ccc7b54-4df3-4bca-a65a-3da1ecc777f0
+    format: uuid
+    type: string
+  record_type:
+    example: room_composition
+    readOnly: true
+    type: string
+  room_id:
+    description: Identify the room associated with the room composition.
+    example: 0ccc7b54-4df3-4bca-a65a-3da1ecc777b0
+    format: uuid
+    type: string
+  session_id:
+    description: Identify the room session associated with the room composition.
+    example: 0ccc7b54-4df3-4bca-a65a-3da1ecc777b0
+    format: uuid
+    type: string
+  size_mb:
+    description: Shows the room composition size in MB.
+    example: 10.5
+    format: float
+    type: number
+  started_at:
+    description: ISO 8601 timestamp when the room composition has stated.
+    example: '2021-03-26T17:51:59.588408Z'
+    format: datetime
+    type: string
+  status:
+    description: Shows the room composition status.
+    enum:
+      - completed
+      - enqueued
+      - processing
+    example: completed
+    type: string
+  updated_at:
+    description: ISO 8601 timestamp when the room composition was updated.
+    example: '2021-03-26T17:51:59.588408Z'
+    format: datetime
+    type: string
+  user_id:
+    description: Identify the user associated with the room composition.
+    example: 0ccc7b54-4df3-4bca-a65a-3da1ecc777b0
+    format: uuid
+    type: string
+  video_layout:
+    additionalProperties:
+      $ref: ./VideoRegion.yaml
+    description: >-
+      Describes the video layout of the room composition in terms of regions.
+      Limited to 2 regions.
+    type: object
+  webhook_event_failover_url:
+    default: ''
+    description: >-
+      The failover URL where webhooks related to this room composition will be
+      sent if sending to the primary URL fails. Must include a scheme, such as
+      'https'.
+    example: https://failover.example.com
+    format: url
+    nullable: true
+    type: string
+  webhook_event_url:
+    description: >-
+      The URL where webhooks related to this room composition will be sent. Must
+      include a scheme, such as 'https'.
+    example: https://example.com
+    format: url
+    type: string
+  webhook_timeout_secs:
+    default: null
+    description: Specifies how many seconds to wait before timing out a webhook.
+    example: 25
+    maximum: 30
+    minimum: 0
+    nullable: true
+    type: integer
+type: object

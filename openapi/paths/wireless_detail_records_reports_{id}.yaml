@@ -1,0 +1,32 @@
+delete:
+  description: Deletes one specific WDR report
+  operationId: deleteWdrReport
+  parameters:
+    - $ref: ../components/parameters/ResourceId.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/DeleteWdrReportResponse.yaml
+    '404':
+      $ref: ../components/responses/ResourceNotFound.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Delete a Wireless Detail Record (WDR) Report
+  tags:
+    - Reporting
+  x-latency-category: background
+get:
+  description: Returns one specific WDR report
+  operationId: getWdrReport
+  parameters:
+    - $ref: ../components/parameters/ResourceId.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/GetWdrReportResponse.yaml
+    '404':
+      $ref: ../components/responses/ResourceNotFound.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Get a Wireless Detail Record (WDR) Report
+  tags:
+    - Reporting
+  x-latency-category: background

@@ -1,0 +1,16 @@
+properties:
+  active:
+    $ref: ./active.yaml
+  name:
+    $ref: ./name.yaml
+  settings:
+    $ref: ./settings.yaml
+  settings_url:
+    $ref: ./settings_url.yaml
+  short_name:
+    $ref: ./short_name.yaml
+required:
+  - name
+  - short_name
+  - settings
+type: object

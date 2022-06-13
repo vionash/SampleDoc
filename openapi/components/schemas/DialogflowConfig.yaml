@@ -1,0 +1,8 @@
+properties:
+  analyze_sentiment:
+    default: false
+    description: Enable sentiment analysis from Dialogflow.
+    example: 'true'
+    type: boolean
+title: Dialogflow Config
+type: object

@@ -1,0 +1,11 @@
+content:
+  application/json:
+    schema:
+      properties:
+        data:
+          items:
+            $ref: ../schemas/UploadMedia.yaml
+          type: array
+      title: Upload Media.
+      type: object
+description: Successful response

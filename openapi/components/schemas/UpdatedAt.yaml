@@ -1,0 +1,4 @@
+description: ISO 8601 formatted date indicating when the resource was updated.
+example: '2020-02-03T22:25:27.521Z'
+title: Updated At
+type: string

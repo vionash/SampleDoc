@@ -1,0 +1,8 @@
+content:
+  application/json:
+    schema:
+      properties:
+        data:
+          $ref: ../schemas/LedgerBillingGroupReport.yaml
+      type: object
+description: Expected ledger billing group report response to a valid request

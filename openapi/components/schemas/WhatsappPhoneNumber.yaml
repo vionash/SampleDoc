@@ -1,0 +1,92 @@
+example:
+  about: This is our about section
+  created_at: '2020-01-01T00:00:00.000000Z'
+  id: 2ade33a-21c0-473b-b055-b3c836e1c292
+  organization_id: 29f187ff-6f27-449f-a2d3-d7188a50008c
+  phone_number: '+1879832178'
+  record_type: whatsapp_phone_number
+  status: pending
+  updated_at: '2020-01-01T00:00:00.000000Z'
+  webhook_url: http://www.myurl.com/webhook
+  whatsapp_settings:
+    display_name: Acme Inc.
+    display_name_status: APPROVED
+    id: '487117329074690'
+    quality_rating: UNKNOWN
+  whatsapp_user_id: '1879832178'
+properties:
+  about:
+    description: The WhatsApp about section content
+    example: This is our about section
+    type: string
+  created_at:
+    description: >-
+      An ISO 8601 datetime string denoting when the account was added to the
+      Telnyx platform
+    example: '2018-01-01T00:00:00.000000Z'
+    format: datetime
+    type: string
+  id:
+    example: 12ade33a-21c0-473b-b055-b3c836e1c292
+    format: uuid
+    type: string
+  organization_id:
+    description: The owning organization's ID
+    example: 12ade33a-21c0-473b-b055-b3c836e1c292
+    format: uuid
+    type: string
+  phone_number:
+    description: The phone number in E164 format
+    format: e164
+    type: string
+  record_type:
+    example: whatsapp_phone_number
+    type: string
+  status:
+    description: The configuration status for the phone number in the Telnyx platform
+    enum:
+      - pending
+      - ready
+      - disconnected
+    type: string
+  updated_at:
+    description: An ISO 8601 datetime string for when the number order was updated.
+    example: '2018-01-01T00:00:00.000000Z'
+    format: datetime
+    type: string
+  webhook_url:
+    description: The webhook url to be used by facebook
+    example: http://mydomain.com/webhook
+    type: string
+  whatsapp_business_account_id:
+    description: The associated WhatsApp Business Account ID
+    example: 12ade33a-21c0-473b-b055-b3c836e1c292
+    format: uuid
+    type: string
+  whatsapp_settings:
+    description: The WhatsApp settings associated with the business account
+    properties:
+      display_name:
+        description: The display name of the phone number in the WhatsApp app
+        type: string
+      display_name_status:
+        description: The Facebook approval status of the phone numbers display name
+        enum:
+          - PENDING_REVIEW
+          - APPROVED
+          - DECLINED
+          - EXPIRED
+          - NONE
+        type: string
+      id:
+        description: The unique ID of the phone number in Facebook
+        type: string
+      quality_rating:
+        description: The quality rating of the number in the WhatsApp app
+        type: string
+  whatsapp_user_id:
+    description: >-
+      The phone number's WhatsApp User ID, used in other Telnyx Whatsapp API
+      endpoints
+    type: string
+type: object

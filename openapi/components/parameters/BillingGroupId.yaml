@@ -1,0 +1,7 @@
+description: The id of the billing group
+in: path
+name: id
+required: true
+schema:
+  format: uuid
+  type: string

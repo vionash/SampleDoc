@@ -1,0 +1,8 @@
+content:
+  application/json:
+    schema:
+      properties:
+        data:
+          $ref: ../schemas/RoomRecording.yaml
+      type: object
+description: Get room recording response.

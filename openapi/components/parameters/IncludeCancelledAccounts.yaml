@@ -1,0 +1,8 @@
+description: Specifies if cancelled accounts should be included in the results.
+in: query
+name: include_cancelled_accounts
+required: false
+schema:
+  default: 'false'
+  example: 'true'
+  type: boolean

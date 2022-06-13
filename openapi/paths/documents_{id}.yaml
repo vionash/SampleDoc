@@ -1,0 +1,51 @@
+delete:
+  description: >-
+    Delete a document.<br /><br />A document can only be deleted if it's not
+    linked to a service. If it is linked to a service, it must be unlinked prior
+    to deleting.
+  operationId: deleteDocument
+  parameters:
+    - $ref: ../components/parameters/Id.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/DocServiceDocumentResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Delete a document
+  tags:
+    - Documents
+  x-latency-category: responsive
+get:
+  description: Retrieve a document.
+  operationId: retrieveDocument
+  parameters:
+    - $ref: ../components/parameters/Id.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/DocServiceDocumentResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Retrieve a document
+  tags:
+    - Documents
+  x-latency-category: responsive
+patch:
+  description: Update a document.
+  operationId: updateDocument
+  parameters:
+    - $ref: ../components/parameters/Id.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/DocServiceDocument.yaml
+    required: true
+  responses:
+    '200':
+      $ref: ../components/responses/DocServiceDocumentResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Update a document
+  tags:
+    - Documents
+  x-latency-category: responsive

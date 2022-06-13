@@ -1,0 +1,34 @@
+get:
+  operationId: listBusinessIdentities
+  parameters:
+    - $ref: ../components/parameters/PageNumber.yaml
+    - $ref: ../components/parameters/PageSize.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/ListBusinessIdentitiesResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Lists the Business Identities owned by the current user/organization
+  tags:
+    - Business Identity
+  x-endpoint-cost: light
+  x-group-parameters: 'true'
+  x-latency-category: responsive
+post:
+  description: Creates a new Business Identity.
+  operationId: createBusinessIdentity
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/CreateOrUpdateBusinessIdentityRequest.yaml
+    required: true
+  responses:
+    '201':
+      description: Business Identity was created.
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Creates a Business Identity
+  tags:
+    - Business Identity
+  x-latency-category: responsive

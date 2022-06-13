@@ -1,0 +1,14 @@
+description: The timeframe for which you'd like to retrieve metrics.
+in: query
+name: time_frame
+required: false
+schema:
+  default: 24h
+  enum:
+    - 1h
+    - 3h
+    - 24h
+    - 3d
+    - 7d
+    - 30d
+  type: string

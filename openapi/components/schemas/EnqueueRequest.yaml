@@ -1,0 +1,39 @@
+example:
+  client_state: aGF2ZSBhIG5pY2UgZGF5ID1d
+  command_id: 891510ac-f3e4-11e8-af5b-de00688a4901
+  max_size: 20
+  max_wait_time_secs: 600
+  queue_name: support
+properties:
+  client_state:
+    description: >-
+      Use this field to add state to every subsequent webhook. It must be a
+      valid Base-64 encoded string.
+    example: aGF2ZSBhIG5pY2UgZGF5ID1d
+    type: string
+  command_id:
+    description: >-
+      Use this field to avoid duplicate commands. Telnyx will ignore any command
+      with the same `command_id` for the same `call_control_id`.
+    example: 891510ac-f3e4-11e8-af5b-de00688a4901
+    type: string
+  max_size:
+    default: 100
+    description: >-
+      The maximum number of calls allowed in the queue at a given time. Can't be
+      modified for an existing queue.
+    example: 200
+    type: integer
+  max_wait_time_secs:
+    description: The number of seconds after which the call will be removed from the queue.
+    example: 600
+    type: integer
+  queue_name:
+    description: >-
+      The name of the queue the call should be put in. If a queue with a given
+      name doesn't exist yet it will be created.
+    example: tier_1_support
+    required: true
+    type: string
+title: Enqueue Request
+type: object

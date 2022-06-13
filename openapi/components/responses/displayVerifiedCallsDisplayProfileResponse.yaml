@@ -1,0 +1,9 @@
+content:
+  application/json:
+    schema:
+      properties:
+        data:
+          $ref: ../schemas/VerifiedCallsDisplayProfile.yaml
+      title: Show Verified Calls Display Profile Response
+      type: object
+description: Successful response with a Verified Calls Display Profile.

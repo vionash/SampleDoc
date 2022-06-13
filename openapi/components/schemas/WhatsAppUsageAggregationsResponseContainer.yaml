@@ -1,0 +1,6 @@
+properties:
+  data:
+    items:
+      $ref: ./WhatsAppUsageAggregation.yaml
+    type: array
+type: object

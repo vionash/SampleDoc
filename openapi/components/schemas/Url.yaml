@@ -1,0 +1,13 @@
+description: 'Standard Values: HOME, WORK'
+example:
+  type: WORK
+  url: https://www.facebook.com
+properties:
+  type:
+    description: 'Standard Values: HOME, WORK'
+    type: string
+  url:
+    description: URL
+    type: string
+title: Root Type for Url
+type: object

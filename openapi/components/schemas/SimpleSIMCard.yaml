@@ -1,0 +1,103 @@
+properties:
+  created_at:
+    description: ISO 8601 formatted date-time indicating when the resource was created.
+    example: '2018-02-02T22:25:27.521Z'
+    readOnly: true
+    type: string
+  current_billing_period_consumed_data:
+    description: The SIM card consumption so far in the current billing cycle.
+    properties:
+      amount:
+        example: '2049.0'
+        format: decimal
+        type: string
+      unit:
+        default: MB
+        example: MB
+        type: string
+    readOnly: true
+    type: object
+  data_limit:
+    description: The SIM card individual data limit configuration.
+    properties:
+      amount:
+        example: '2048.0'
+        format: decimal
+        type: string
+      unit:
+        enum:
+          - MB
+          - GB
+        example: MB
+        type: string
+    readOnly: true
+    type: object
+  iccid:
+    description: >
+      The ICCID is the identifier of the specific SIM card/chip. Each SIM is
+      internationally identified by its integrated circuit card identifier
+      (ICCID). ICCIDs are stored in the SIM card's memory and are also engraved
+      or printed on the SIM card body during a process called personalization.
+    example: '89310410106543789301'
+    readOnly: true
+    type: string
+  id:
+    description: Identifies the resource.
+    example: 6a09cdc3-8948-47f0-aa62-74ac943d6c58
+    format: uuid
+    readOnly: true
+    type: string
+  imsi:
+    description: >
+      SIM cards are identified on their individual operator networks by a unique
+      International Mobile Subscriber Identity (IMSI). <br/>
+
+      Mobile network operators connect mobile phone calls and communicate with
+      their market SIM cards using their IMSIs. The IMSI is stored in the
+      Subscriber  Identity Module (SIM) inside the device and is sent by the
+      device to the appropriate network. It is used to acquire the details of
+      the device in the Home  Location Register (HLR) or the Visitor Location
+      Register (VLR).
+    example: 81932214823362980
+    readOnly: true
+    type: string
+  msisdn:
+    description: >
+      Mobile Station International Subscriber Directory Number (MSISDN) is a
+      number used to identify a mobile phone number internationally. <br/>
+
+      MSISDN is defined by the E.164 numbering plan. It includes a country code
+      and a National Destination Code which identifies the subscriber's
+      operator.
+    example: '+13109976224'
+    readOnly: true
+    type: string
+  record_type:
+    example: sim_card
+    readOnly: true
+    type: string
+  sim_card_group_id:
+    description: >-
+      The group SIMCardGroup identification. This attribute can be
+      <code>null</code> when it's present in an associated resource.
+    example: 6a09cdc3-8948-47f0-aa62-74ac943d6c58
+    format: uuid
+    type: string
+  status:
+    $ref: ./SIMCardStatus.yaml
+  tags:
+    description: Searchable tags associated with the SIM card
+    example:
+      - personal
+      - customers
+      - active-customers
+    items:
+      type: string
+    type: array
+  updated_at:
+    description: ISO 8601 formatted date-time indicating when the resource was updated.
+    example: '2018-02-02T22:25:27.521Z'
+    readOnly: true
+    type: string
+title: SIMCard
+type: object

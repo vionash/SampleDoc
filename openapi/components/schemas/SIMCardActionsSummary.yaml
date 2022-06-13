@@ -1,0 +1,12 @@
+properties:
+  count:
+    type: integer
+  status:
+    enum:
+      - in-progress
+      - completed
+      - failed
+      - interrupted
+    example: in-progress
+    type: string
+type: object

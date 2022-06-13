@@ -1,0 +1,9 @@
+content:
+  application/json:
+    schema:
+      properties:
+        data:
+          $ref: ../schemas/MessagingProfile.yaml
+      title: Messaging Profile Response
+      type: object
+description: Successful response with details about a messaging profile.

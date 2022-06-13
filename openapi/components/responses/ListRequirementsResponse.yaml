@@ -1,0 +1,10 @@
+content:
+  application/json:
+    schema:
+      properties:
+        data:
+          $ref: ../schemas/DocReqsRequirementList.yaml
+        meta:
+          $ref: ../schemas/PaginationMeta.yaml
+      type: object
+description: Successful response

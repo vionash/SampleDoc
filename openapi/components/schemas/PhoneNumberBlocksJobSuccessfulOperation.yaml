@@ -1,0 +1,9 @@
+properties:
+  id:
+    description: The phone number's ID
+    format: int64
+    type: string
+  phone_number:
+    description: The phone number in e164 format.
+    format: e164
+    type: string

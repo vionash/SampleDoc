@@ -1,0 +1,24 @@
+get:
+  operationId: listVerifications
+  parameters:
+    - description: The phone number associated with the verifications to retrieve.
+      in: path
+      name: phone_number
+      required: true
+      schema:
+        description: +E164 formatted phone number.
+        example: '+13035551234'
+        type: string
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ListVerificationsResponse.yaml
+      description: Expected verifications response to a valid request.
+    '400':
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: List verifications by phone number
+  tags:
+    - Verify
+  x-latency-category: responsive

@@ -1,0 +1,32 @@
+get:
+  operationId: listMessagingHostedNumberOrder
+  parameters:
+    - $ref: ../components/parameters/PageNumber.yaml
+    - $ref: ../components/parameters/PageSize.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/ListMessagingHostedNumberOrdersResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: List messaging hosted number orders
+  tags:
+    - Messaging Hosted Number
+  x-group-parameters: 'true'
+  x-latency-category: responsive
+post:
+  operationId: createMessagingHostedNumberOrder
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/CreateMessagingHostedNumberOrderRequest.yaml
+    description: Message payload
+  responses:
+    '200':
+      $ref: ../components/responses/MessagingHostedNumberOrderResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Create a messaging hosted number order
+  tags:
+    - Messaging Hosted Number
+  x-latency-category: responsive

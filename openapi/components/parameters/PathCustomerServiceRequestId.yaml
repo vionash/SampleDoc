@@ -1,0 +1,6 @@
+description: The ID of the customer service request
+in: path
+name: customer_service_request_id
+required: true
+schema:
+  type: string

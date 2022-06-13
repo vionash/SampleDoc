@@ -1,0 +1,19 @@
+properties:
+  activation_status:
+    $ref: ./PortingOrderActivationStatus.yaml
+  fast_port_eligible:
+    description: Indicates whether this porting order is eligible for FastPort
+    example: true
+    readOnly: true
+    type: boolean
+  foc_datetime_actual:
+    description: ISO 8601 formatted Date/Time of the FOC date
+    example: '2021-03-19T10:07:15.527Z'
+    format: date-time
+    type: string
+  foc_datetime_requested:
+    description: ISO 8601 formatted Date/Time requested for the FOC date
+    example: '2021-03-19T10:07:15.527Z'
+    format: date-time
+    type: string
+type: object

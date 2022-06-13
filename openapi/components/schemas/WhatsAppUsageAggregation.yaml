@@ -1,0 +1,26 @@
+properties:
+  cost:
+    $ref: ./Money.yaml
+  count:
+    example: '3'
+    type: string
+  direction:
+    example: inbound
+    type: string
+  message_type:
+    example: template
+    type: string
+  recipient_country_code:
+    example: '1'
+    type: string
+  record_type:
+    example: whatsapp_usage_aggregation
+    type: string
+  status:
+    example: delivered
+    type: string
+  telnyx_fee:
+    $ref: ./Money.yaml
+  whatsapp_fee:
+    $ref: ./Money.yaml
+type: object

@@ -1,0 +1,87 @@
+example:
+  active_session_id: 7b61621f-62e0-4aad-ab11-9fd19e272e74
+  created_at: '2021-04-16T09:46:20.954863Z'
+  enable_recording: true
+  id: 7b61621f-62e0-4aad-ab11-9fd19e272e73
+  max_participants: 50
+  record_type: room
+  sessions:
+    - active: true
+      created_at: '2021-04-16T09:46:20.954863Z'
+      id: 7b61621f-62e0-4aad-ab11-9fd19e272e74
+      participants: []
+      record_type: room_session
+      room_id: 7b61621f-62e0-4aad-ab11-9fd19e272e73
+      updated_at: '2021-04-16T10:24:55.962200Z'
+  unique_name: My Room
+  updated_at: '2021-04-16T10:24:55.962200Z'
+  webhook_event_failover_url: https://failover.example.com
+  webhook_event_url: https://www.example.com
+  webhook_timeout_secs: 25
+properties:
+  active_session_id:
+    description: The identifier of the active room session if any.
+    example: 0ccc7b54-4df3-4bca-a65a-3da1ecc777f0
+    format: uuid
+    type: string
+  created_at:
+    description: ISO 8601 timestamp when the room was created.
+    example: '2021-03-26T17:51:59.588408Z'
+    format: datetime
+    type: string
+  enable_recording:
+    default: false
+    description: Enable or disable recording for that room.
+    example: true
+    type: boolean
+  id:
+    description: A unique identifier for the room.
+    example: 0ccc7b54-4df3-4bca-a65a-3da1ecc777f0
+    format: uuid
+    type: string
+  max_participants:
+    description: Maximum participants allowed in the room.
+    example: 50
+    type: integer
+  record_type:
+    example: room
+    readOnly: true
+    type: string
+  sessions:
+    items:
+      $ref: ./RoomSession.yaml
+    type: array
+  unique_name:
+    description: The unique (within the Telnyx account scope) name of the room.
+    example: My room
+    type: string
+  updated_at:
+    description: ISO 8601 timestamp when the room was updated.
+    example: '2021-03-26T17:51:59.588408Z'
+    format: datetime
+    type: string
+  webhook_event_failover_url:
+    default: ''
+    description: >-
+      The failover URL where webhooks related to this room will be sent if
+      sending to the primary URL fails. Must include a scheme, such as 'https'.
+    example: https://failover.example.com
+    format: url
+    nullable: true
+    type: string
+  webhook_event_url:
+    description: >-
+      The URL where webhooks related to this room will be sent. Must include a
+      scheme, such as 'https'.
+    example: https://example.com
+    format: url
+    type: string
+  webhook_timeout_secs:
+    default: null
+    description: Specifies how many seconds to wait before timing out a webhook.
+    example: 25
+    maximum: 30
+    minimum: 0
+    nullable: true
+    type: integer
+type: object

@@ -1,0 +1,7 @@
+description: 'Event timestamp: lower than'
+in: query
+name: filter[event_timestamp][lt]
+required: false
+schema:
+  example: '2019-03-29T11:10:00Z'
+  type: string

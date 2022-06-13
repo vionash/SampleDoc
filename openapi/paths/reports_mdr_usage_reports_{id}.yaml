@@ -1,0 +1,48 @@
+delete:
+  description: Delete messaging usage report by id
+  operationId: deleteUsageReport
+  parameters:
+    - content:
+        '*/*':
+          schema:
+            format: uuid
+            type: string
+      in: path
+      name: id
+      required: true
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/MdrDeleteUsageReportsResponse.yaml
+      description: Successful
+  security:
+    - bearerAuth: []
+  tags:
+    - MDR Usage Reports
+  x-latency-category: interactive
+get:
+  description: Fetch a single messaging usage report by id
+  operationId: getUsageReport
+  parameters:
+    - content:
+        '*/*':
+          schema:
+            format: uuid
+            type: string
+      in: path
+      name: id
+      required: true
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/MdrGetUsageReportsByIdResponse.yaml
+      description: Successful
+  security:
+    - bearerAuth: []
+  tags:
+    - MDR Usage Reports
+  x-latency-category: interactive

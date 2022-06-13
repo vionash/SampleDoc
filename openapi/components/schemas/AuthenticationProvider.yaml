@@ -1,0 +1,71 @@
+properties:
+  active:
+    $ref: ./active.yaml
+  created_at:
+    description: ISO 8601 formatted date indicating when the resource was created.
+    example: '2018-02-02T22:25:27.521Z'
+    type: string
+  id:
+    description: Uniquely identifies the authentication provider.
+    example: 35146afd-df93-4963-b1e9-1a085e2ae874
+    format: uuid
+    type: string
+  name:
+    $ref: ./name.yaml
+  organization_id:
+    $ref: ./organization_id.yaml
+  record_type:
+    description: Identifies the type of the resource.
+    example: authentication_provider
+    type: string
+  settings:
+    description: The settings associated with the authentication provider.
+    properties:
+      assertion_consumer_service_url:
+        description: The Assertion Consumer Service URL for the service provider (Telnyx).
+        example: https://api.telnyx.com/sso/saml/auth/myorg
+        type: string
+      idp_cert_fingerprint:
+        description: The certificate fingerprint for the identity provider (IdP)
+        example: 13:38:C7:BB:C9:FF:4A:70:38:3A:E3:D9:5C:CD:DB:2E:50:1E:80:A7
+        type: string
+      idp_cert_fingerprint_algorithm:
+        default: sha1
+        description: >-
+          The algorithm used to generate the identity provider's (IdP)
+          certificate fingerprint
+        enum:
+          - sha1
+          - sha256
+          - sha384
+          - sha512
+        example: sha256
+        type: string
+      idp_entity_id:
+        description: The Entity ID for the identity provider (IdP).
+        example: https://myorg.myidp.com/saml/metadata
+        type: string
+      idp_sso_target_url:
+        description: The SSO target url for the identity provider (IdP).
+        example: https://myorg.myidp.com/trust/saml2/http-post/sso
+        type: string
+      name_identifier_format:
+        description: >-
+          The name identifier format associated with the authentication
+          provider. This must be the same for both the Identity Provider (IdP)
+          and the service provider (Telnyx).
+        example: urn:oasis:names:tc:SAML:1.1:nameid-format
+        type: string
+      service_provider_entity_id:
+        description: The Entity ID for the service provider (Telnyx).
+        example: https://api.telnyx.com/sso/saml/metadata/myorg
+        type: string
+    type: object
+  short_name:
+    $ref: ./short_name.yaml
+  updated_at:
+    description: ISO 8601 formatted date indicating when the resource was updated.
+    example: '2018-02-02T22:25:27.521Z'
+    type: string
+title: AuthenticationProvider
+type: object

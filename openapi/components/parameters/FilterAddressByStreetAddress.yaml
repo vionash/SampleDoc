@@ -1,0 +1,6 @@
+description: Returns entries with matching name of the street where the address is located.
+in: query
+name: filter[address.street_address]
+schema:
+  example: 311 W Superior St
+  type: string

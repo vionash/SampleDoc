@@ -1,0 +1,13 @@
+properties:
+  amount:
+    example: '0.06'
+    type: string
+  currency:
+    enum:
+      - AUD
+      - CAD
+      - EUR
+      - GBP
+      - USD
+    type: string
+type: object

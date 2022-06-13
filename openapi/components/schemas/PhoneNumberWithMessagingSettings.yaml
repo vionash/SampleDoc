@@ -1,0 +1,101 @@
+example:
+  country_code: US
+  created_at: '2019-01-23T18:10:02.574Z'
+  eligible_messaging_products:
+    - A2P
+  features:
+    mms: null
+    sms:
+      domestic_two_way: true
+      international_inbound: true
+      international_outbound: true
+  health:
+    inbound_outbound_ratio: 0.43
+    message_count: 122
+    spam_ratio: 0.06
+    success_ratio: 0.94
+  id: '1293384261075731499'
+  messaging_product: A2P
+  messaging_profile_id: 3fa85f64-5717-4562-b3fc-2c963f66afa6
+  phone_number: '+18005550001'
+  record_type: messaging_settings
+  traffic_type: A2P
+  type: toll-free
+  updated_at: '2019-01-23T18:10:02.574Z'
+properties:
+  country_code:
+    description: ISO 3166-1 alpha-2 country code.
+    example: US
+    pattern: ^[A-Z]{2}$
+    readOnly: true
+    type: string
+  created_at:
+    description: ISO 8601 formatted date indicating when the resource was created.
+    format: date-time
+    readOnly: true
+    type: string
+  eligible_messaging_products:
+    description: The messaging products that this number can be registered to use
+    items:
+      type: string
+    readOnly: true
+    type: array
+  features:
+    properties:
+      mms:
+        $ref: ./MessagingFeatureSet.yaml
+      sms:
+        $ref: ./MessagingFeatureSet.yaml
+    readOnly: true
+    type: object
+  health:
+    $ref: ./NumberHealthMetrics.yaml
+  id:
+    description: Identifies the type of resource.
+    readOnly: true
+    type: string
+  messaging_product:
+    description: The messaging product that the number is registered to use
+    example: P2P
+    type: string
+  messaging_profile_id:
+    description: Unique identifier for a messaging profile.
+    nullable: true
+    type: string
+  phone_number:
+    description: +E.164 formatted phone number.
+    format: e164
+    readOnly: true
+    type: string
+  record_type:
+    description: Identifies the type of the resource.
+    enum:
+      - messaging_phone_number
+      - messaging_settings
+    example: messaging_settings
+    readOnly: true
+    type: string
+  traffic_type:
+    description: >-
+      The messaging traffic or use case for which the number is currently
+      configured.
+    example: P2P
+    readOnly: true
+    type: string
+  type:
+    description: The type of the phone number
+    enum:
+      - long-code
+      - toll-free
+      - short-code
+      - longcode
+      - tollfree
+      - shortcode
+    readOnly: true
+    type: string
+  updated_at:
+    description: ISO 8601 formatted date indicating when the resource was updated.
+    format: date-time
+    readOnly: true
+    type: string
+type: object

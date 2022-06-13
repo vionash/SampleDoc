@@ -1,0 +1,18 @@
+description: The CNAM listing settings for a phone number.
+example:
+  cnam_listing_details: example
+  cnam_listing_enabled: true
+properties:
+  cnam_listing_details:
+    description: >-
+      The CNAM listing details for this number. Must be alphanumeric characters
+      or spaces with a maximum length of 15. Requires cnam_listing_enabled to
+      also be set to true.
+    type: string
+  cnam_listing_enabled:
+    default: false
+    description: >-
+      Enables CNAM listings for this number. Requires cnam_listing_details to
+      also be set.
+    type: boolean
+type: object

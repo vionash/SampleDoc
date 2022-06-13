@@ -1,0 +1,40 @@
+properties:
+  button:
+    description: >-
+      Button content. It cannot be an empty string and must be unique within the
+      message. Emojis are supported, markdown is not. Required for List
+      Messages.
+    title: Button
+    type: string
+  buttons:
+    description: A list of buttons. Required for Reply Button Messages.
+    items:
+      $ref: ./InteractiveButton.yaml
+    title: Buttons
+    type: array
+  catalog_id:
+    description: >-
+      Unique identifier of the Facebook catalog linked to your WhatsApp Business
+      Account. This ID can be retrieved via Commerce Manager. Required for
+      Single Product Messages and Multi-Product Messages.
+    title: Catalog Id
+    type: string
+  product_retailer_id:
+    description: >-
+      Unique identifier of the product in a catalog. To get this ID, go to
+      Commerce Manager, select your Facebook Business account, and you will see
+      a list of shops connected to your account. Click the shop you want to use.
+      On the left-side panel, click Catalog > Items, and find the item you want
+      to mention. The ID for that item is displayed under the item's name.
+    title: Product Retailer Id
+    type: string
+  sections:
+    description: >-
+      Array of section objects. Required for List Messages and Multi-Product
+      Messages.
+    items:
+      $ref: ./InteractiveSection.yaml
+    title: Sections
+    type: array
+title: InteractiveAction
+type: object

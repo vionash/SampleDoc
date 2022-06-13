@@ -1,0 +1,22 @@
+description: A Collection of Notification Channels
+properties:
+  created_at:
+    description: ISO 8601 formatted date indicating when the resource was created.
+    example: '2019-10-15T10:07:15.527Z'
+    format: date-time
+    readOnly: true
+    type: string
+  id:
+    description: A UUID.
+    example: 12455643-3cf1-4683-ad23-1cd32f7d5e0a
+    readOnly: true
+    type: string
+  name:
+    description: A human readable name.
+    type: string
+  updated_at:
+    description: ISO 8601 formatted date indicating when the resource was updated.
+    example: '2019-10-15T10:07:15.527Z'
+    format: date-time
+    readOnly: true
+    type: string

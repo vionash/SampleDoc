@@ -1,0 +1,16 @@
+properties:
+  amount:
+    description: Final cost. Cost is calculated as rate * unit
+    example: 0.1
+    type: string
+  currency:
+    description: Currency of the rate and cost
+    enum:
+      - AUD
+      - CAD
+      - EUR
+      - GBP
+      - USD
+    example: USD
+    type: string
+type: object

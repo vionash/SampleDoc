@@ -1,0 +1,17 @@
+description: ''
+example:
+  amount_1000: 100990
+  currency_code: USD
+properties:
+  amount_1000:
+    format: int32
+    type: integer
+  currency_code:
+    type: string
+  fallback_value:
+    type: string
+required:
+  - amount_1000
+  - currency_code
+title: Currency
+type: object

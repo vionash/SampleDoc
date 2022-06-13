@@ -1,0 +1,35 @@
+description: >-
+  Specifies the sort order for results. By default sorting direction is
+  ascending. To have the results sorted in descending order add the
+  <code>-</code> prefix.<br/><br/>
+
+  That is: <ul>
+    <li>
+      <code>name</code>: sorts the result by the
+      <code>name</code> field in ascending order.
+    </li>
+
+    <li>
+      <code>-name</code>: sorts the result by the
+      <code>name</code> field in descending order.
+    </li>
+  </ul> <br/>
+in: query
+name: sort
+schema:
+  default: '-created_at'
+  enum:
+    - enabled
+    - '-enabled'
+    - created_at
+    - '-created_at'
+    - name
+    - '-name'
+    - service_plan
+    - '-service_plan'
+    - traffic_type
+    - '-traffic_type'
+    - usage_payment_method
+    - '-usage_payment_method'
+  example: name
+  type: string

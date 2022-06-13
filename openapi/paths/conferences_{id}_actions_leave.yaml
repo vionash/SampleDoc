@@ -1,0 +1,48 @@
+post:
+  callbacks:
+    conferenceParticipantLeft:
+      '{$request.body#/webhook_url}':
+        post:
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  $ref: ../components/schemas/ConferenceParticipantLeftEvent.yaml
+            required: true
+          responses:
+            '200':
+              description: >-
+                The server must return an HTTP 200, otherwise we will reattempt
+                delivery at the failover webhook URL.
+  description: >
+    Removes a call leg from a conference and moves it back to parked state.
+    **Expected Webhooks:**
+
+
+    - `conference.participant.left`
+  operationId: conferenceLeave
+  parameters:
+    - description: Uniquely identifies the conference by id or name
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/LeaveConferenceRequest.yaml
+    description: Leave Conference request object
+    required: true
+  responses:
+    '200':
+      $ref: ../components/responses/ConferenceCommandResponse.yaml
+    '401':
+      $ref: ../components/responses/UnauthorizedResponse.yaml
+    '422':
+      $ref: ../components/responses/UnprocessableEntityResponse.yaml
+  summary: Leave a conference
+  tags:
+    - Conference Commands
+  x-latency-category: interactive

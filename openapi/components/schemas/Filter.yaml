@@ -1,0 +1,31 @@
+properties:
+  billing_group:
+    example: adfaa016-f921-4b6c-97bb-e4c1dad231c5
+    type: string
+  cld:
+    example: '+13129457420'
+    type: string
+  cld_filter:
+    enum:
+      - contains
+      - starts_with
+      - ends_with
+    type: string
+  cli:
+    example: '+13129457420'
+    type: string
+  cli_filter:
+    enum:
+      - contains
+      - starts_with
+      - ends_with
+    type: string
+  filter_type:
+    enum:
+      - and
+      - or
+    type: string
+  tags_list:
+    example: tag1
+    type: string
+type: object

@@ -1,0 +1,13 @@
+description: A paginated list of Verify profiles
+properties:
+  data:
+    items:
+      $ref: ./VerifyProfileResponse.yaml
+    type: array
+  meta:
+    $ref: ./Meta.yaml
+required:
+  - data
+  - meta
+title: ListVerifyProfilesResponse
+type: object

@@ -1,0 +1,8 @@
+description: The size of the page
+in: query
+name: page[size]
+schema:
+  default: 20
+  maximum: 250
+  minimum: 1
+  type: integer

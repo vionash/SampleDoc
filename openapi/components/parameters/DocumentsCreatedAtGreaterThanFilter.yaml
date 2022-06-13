@@ -1,0 +1,7 @@
+description: Filter by created at greater than provided value.
+in: query
+name: filter[created_at][gt]
+schema:
+  description: ISO 8601 formatted date-time indicating when the resource was created.
+  example: '2021-04-09T22:25:27.521Z'
+  type: string

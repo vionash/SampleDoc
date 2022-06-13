@@ -1,0 +1,5 @@
+properties:
+  regulatory_requirements:
+    items:
+      $ref: ./UpdateRegulatoryRequirement.yaml
+    type: array

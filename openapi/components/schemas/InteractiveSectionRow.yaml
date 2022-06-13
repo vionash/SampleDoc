@@ -1,0 +1,18 @@
+properties:
+  description:
+    description: 'Maximum length: 72 characters'
+    title: Description
+    type: string
+  id:
+    description: 'Maximum length: 200 characters'
+    title: Id
+    type: string
+  title:
+    description: 'Maximum length: 24 characters'
+    title: Title
+    type: string
+required:
+  - id
+  - title
+title: InteractiveSectionRow
+type: object

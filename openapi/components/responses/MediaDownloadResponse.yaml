@@ -1,0 +1,6 @@
+content:
+  '*/*':
+    schema:
+      format: binary
+      type: string
+description: A response describing a media resource

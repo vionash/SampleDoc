@@ -1,0 +1,23 @@
+properties:
+  index:
+    description: >-
+      Position index of the button. You can have up to 3 buttons using index
+      values of 0-2.
+    title: Index
+    type: integer
+  parameters:
+    description: >-
+      The parameters for the button, which are set at creation time in your
+      Business Manager.
+    items:
+      $ref: ./ButtonParameter.yaml
+    title: Parameters
+    type: array
+  sub_type:
+    description: Type of button being created.
+required:
+  - sub_type
+  - index
+  - parameters
+title: Button
+type: object

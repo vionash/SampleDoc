@@ -1,0 +1,129 @@
+example:
+  billing_group_id: 6a09cdc3-8948-47f0-aa62-74ac943d6c58
+  call_recording:
+    call_recording_caller_phone_numbers:
+      - '+19705555098'
+    call_recording_channels: dual
+    call_recording_format: mp3
+    call_recording_type: by_caller_phone_number
+  concurrent_call_limit: 10
+  connections_count: 12
+  created_at: '2018-02-02T22:25:27.521Z'
+  daily_spend_limit: '100.00'
+  daily_spend_limit_enabled: true
+  enabled: true
+  id: '1293384261075731499'
+  max_destination_rate: 10
+  name: office
+  record_type: outbound_voice_profile
+  service_plan: global
+  tags:
+    - office-profile
+  traffic_type: conversational
+  updated_at: '2018-02-02T22:25:27.521Z'
+  usage_payment_method: rate-deck
+  whitelisted_destinations:
+    - US
+    - BR
+    - AU
+properties:
+  billing_group_id:
+    default: null
+    description: >-
+      The ID of the billing group associated with the outbound proflile.
+      Defaults to null (for no group assigned).
+    example: 6a09cdc3-8948-47f0-aa62-74ac943d6c58
+    format: uuid
+    nullable: true
+    type: string
+  call_recording:
+    $ref: ./OutboundCallRecording.yaml
+  concurrent_call_limit:
+    description: >-
+      Must be no more than your global concurrent call limit. Null means no
+      limit.
+    example: 10
+    nullable: true
+    type: integer
+  connections_count:
+    description: Amount of connections associated with this outbound voice profile.
+    example: 12
+    type: integer
+  created_at:
+    description: ISO 8601 formatted date-time indicating when the resource was created.
+    example: '2018-02-02T22:25:27.521Z'
+    type: string
+  daily_spend_limit:
+    description: >-
+      The maximum amount of usage charges, in USD, you want Telnyx to allow on
+      this outbound voice profile in a day before disallowing new calls.
+    example: '100.00'
+    type: string
+  daily_spend_limit_enabled:
+    default: false
+    description: >-
+      Specifies whether to enforce the daily_spend_limit on this outbound voice
+      profile.
+    example: true
+    type: boolean
+  enabled:
+    default: true
+    description: >-
+      Specifies whether the outbound voice profile can be used. Disabled
+      profiles will result in outbound calls being blocked for the associated
+      Connections.
+    example: true
+    type: boolean
+  id:
+    description: Identifies the resource.
+    example: '1293384261075731499'
+    format: int64
+    type: string
+  max_destination_rate:
+    description: >-
+      Maximum rate (price per minute) for a Destination to be allowed when
+      making outbound calls.
+    type: number
+  name:
+    description: A user-supplied name to help with organization.
+    example: office
+    minLength: 3
+    type: string
+  record_type:
+    description: Identifies the type of the resource.
+    example: outbound_voice_profile
+    type: string
+  service_plan:
+    $ref: ./ServicePlan.yaml
+  tags:
+    example:
+      - office-profile
+    items:
+      type: string
+    type: array
+  traffic_type:
+    $ref: ./TrafficType.yaml
+  updated_at:
+    description: ISO 8601 formatted date-time indicating when the resource was updated.
+    example: '2018-02-02T22:25:27.521Z'
+    type: string
+  usage_payment_method:
+    $ref: ./UsagePaymentMethod.yaml
+  whitelisted_destinations:
+    default:
+      - US
+      - CA
+    description: >-
+      The list of destinations you want to be able to call using this outbound
+      voice profile formatted in alpha2.
+    example:
+      - US
+      - BR
+      - AU
+    items:
+      type: string
+    type: array
+required:
+  - name
+title: Outbound Voice Profile
+type: object

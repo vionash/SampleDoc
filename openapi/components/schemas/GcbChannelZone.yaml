@@ -1,0 +1,67 @@
+properties:
+  channels:
+    example: 7
+    format: int64
+    type: integer
+  countries:
+    description: >-
+      List of countries (in ISO 3166-2, capitalized) members of the billing
+      channel zone
+    example:
+      - BE
+      - EL
+      - LT
+      - PT
+      - BG
+      - ES
+      - LU
+      - RO
+      - CZ
+      - FR
+      - HU
+      - SI
+      - DK
+      - HR
+      - MT
+      - SK
+      - DE
+      - IT
+      - NL
+      - FI
+      - EE
+      - CY
+      - AT
+      - SE
+      - IE
+      - LV
+      - PL
+    items:
+      type: string
+    type: array
+  created_at:
+    description: ISO 8601 formatted date of when the channel zone was created
+    example: '2019-01-23T18:10:02.574Z'
+    type: string
+  id:
+    example: 1653e6a1-4bfd-4857-97c6-6a51e1c34477
+    type: string
+  name:
+    example: Euro channel zone
+    type: string
+  record_type:
+    enum:
+      - channel_zone
+    example: channel_zone
+    type: string
+  updated_at:
+    description: ISO 8601 formatted date of when the channel zone was updated
+    example: '2019-01-23T18:10:02.574Z'
+    type: string
+required:
+  - record_type
+  - countries
+  - id
+  - name
+  - channels
+title: Channel zone object
+type: object

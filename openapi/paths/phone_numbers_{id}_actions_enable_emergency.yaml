@@ -1,0 +1,38 @@
+post:
+  operationId: enableEmergencyPhoneNumber
+  parameters:
+    - $ref: ../components/parameters/IntId.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/PhoneNumberEnableEmergencyRequest.yaml
+    required: true
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            properties:
+              data:
+                $ref: ../components/schemas/PhoneNumberWithVoiceSettings.yaml
+            title: Phone Number Enable Emergency
+            type: object
+      description: Phone number emergency enabled.
+    '202':
+      content:
+        application/json:
+          schema:
+            properties:
+              data:
+                $ref: ../components/schemas/PhoneNumberWithVoiceSettings.yaml
+            title: Phone Number Enable Emergency
+            type: object
+      description: Phone number emergency requested.
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Enable emergency for a phone number
+  tags:
+    - Number Configurations
+  x-endpoint-cost: medium
+  x-latency-category: responsive

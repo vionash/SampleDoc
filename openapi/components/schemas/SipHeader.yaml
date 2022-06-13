@@ -1,0 +1,19 @@
+example:
+  name: user-to-user
+  value: value
+properties:
+  name:
+    description: The name of the header to add.
+    enum:
+      - user-to-user
+    example: user-to-user
+    type: string
+  value:
+    description: The value of the header.
+    example: value
+    type: string
+required:
+  - name
+  - value
+title: SIP Header
+type: object
