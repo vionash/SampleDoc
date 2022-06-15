@@ -1,9 +1,0 @@
-content:
-  application/json:
-    schema:
-      properties:
-        data:
-          $ref: ../schemas/HostedNumber.yaml
-      title: Retrieve Messaging Hosted Number Response
-      type: object
-description: Successful response with details about a messaging hosted number.

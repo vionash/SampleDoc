@@ -1,4 +1,0 @@
-description: Identifier of the user to whom the fax belongs
-example: yfff7c54-4df3-4bca-a65a-3da1ecc777f0
-format: uuid
-type: string

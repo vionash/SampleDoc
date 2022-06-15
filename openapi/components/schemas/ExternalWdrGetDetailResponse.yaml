@@ -1,8 +1,0 @@
-properties:
-  data:
-    items:
-      $ref: ./ExternalWdrDetailRecordDto.yaml
-    type: array
-  meta:
-    $ref: ./PaginationMeta.yaml
-type: object

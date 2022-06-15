@@ -1,7 +1,0 @@
-description: Include the first 50 phone number objects in the results
-in: query
-name: include_phone_numbers
-required: false
-schema:
-  default: true
-  type: boolean

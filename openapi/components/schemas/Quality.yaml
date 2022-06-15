@@ -1,4 +1,0 @@
-default: high
-description: The quality of the fax. Can be normal, high, very_high
-example: high
-type: string

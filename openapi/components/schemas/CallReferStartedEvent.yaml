@@ -1,5 +1,0 @@
-properties:
-  data:
-    $ref: ./CallReferStarted.yaml
-title: Call Refer Started Event
-type: object

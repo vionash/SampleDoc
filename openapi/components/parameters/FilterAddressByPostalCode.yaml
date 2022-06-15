@@ -1,6 +1,0 @@
-description: Filter by postal code for the address.
-in: query
-name: filter[address.postal_code]
-schema:
-  example: '60654'
-  type: string

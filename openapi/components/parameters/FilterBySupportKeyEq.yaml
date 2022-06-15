@@ -1,6 +1,0 @@
-description: Filter results by support key
-in: query
-name: filter[support_key][eq]
-schema:
-  example: sr_a12345
-  type: string

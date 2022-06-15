@@ -1,5 +1,0 @@
-description: An enumeration.
-enum:
-  - button
-title: ButtonComponentType
-type: string

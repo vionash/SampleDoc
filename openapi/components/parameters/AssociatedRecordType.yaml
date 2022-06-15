@@ -1,9 +1,0 @@
-description: Filter by the associated record type
-in: query
-name: filter[associated_record_type][eq]
-schema:
-  enum:
-    - account
-    - phone_number
-  example: phone_number
-  type: string

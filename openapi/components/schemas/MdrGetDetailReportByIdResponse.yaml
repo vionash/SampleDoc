@@ -1,4 +1,0 @@
-properties:
-  data:
-    $ref: ./MdrDetailReportResponse.yaml
-type: object

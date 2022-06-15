@@ -1,5 +1,5 @@
+type: object
+title: Composition Completed Event
 properties:
   data:
     $ref: ./CompositionCompleted.yaml
-title: Composition Completed Event
-type: object

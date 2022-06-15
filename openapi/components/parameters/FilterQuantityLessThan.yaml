@@ -1,6 +1,0 @@
-description: Returns orders with <code>quantity</code> lower than the specified argument.
-in: query
-name: filter[quantity][lt]
-schema:
-  example: 21
-  type: integer

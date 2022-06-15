@@ -1,6 +1,0 @@
-description: Uniquely identifies a media resource.
-in: path
-name: media_name
-required: true
-schema:
-  type: string

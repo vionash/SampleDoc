@@ -1,6 +1,0 @@
-description: Phone number
-in: path
-name: phone_number
-required: true
-schema:
-  type: string

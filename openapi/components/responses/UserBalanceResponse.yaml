@@ -1,8 +1,0 @@
-content:
-  application/json:
-    schema:
-      properties:
-        data:
-          $ref: ../schemas/UserBalance.yaml
-      type: object
-description: Retrieve user balance details

@@ -1,9 +1,0 @@
-default: UDP
-description: >-
-  One of UDP, TLS, or TCP. Applies only to connections with IP authentication or
-  FQDN authentication.
-enum:
-  - UDP
-  - TCP
-  - TLS
-type: string

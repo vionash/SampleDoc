@@ -1,43 +1,41 @@
-delete:
-  description: Synchronously delete a room composition.
-  operationId: DeleteRoomComposition
-  parameters:
-    - description: The unique identifier of a room composition.
-      in: path
-      name: room_composition_id
-      required: true
-      schema:
-        example: 5219b3af-87c6-4c08-9b58-5a533d893e21
-        format: uuid
-        type: string
-  responses:
-    '204':
-      description: The resource was deleted successfully.
-    '404':
-      $ref: ../components/responses/ResourceNotFound.yaml
-  summary: Delete a room composition.
+get:
+  summary: View a room composition.
+  operationId: ViewRoomComposition
   tags:
     - Room Compositions
-  x-endpoint-cost: medium
-  x-latency-category: responsive
-get:
-  operationId: ViewRoomComposition
+  x-endpoint-cost: light
   parameters:
-    - description: The unique identifier of a room composition.
+    - name: room_composition_id
       in: path
-      name: room_composition_id
+      description: The unique identifier of a room composition.
       required: true
       schema:
-        example: 5219b3af-87c6-4c08-9b58-5a533d893e21
-        format: uuid
         type: string
+        format: uuid
+        example: 5219b3af-87c6-4c08-9b58-5a533d893e21
   responses:
     '200':
       $ref: ../components/responses/GetRoomCompositionResponse.yaml
     '404':
       $ref: ../components/responses/ResourceNotFound.yaml
-  summary: View a room composition.
+delete:
+  summary: Delete a room composition.
+  description: Synchronously delete a room composition.
+  operationId: DeleteRoomComposition
   tags:
     - Room Compositions
-  x-endpoint-cost: light
-  x-latency-category: responsive
+  x-endpoint-cost: medium
+  parameters:
+    - name: room_composition_id
+      in: path
+      description: The unique identifier of a room composition.
+      required: true
+      schema:
+        type: string
+        format: uuid
+        example: 5219b3af-87c6-4c08-9b58-5a533d893e21
+  responses:
+    '204':
+      description: The resource was deleted successfully.
+    '404':
+      $ref: ../components/responses/ResourceNotFound.yaml

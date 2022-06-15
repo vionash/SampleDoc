@@ -1,9 +1,0 @@
-content:
-  application/json:
-    schema:
-      properties:
-        data:
-          $ref: ../schemas/SubNumberOrder.yaml
-      title: Sub Number Order Response
-      type: object
-description: Successful response with details about a sub number order.

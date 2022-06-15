@@ -1,5 +1,0 @@
-properties:
-  data:
-    $ref: ./CallSpeakEnded.yaml
-title: Call Speak Ended Event
-type: object

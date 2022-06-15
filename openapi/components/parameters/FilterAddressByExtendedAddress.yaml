@@ -1,8 +1,0 @@
-description: >-
-  Returns entries with matching name of the supplemental field for address
-  information.
-in: query
-name: filter[address.extended_address]
-schema:
-  example: Suite 504
-  type: string

@@ -1,5 +1,0 @@
-description: Filter by resource_id
-in: query
-name: filter[resource_id]
-schema:
-  type: string

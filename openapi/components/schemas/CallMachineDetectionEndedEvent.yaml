@@ -1,5 +1,0 @@
-properties:
-  data:
-    $ref: ./CallMachineDetectionEnded.yaml
-title: Call Machine Detection Ended Event
-type: object

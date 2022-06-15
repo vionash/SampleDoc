@@ -1,5 +1,0 @@
-properties:
-  data:
-    $ref: ./CallLeftQueue.yaml
-title: Call Left Queue Event
-type: object

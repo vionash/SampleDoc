@@ -1,9 +1,0 @@
-default: ''
-description: >-
-  The failover URL where webhooks related to this connection will be sent if
-  sending to the primary URL fails. Must include a scheme, such as 'https'.
-example: https://failover.example.com
-format: url
-nullable: true
-title: Webhook Event Failover URL
-type: string

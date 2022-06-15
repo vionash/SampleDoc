@@ -1,7 +1,0 @@
-description: Porting Order id
-in: path
-name: id
-required: true
-schema:
-  format: uuid
-  type: string

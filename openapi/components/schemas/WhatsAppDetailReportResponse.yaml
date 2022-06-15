@@ -1,4 +1,0 @@
-properties:
-  data:
-    $ref: ./WhatsAppDetailRecordReport.yaml
-type: object

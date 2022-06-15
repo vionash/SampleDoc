@@ -1,5 +1,0 @@
-properties:
-  data:
-    $ref: ./CallForkStarted.yaml
-title: Call Fork Started Event
-type: object

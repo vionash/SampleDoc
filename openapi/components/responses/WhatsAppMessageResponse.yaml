@@ -1,9 +1,0 @@
-content:
-  application/json:
-    schema:
-      properties:
-        data:
-          $ref: ../schemas/Message.yaml
-      title: Successful response with details about the WhatsApp message sent.
-      type: object
-description: Successful response

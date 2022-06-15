@@ -1,5 +1,0 @@
-properties:
-  data:
-    $ref: ./ConferenceEnded.yaml
-title: Conference Ended Event
-type: object

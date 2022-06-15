@@ -1,9 +1,0 @@
-description: Specifies the type of number lookup to be performed
-in: query
-name: type
-required: false
-schema:
-  enum:
-    - carrier
-    - caller-name
-  type: string

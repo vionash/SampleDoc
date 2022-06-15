@@ -1,5 +1,0 @@
-properties:
-  data:
-    $ref: ./CallRecordingSaved.yaml
-title: Call Recording Saved Event
-type: object

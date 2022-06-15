@@ -1,8 +1,0 @@
-properties:
-  data:
-    items:
-      $ref: ./WhatsAppDetailRecordReport.yaml
-    type: array
-  meta:
-    $ref: ./PaginationMeta.yaml
-type: object

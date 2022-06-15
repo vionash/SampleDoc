@@ -1,14 +1,14 @@
+type: object
 properties:
   page_number:
+    type: integer
     example: 2
-    type: integer
   page_size:
+    type: integer
     example: 25
-    type: integer
   total_pages:
+    type: integer
     example: 3
-    type: integer
   total_results:
-    example: 55
     type: integer
-type: object
+    example: 55

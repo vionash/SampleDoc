@@ -1,4 +1,0 @@
-items:
-  $ref: ./TemplateButtonParameter.yaml
-title: TemplateButtonParameters
-type: array

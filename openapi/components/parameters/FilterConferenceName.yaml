@@ -1,7 +1,0 @@
-description: >-
-  If present, conferences will be filtered to those with a matching `name`
-  attribute. Matching is case-sensitive
-in: query
-name: filter[name]
-schema:
-  type: string

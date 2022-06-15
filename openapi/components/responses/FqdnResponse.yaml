@@ -1,9 +1,0 @@
-content:
-  application/json:
-    schema:
-      properties:
-        data:
-          $ref: ../schemas/Fqdn.yaml
-      title: FQDN Response
-      type: object
-description: Successful response with details about an FQDN connection.

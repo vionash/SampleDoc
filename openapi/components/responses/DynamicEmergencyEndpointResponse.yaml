@@ -1,8 +1,0 @@
-content:
-  application/json:
-    schema:
-      properties:
-        data:
-          $ref: ../schemas/DynamicEmergencyEndpoint.yaml
-      type: object
-description: Dynamic Emergency Endpoint Response

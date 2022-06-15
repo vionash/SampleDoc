@@ -1,6 +1,0 @@
-description: Filter by tag, required by bulk operations.
-in: query
-name: filter[tag]
-required: true
-schema:
-  type: string

@@ -1,5 +1,0 @@
-properties:
-  data:
-    $ref: ./ConferenceParticipantJoined.yaml
-title: Conference Participant Joined Event
-type: object

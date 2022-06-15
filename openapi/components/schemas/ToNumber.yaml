@@ -1,4 +1,0 @@
-description: Receiving address (+E.164 formatted phone number or short code).
-example: +E.164
-format: address
-type: string

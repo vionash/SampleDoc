@@ -1,5 +1,0 @@
-properties:
-  body:
-    example: Please, let me know when the port completes
-    type: string
-type: object

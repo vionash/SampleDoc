@@ -1,5 +1,0 @@
-properties:
-  data:
-    $ref: ./ConferenceRecordingSaved.yaml
-title: Conference Recording Saved Event
-type: object

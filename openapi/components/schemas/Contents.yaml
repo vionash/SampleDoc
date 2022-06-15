@@ -1,5 +1,0 @@
-description: >-
-  The file you want to upload. The maximum allowed size is 20 MB. contents and
-  media_name/media_url can't be submitted together.
-format: binary
-type: string

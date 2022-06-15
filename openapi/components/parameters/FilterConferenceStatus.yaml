@@ -1,9 +1,0 @@
-description: If present, conferences will be filtered by status.
-in: query
-name: filter[status]
-schema:
-  enum:
-    - init
-    - in_progress
-    - completed
-  type: string

@@ -1,8 +1,0 @@
-properties:
-  data:
-    items:
-      $ref: ./MdrDetailReportResponse.yaml
-    type: array
-  meta:
-    $ref: ./PaginationMeta.yaml
-type: object

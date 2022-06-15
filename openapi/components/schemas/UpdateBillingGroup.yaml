@@ -1,6 +1,0 @@
-example:
-  name: string
-properties:
-  name:
-    description: A name for the billing group
-    type: string

@@ -1,6 +1,0 @@
-description: Filter by string matching part of filename.
-in: query
-name: filter[filename][contains]
-schema:
-  example: invoice
-  type: string

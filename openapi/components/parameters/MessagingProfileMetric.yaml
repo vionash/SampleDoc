@@ -1,7 +1,0 @@
-description: The id of the messaging profile(s) to retrieve
-in: query
-name: id
-required: false
-schema:
-  format: uuid
-  type: string

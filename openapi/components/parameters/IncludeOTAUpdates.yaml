@@ -1,7 +1,0 @@
-description: It includes the associated OTA update objects in the response when present.
-in: query
-name: include_ota_updates
-schema:
-  default: false
-  example: true
-  type: boolean

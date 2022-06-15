@@ -1,8 +1,0 @@
-content:
-  application/json:
-    schema:
-      properties:
-        data:
-          $ref: ../schemas/CustomerServiceRequest.yaml
-      type: object
-description: Successful Response

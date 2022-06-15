@@ -1,5 +1,0 @@
-description: Filter by sip_username
-in: query
-name: filter[sip_username]
-schema:
-  type: string

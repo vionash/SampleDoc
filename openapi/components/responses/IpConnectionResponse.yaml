@@ -1,9 +1,0 @@
-content:
-  application/json:
-    schema:
-      properties:
-        data:
-          $ref: ../schemas/IpConnection.yaml
-      title: Ip Connection Response
-      type: object
-description: Successful response with details about an IP connection.

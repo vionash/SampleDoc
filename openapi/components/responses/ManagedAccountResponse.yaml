@@ -1,8 +1,0 @@
-content:
-  application/json:
-    schema:
-      properties:
-        data:
-          $ref: ../schemas/ManagedAccount.yaml
-      type: object
-description: Successful response with information about a single managed account.

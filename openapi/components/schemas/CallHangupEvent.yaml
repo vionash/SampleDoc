@@ -1,5 +1,0 @@
-properties:
-  data:
-    $ref: ./CallHangup.yaml
-title: Call Hangup Event
-type: object

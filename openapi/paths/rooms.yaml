@@ -1,88 +1,86 @@
 get:
+  summary: View a list of rooms.
   description: ''
   operationId: ListRooms
+  x-endpoint-cost: medium
+  tags:
+    - Rooms
   parameters:
-    - description: ISO 8601 date for filtering rooms created on that date.
+    - name: filter[date_created_at][eq]
       in: query
-      name: filter[date_created_at][eq]
+      description: ISO 8601 date for filtering rooms created on that date.
       schema:
-        example: '2021-04-25'
-        format: date
         type: string
-    - description: ISO 8601 date for filtering rooms created after that date.
-      in: query
-      name: filter[date_created_at][gte]
-      schema:
-        example: '2021-04-25'
         format: date
-        type: string
-    - description: ISO 8601 date for filtering rooms created before that date.
-      in: query
-      name: filter[date_created_at][lte]
-      schema:
         example: '2021-04-25'
-        format: date
-        type: string
-    - description: ISO 8601 date for filtering rooms updated on that date.
+    - name: filter[date_created_at][gte]
       in: query
-      name: filter[date_updated_at][eq]
+      description: ISO 8601 date for filtering rooms created after that date.
       schema:
+        type: string
+        format: date
         example: '2021-04-25'
-        format: date
-        type: string
-    - description: ISO 8601 date for filtering rooms updated after that date.
+    - name: filter[date_created_at][lte]
       in: query
-      name: filter[date_updated_at][gte]
+      description: ISO 8601 date for filtering rooms created before that date.
       schema:
+        type: string
+        format: date
         example: '2021-04-25'
-        format: date
-        type: string
-    - description: ISO 8601 date for filtering rooms updated before that date.
+    - name: filter[date_updated_at][eq]
       in: query
-      name: filter[date_updated_at][lte]
+      description: ISO 8601 date for filtering rooms updated on that date.
       schema:
+        type: string
+        format: date
         example: '2021-04-25'
-        format: date
-        type: string
-    - description: Unique_name for filtering rooms.
+    - name: filter[date_updated_at][gte]
       in: query
-      name: filter[unique_name]
+      description: ISO 8601 date for filtering rooms updated after that date.
       schema:
+        type: string
+        format: date
+        example: '2021-04-25'
+    - name: filter[date_updated_at][lte]
+      in: query
+      description: ISO 8601 date for filtering rooms updated before that date.
+      schema:
+        type: string
+        format: date
+        example: '2021-04-25'
+    - name: filter[unique_name]
+      in: query
+      description: Unique_name for filtering rooms.
+      schema:
+        type: string
         example: my_video_room
-        type: string
-    - description: To decide if room sessions should be included in the response.
+    - name: include_sessions
       in: query
-      name: include_sessions
+      description: To decide if room sessions should be included in the response.
       schema:
-        example: true
         type: boolean
+        example: true
     - $ref: ../components/parameters/PageSize.yaml
     - $ref: ../components/parameters/PageNumber.yaml
   responses:
     '200':
       $ref: ../components/responses/ListRoomsResponse.yaml
-  summary: View a list of rooms.
+post:
+  summary: Create a room.
+  description: Synchronously create a Room.
+  operationId: CreateRoom
   tags:
     - Rooms
   x-endpoint-cost: medium
-  x-latency-category: responsive
-post:
-  description: Synchronously create a Room.
-  operationId: CreateRoom
   requestBody:
+    description: Parameters that can be defined during room creation.
+    required: true
     content:
       application/json:
         schema:
           $ref: ../components/schemas/CreateRoomRequest.yaml
-    description: Parameters that can be defined during room creation.
-    required: true
   responses:
     '201':
       $ref: ../components/responses/CreateRoomResponse.yaml
     '422':
       $ref: ../components/responses/UnprocessableEntity.yaml
-  summary: Create a room.
-  tags:
-    - Rooms
-  x-endpoint-cost: medium
-  x-latency-category: responsive

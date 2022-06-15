@@ -1,6 +1,0 @@
-description: An enumeration.
-enum:
-  - payload
-  - text
-title: ButtonParameterType
-type: string

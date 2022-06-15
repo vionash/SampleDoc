@@ -1,6 +1,0 @@
-description: An enumeration.
-enum:
-  - pending
-  - added
-title: CloudflareSyncStatus
-type: string

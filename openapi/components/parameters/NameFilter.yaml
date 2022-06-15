@@ -1,6 +1,0 @@
-description: Optional filter on outbound voice profile name.
-in: query
-name: filter[name][contains]
-schema:
-  example: office-profile
-  type: string

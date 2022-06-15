@@ -1,6 +1,0 @@
-content:
-  application/pdf:
-    schema:
-      format: binary
-      type: string
-description: Successful response

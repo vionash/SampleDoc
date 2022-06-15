@@ -1,9 +1,0 @@
-description: >-
-  The unique identifier of the call control session. A session may include
-  multiple call leg events.
-in: query
-name: filter[call_session_id]
-required: false
-schema:
-  format: uuid
-  type: string

@@ -1,6 +1,0 @@
-properties:
-  data:
-    items:
-      $ref: ./SIMCardRegistrationCodeValidation.yaml
-    type: array
-type: object

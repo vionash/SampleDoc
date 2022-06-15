@@ -1,3 +1,0 @@
-oneOf:
-  - $ref: ./DocServiceDocumentUploadURL.yaml
-  - $ref: ./DocServiceDocumentUploadInline.yaml

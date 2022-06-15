@@ -1,8 +1,0 @@
-description: Filter results by a list of support keys
-in: query
-name: filter[support_key][in][]
-schema:
-  items:
-    example: sr_a12345
-    type: string
-  type: array

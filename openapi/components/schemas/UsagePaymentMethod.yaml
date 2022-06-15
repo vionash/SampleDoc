@@ -1,7 +1,0 @@
-default: rate-deck
-description: Setting for how costs for outbound profile are calculated.
-enum:
-  - tariff
-  - rate-deck
-example: tariff
-type: string

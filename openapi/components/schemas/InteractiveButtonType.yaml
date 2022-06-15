@@ -1,5 +1,0 @@
-description: An enumeration.
-enum:
-  - reply
-title: InteractiveButtonType
-type: string

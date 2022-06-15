@@ -1,9 +1,0 @@
-example:
-  body: <Message Text>
-properties:
-  body:
-    type: string
-required:
-  - body
-title: Text
-type: object

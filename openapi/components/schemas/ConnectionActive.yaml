@@ -1,5 +1,0 @@
-default: true
-description: Specifies whether the connection can be used.
-example: false
-title: Connection Active
-type: boolean

@@ -1,5 +1,0 @@
-properties:
-  data:
-    $ref: ./NumberOrdered.yaml
-title: Number Order Event
-type: object

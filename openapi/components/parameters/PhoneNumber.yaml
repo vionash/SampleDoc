@@ -1,7 +1,0 @@
-description: The phone number to be looked up
-in: path
-name: phone_number
-required: true
-schema:
-  example: '+18665552368'
-  type: string

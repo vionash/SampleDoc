@@ -1,3 +1,0 @@
-default: true
-description: The flag to disable the T.38 protocol.
-type: boolean

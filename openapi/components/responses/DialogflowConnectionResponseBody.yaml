@@ -1,7 +1,0 @@
-content:
-  application/json:
-    schema:
-      $ref: ../schemas/DialogflowConnectionResponse.yaml
-description: >-
-  Return details of the Dialogflow ES connection associated with the given
-  CallControl connection.

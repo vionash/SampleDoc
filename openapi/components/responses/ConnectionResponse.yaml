@@ -1,9 +1,0 @@
-content:
-  application/json:
-    schema:
-      properties:
-        data:
-          $ref: ../schemas/Connection.yaml
-      title: Connection Response
-      type: object
-description: Successful response with details about a connection.

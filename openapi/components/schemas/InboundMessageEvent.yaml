@@ -1,4 +1,0 @@
-properties:
-  data:
-    $ref: ./InboundMessage.yaml
-type: object

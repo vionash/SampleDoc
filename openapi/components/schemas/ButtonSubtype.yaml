@@ -1,6 +1,0 @@
-description: An enumeration.
-enum:
-  - quick_reply
-  - url
-title: ButtonSubtype
-type: string

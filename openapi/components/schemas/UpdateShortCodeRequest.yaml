@@ -1,9 +1,0 @@
-example:
-  messaging_profile_id: abc85f64-5717-4562-b3fc-2c9600000000
-properties:
-  messaging_profile_id:
-    description: Unique identifier for a messaging profile.
-    type: string
-required:
-  - messaging_profile_id
-type: object

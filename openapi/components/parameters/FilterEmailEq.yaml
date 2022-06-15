@@ -1,9 +1,0 @@
-description: >-
-  If present, only returns results with the <code>email</code> matching exactly
-  the value given.
-in: query
-name: filter[email][eq]
-required: false
-schema:
-  default: 'null'
-  type: string

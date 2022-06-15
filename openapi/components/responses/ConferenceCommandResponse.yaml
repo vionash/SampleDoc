@@ -1,9 +1,0 @@
-content:
-  application/json:
-    schema:
-      properties:
-        data:
-          $ref: ../schemas/ConferenceCommandResult.yaml
-      title: Conference Command Response
-      type: object
-description: Successful response upon making a conference command.

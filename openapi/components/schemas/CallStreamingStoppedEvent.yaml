@@ -1,5 +1,0 @@
-properties:
-  data:
-    $ref: ./CallStreamingStopped.yaml
-title: Streaming Stopped Event
-type: object

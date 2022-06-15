@@ -1,7 +1,0 @@
-description: Identifies the associated outbound voice profile.
-in: query
-name: filter[outbound.outbound_voice_profile_id]
-schema:
-  example: '1293384261075731499'
-  format: int64
-  type: string

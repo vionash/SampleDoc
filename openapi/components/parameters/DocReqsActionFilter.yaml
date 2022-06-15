@@ -1,9 +1,0 @@
-description: Filters requirements to those applying to a specific action.
-in: query
-name: filter[action]
-schema:
-  enum:
-    - ordering
-    - porting
-  example: porting
-  type: string

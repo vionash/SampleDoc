@@ -1,6 +1,0 @@
-description: Filter results by phone number
-in: query
-name: filter[phone_number]
-schema:
-  example: '+12003151212'
-  type: string

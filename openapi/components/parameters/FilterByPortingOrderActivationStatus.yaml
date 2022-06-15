@@ -1,5 +1,0 @@
-description: Filter results by activation status
-in: query
-name: filter[activation_status]
-schema:
-  $ref: ../schemas/PortingOrderActivationStatus.yaml

@@ -1,9 +1,0 @@
-content:
-  application/json:
-    schema:
-      properties:
-        errors:
-          items:
-            $ref: ../schemas/ResourceNotFoundError.yaml
-          type: array
-description: Resource not found

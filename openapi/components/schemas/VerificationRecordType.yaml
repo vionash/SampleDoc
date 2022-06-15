@@ -1,6 +1,0 @@
-description: The possible verification record types.
-enum:
-  - verification
-example: verification
-title: VerificationRecordType
-type: string

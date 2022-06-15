@@ -1,5 +1,0 @@
-content:
-  application/json:
-    schema:
-      $ref: ../schemas/GcbPhoneNumber.yaml
-description: A new inserted phone number

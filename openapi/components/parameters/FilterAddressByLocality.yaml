@@ -1,6 +1,0 @@
-description: Filter by the name of the city where the address is located.
-in: query
-name: filter[address.locality]
-schema:
-  example: Chicago
-  type: string

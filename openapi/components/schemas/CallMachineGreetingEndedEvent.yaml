@@ -1,5 +1,0 @@
-properties:
-  data:
-    $ref: ./CallMachineGreetingEnded.yaml
-title: Call Machine Greeting Ended Event
-type: object

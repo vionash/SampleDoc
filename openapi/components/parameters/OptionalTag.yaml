@@ -1,5 +1,0 @@
-description: Filter by tag
-in: query
-name: filter[tag]
-schema:
-  type: string

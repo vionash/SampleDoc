@@ -1,9 +1,0 @@
-content:
-  application/json:
-    schema:
-      properties:
-        data:
-          $ref: ../schemas/MessagingHostedNumberOrder.yaml
-      title: Retrieve Messaging Hosted Number Order Response
-      type: object
-description: Successful response with details about a messaging hosted number order.

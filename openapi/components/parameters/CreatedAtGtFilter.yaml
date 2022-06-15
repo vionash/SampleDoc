@@ -1,7 +1,0 @@
-description: Filters records to those created after a specific date.
-in: query
-name: filter[created_at][lt]
-schema:
-  example: '2020-01-01T00:00:00Z'
-  format: date-time
-  type: string

@@ -1,5 +1,0 @@
-properties:
-  data:
-    $ref: ./CallEnqueued.yaml
-title: Call Enqueued Event
-type: object

@@ -1,8 +1,0 @@
-description: >-
-  Uniquely identifies a Telnyx application (Call Control, TeXML) or Sip
-  connection resource.
-in: path
-name: connection_id
-required: true
-schema:
-  type: string

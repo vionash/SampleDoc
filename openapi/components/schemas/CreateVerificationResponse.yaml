@@ -1,7 +1,0 @@
-properties:
-  data:
-    $ref: ./Verification.yaml
-required:
-  - data
-title: CreateVerifyVerificationResponse
-type: object

@@ -1,9 +1,0 @@
-content:
-  application/json:
-    schema:
-      properties:
-        data:
-          $ref: ../schemas/Fax.yaml
-      title: Send Fax Response
-      type: object
-description: Send fax response

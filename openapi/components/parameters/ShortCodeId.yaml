@@ -1,7 +1,0 @@
-description: The id of the short code
-in: path
-name: id
-required: true
-schema:
-  format: uuid
-  type: string

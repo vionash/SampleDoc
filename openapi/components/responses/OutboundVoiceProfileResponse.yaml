@@ -1,9 +1,0 @@
-content:
-  application/json:
-    schema:
-      properties:
-        data:
-          $ref: ../schemas/OutboundVoiceProfile.yaml
-      title: Outbound Voice Profile Response
-      type: object
-description: Successful response

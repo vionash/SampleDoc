@@ -1,6 +1,0 @@
-description: Channel zone identifier
-in: path
-name: channel_zone_id
-required: true
-schema:
-  type: string

@@ -1,7 +1,0 @@
-description: The id of the messaging profile to retrieve
-in: path
-name: id
-required: true
-schema:
-  format: uuid
-  type: string

@@ -1,6 +1,0 @@
-description: Filter by ISO 4217 currency string.
-in: query
-name: filter[cost.currency]
-schema:
-  example: USD
-  type: string

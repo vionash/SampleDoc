@@ -1,6 +1,0 @@
-description: Filter by the id of a notification channel
-in: query
-name: filter[notification_event_condition_id][eq]
-schema:
-  example: 12455643-3cf1-4683-ad23-1cd32f7d5e0a
-  type: string

@@ -1,6 +1,0 @@
-properties:
-  data:
-    $ref: ./VerifyProfileResponse.yaml
-    type: object
-title: VerifyProfileResponseDataWrapper
-type: object

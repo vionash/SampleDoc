@@ -1,5 +1,0 @@
-properties:
-  data:
-    $ref: ./CallPlaybackStarted.yaml
-title: Call Playback Started Event
-type: object

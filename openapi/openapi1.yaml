@@ -20,8 +20,6 @@ tags:
     description: Operations about users.
   - name: Tag
     description: This is a tag description.
-  - name: Verify
-    description: Verify Telnyx Sample.
 servers:
   - url: 'https://{tenant}/api/v1'
     variables:
@@ -38,8 +36,6 @@ paths:
     $ref: paths/path-item.yaml
   /pathItemWithExamples:
     $ref: paths/path-item-with-examples.yaml
-  /verify:
-    $ref: paths/verifications_{verification_id}.yaml
 components:
   securitySchemes:
     main_auth:
