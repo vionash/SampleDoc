@@ -8,6 +8,8 @@ info:
     name: MIT
   contact:
     email: support@telnyx.com
+  x-logo:
+    url: 'https://raw.githubusercontent.com/team-telnyx/demo-python-telnyx/master/logo-dark.png'
   description:
     $ref: ./info-description.md
 servers:
