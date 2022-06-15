@@ -22,7 +22,7 @@ tags:
     description:
       $ref: ./index.md
   - name: Video API
-    description: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    description: Video server side APIs related to the Telnyx Video Product
   - name: Rooms
     description: Rooms operations.
   - name: Room Sessions
