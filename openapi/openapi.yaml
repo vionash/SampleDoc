@@ -2,19 +2,25 @@ openapi: 3.0.0
 info:
   version: 2.0.0
   title: Telnyx API
-  description: SIP trunking, SMS, MMS, Call Control and Telephony Data Services.
   x-latency-category: responsive
   x-endpoint-cost: light
   license:
     name: MIT
   contact:
     email: support@telnyx.com
+  description:
+    $ref: ./info-description.md
 servers:
   - url: https://api.telnyx.com/v2
     description: Version 2.0.0 of the Telnyx API
 security:
   - BearerAuth: []
 tags:
+  - name: Quickstart Reference Guide
+    description:
+      $ref: ./index.md
+  - name: Progammable Video API
+    description: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   - name: Rooms
     description: Rooms operations.
   - name: Room Sessions
