@@ -1,0 +1,85 @@
+get:
+  operationId: AccessIPAddressList
+  parameters:
+    - in: query
+      name: filter[ip_source]
+      required: false
+      schema:
+        type: string
+    - in: query
+      name: filter[ip_address]
+      required: false
+      schema:
+        type: string
+    - in: query
+      name: filter[status]
+      required: false
+      schema:
+        $ref: ../components/schemas/CloudflareSyncStatus.yaml
+    - in: query
+      name: filter[created_at][gt]
+      required: false
+      schema:
+        format: date-time
+        type: string
+    - in: query
+      name: filter[created_at][lt]
+      required: false
+      schema:
+        format: date-time
+        type: string
+    - in: query
+      name: page[number]
+      required: false
+      schema:
+        default: 1
+        type: integer
+    - in: query
+      name: page[size]
+      required: false
+      schema:
+        default: 20
+        maximum: 250
+        type: integer
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/AccessIPAddressListResponseSchema.yaml
+      description: Successful Response
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Errors.yaml
+      description: Validation Error
+  summary: List all Access IP Addresses
+  tags:
+    - IP Addresses
+  x-latency-category: responsive
+post:
+  operationId: AccessIPAddressCreate
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/AccessIPAddressPOST.yaml
+    required: true
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/AccessIPAddressResponseSchema.yaml
+      description: Successful Response
+    '422':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Errors.yaml
+      description: Validation Error
+  summary: Create new Access IP Address
+  tags:
+    - IP Addresses
+  x-latency-category: responsive

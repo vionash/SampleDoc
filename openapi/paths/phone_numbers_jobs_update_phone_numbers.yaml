@@ -1,0 +1,30 @@
+post:
+  description: >-
+    Creates a new background job to update a batch of numbers. At most one
+    thousand numbers can be updated per API call. At least one of the updateable
+    fields must be submitted.
+  operationId: createPhoneNumbersJobUpdatePhoneNumber
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/PhoneNumbersJobUpdatePhoneNumbersRequest.yaml
+    required: true
+  responses:
+    '202':
+      content:
+        application/json:
+          schema:
+            properties:
+              data:
+                $ref: ../components/schemas/PhoneNumbersJob.yaml
+            title: Phone Numbers Job Update Phone Numbers
+            type: object
+      description: Phone numbers job update phone numbers requested.
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Update a batch of numbers
+  tags:
+    - Number Background Jobs
+  x-group-parameters: 'true'
+  x-latency-category: background

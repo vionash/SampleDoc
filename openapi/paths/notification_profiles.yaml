@@ -1,0 +1,51 @@
+get:
+  description: Returns a list of your notifications profiles.
+  operationId: findNotificationsProfiles
+  parameters:
+    - $ref: ../components/parameters/PageNumber.yaml
+    - $ref: ../components/parameters/PageSize.yaml
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            properties:
+              data:
+                items:
+                  $ref: ../components/schemas/NotificationProfile.yaml
+                type: array
+              meta:
+                $ref: ../components/schemas/PaginationMeta.yaml
+            type: object
+      description: Returns a list of notification profiles.
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: List all Notifications Profiles
+  tags:
+    - Notifications
+  x-latency-category: responsive
+post:
+  description: Create a notification profile.
+  operationId: createNotificationProfile
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/NotificationProfile.yaml
+    description: Add a Notification Profile
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            properties:
+              data:
+                $ref: ../components/schemas/NotificationProfile.yaml
+            type: object
+      description: A Notification Profile response
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Create a notification profile
+  tags:
+    - Notifications
+  x-latency-category: responsive

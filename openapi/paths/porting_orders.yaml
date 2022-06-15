@@ -1,0 +1,106 @@
+get:
+  description: Returns a list of your porting order.
+  operationId: listPortingOrders
+  parameters:
+    - $ref: ../components/parameters/PageNumber.yaml
+    - $ref: ../components/parameters/PageSize.yaml
+    - $ref: ../components/parameters/QueryIncludePhoneNumbers.yaml
+    - $ref: ../components/parameters/FilterByPortingOrderStatus.yaml
+    - description: Filter results by user reference
+      example: 123abc
+      in: query
+      name: filter[customer_reference]
+      schema:
+        type: string
+    - description: Filter results by country ISO 3166-1 alpha-2 code
+      example: US
+      in: query
+      name: filter[phone_numbers][country_code]
+      schema:
+        type: string
+    - description: Filter results by old service provider
+      example: Telnyx
+      in: query
+      name: filter[phone_numbers][carrier_name]
+      schema:
+        type: string
+    - description: Filter results by porting order type
+      example: full
+      in: query
+      name: filter[misc][type]
+      schema:
+        $ref: ../components/schemas/PortingOrderType.yaml
+    - description: Filter results by person or company name
+      example: Porter McPortersen
+      in: query
+      name: filter[end_user][admin][entity_name]
+      schema:
+        type: string
+    - description: Filter results by authorized person
+      example: Admin McPortersen
+      in: query
+      name: filter[end_user][admin][auth_person_name]
+      schema:
+        type: string
+    - description: Filter results by fast port eligible
+      example: false
+      in: query
+      name: filter[activation_settings][fast_port_eligible]
+      schema:
+        type: boolean
+    - description: Filter results by foc date later than this value
+      example: '2021-03-25T10:00:00.000Z'
+      in: query
+      name: filter[activation_settings][foc_datetime_requested][gt]
+      schema:
+        type: string
+    - description: Filter results by foc date earlier than this value
+      example: '2021-03-25T10:00:00.000Z'
+      in: query
+      name: filter[activation_settings][foc_datetime_requested][lt]
+      schema:
+        type: string
+    - description: >-
+        Specifies the sort order for results. If not given, results are sorted
+        by created_at in descending order.
+      in: query
+      name: sort
+      schema:
+        enum:
+          - created_at
+          - '-created_at'
+          - activation_settings.foc_datetime_requested
+          - '-activation_settings.foc_datetime_requested'
+        example: created_at
+        type: string
+  responses:
+    '200':
+      $ref: ../components/responses/ListPortingOrder.yaml
+    '401':
+      description: Unauthorized
+    '422':
+      description: Unprocessable entity. Check message field in response for details.
+  summary: List all porting orders
+  tags:
+    - Porting Order
+  x-latency-category: responsive
+post:
+  description: Creates a new porting order object.
+  operationId: createPortingOrder
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/CreatePortingOrder.yaml
+    required: true
+  responses:
+    '201':
+      $ref: ../components/responses/ListDraftPortingOrdersWithoutPagination.yaml
+    '401':
+      description: Unauthorized
+    '422':
+      description: Unprocessable entity. Check message field in response for details.
+  summary: Create a porting order
+  tags:
+    - Porting Order
+  x-latency-category: responsive

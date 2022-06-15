@@ -1,0 +1,21 @@
+post:
+  description: Stop real-time transcription.
+  operationId: callTranscriptionStop
+  parameters:
+    - $ref: ../components/parameters/CallControlId.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/TranscriptionStopRequest.yaml
+    description: Transcription stop request
+    required: true
+  responses:
+    '200':
+      $ref: ../components/responses/CallControlCommandResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Transcription stop
+  tags:
+    - Call Commands
+  x-latency-category: interactive

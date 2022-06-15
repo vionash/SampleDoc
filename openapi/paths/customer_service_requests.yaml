@@ -1,0 +1,79 @@
+get:
+  description: List customer service requests.
+  operationId: listCustomerServiceRequests
+  parameters:
+    - $ref: ../components/parameters/PageNumber.yaml
+    - $ref: ../components/parameters/PageSize.yaml
+    - description: >-
+        Specifies the sort order for results. If not given, results are sorted
+        by created_at in descending order.
+      in: query
+      name: sort[]
+      schema:
+        enum:
+          - created_at
+          - '-created_at'
+        example: created_at
+        type: string
+    - $ref: ../components/parameters/PhoneNumberEqFilter.yaml
+    - $ref: ../components/parameters/PhoneNumberInFilter.yaml
+    - $ref: ../components/parameters/StatusEqFilter.yaml
+    - $ref: ../components/parameters/StatusInFilter.yaml
+    - $ref: ../components/parameters/CreatedAtLtFilter.yaml
+    - $ref: ../components/parameters/CreatedAtGtFilter.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/ListCustomerServiceRequests.yaml
+    '401':
+      $ref: ../components/responses/UnauthorizedErrorResponse.yaml
+    '403':
+      $ref: ../components/responses/ForbiddenErrorResponse.yaml
+    '422':
+      $ref: ../components/responses/UnprocessableEntityErrorResponse.yaml
+    '500':
+      $ref: ../components/responses/UnexpectedErrorResponse.yaml
+  summary: List customer service requests
+  tags:
+    - Customer Service Request
+  x-latency-category: responsive
+post:
+  callbacks:
+    CustomerServiceRequestStatusChanged:
+      '{$request.body#/webhook_url}':
+        post:
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  properties:
+                    data:
+                      $ref: >-
+                        ../components/schemas/CustomerServiceRequestStatusChangedEvent.yaml
+                    meta:
+                      $ref: ../components/schemas/CallbackWebhookMeta.yaml
+                  type: object
+            required: true
+          responses:
+            '200':
+              description: >-
+                The server must return an HTTP 200, otherwise we will reattempt
+                delivery at the failover webhook URL.
+  description: Create a new customer service request for the provided phone number.
+  operationId: createCustomerServiceRequest
+  requestBody:
+    $ref: ../components/requestBodies/CreateCustomerServiceRequest.yaml
+  responses:
+    '201':
+      $ref: ../components/responses/ShowCustomerServiceRequest.yaml
+    '401':
+      $ref: ../components/responses/UnauthorizedErrorResponse.yaml
+    '403':
+      $ref: ../components/responses/ForbiddenErrorResponse.yaml
+    '422':
+      $ref: ../components/responses/UnprocessableEntityErrorResponse.yaml
+    '500':
+      $ref: ../components/responses/UnexpectedErrorResponse.yaml
+  summary: Create a customer service request
+  tags:
+    - Customer Service Request
+  x-latency-category: responsive

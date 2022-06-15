@@ -1,0 +1,45 @@
+get:
+  description: Lists conference participants
+  operationId: listConferenceParticipants
+  parameters:
+    - description: Uniquely identifies the conference by id
+      in: path
+      name: conference_id
+      required: true
+      schema:
+        type: string
+    - description: If present, participants will be filtered to those who are/are not muted
+      in: query
+      name: filter[muted]
+      schema:
+        type: boolean
+    - description: >-
+        If present, participants will be filtered to those who are/are not put
+        on hold
+      in: query
+      name: filter[on_hold]
+      schema:
+        type: boolean
+    - description: >-
+        If present, participants will be filtered to those who are whispering or
+        are not
+      in: query
+      name: filter[whispering]
+      schema:
+        type: boolean
+    - $ref: ../components/parameters/PageNumber.yaml
+    - $ref: ../components/parameters/PageSize.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/ListParticipantsResponse.yaml
+    '401':
+      $ref: ../components/responses/UnauthorizedResponse.yaml
+    '404':
+      $ref: ../components/responses/NotFoundResponse.yaml
+    '422':
+      $ref: ../components/responses/UnprocessableEntityResponse.yaml
+  summary: List conference participants
+  tags:
+    - Conference Commands
+  x-group-parameters: 'true'
+  x-latency-category: interactive

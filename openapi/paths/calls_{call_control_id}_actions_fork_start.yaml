@@ -1,0 +1,161 @@
+post:
+  callbacks:
+    callForkStarted:
+      '{$request.body#/webhook_url}':
+        post:
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  $ref: ../components/schemas/CallForkStartedEvent.yaml
+            required: true
+          responses:
+            '200':
+              description: >-
+                The server must return an HTTP 200, otherwise we will reattempt
+                delivery at the failover webhook URL.
+    callForkStopped:
+      '{$request.body#/webhook_url}':
+        post:
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  $ref: ../components/schemas/CallForkStoppedEvent.yaml
+            required: true
+          responses:
+            '200':
+              description: >-
+                The server must return an HTTP 200, otherwise we will reattempt
+                delivery at the failover webhook URL.
+  description: >
+    Call forking allows you to stream the media from a call to a specific target
+    in realtime. 
+
+    This stream can be used to enable realtime audio analysis to support a 
+
+    variety of use cases, including fraud detection, or the creation of
+    AI-generated audio responses. 
+
+    Requests must specify either the `target` attribute or the `rx` and `tx`
+    attributes.
+
+
+    **Expected Webhooks:**
+
+
+    - `call.fork.started`
+
+    - `call.fork.stopped`
+
+
+    **Simple Telnyx RTP Encapsulation Protocol (STREP)**
+
+
+    *Note: This header/encapsulation is not used when the `rx` and `tx`
+
+    parameters have been specified; it only applies when media is forked
+
+    using the `target` attribute.*
+
+
+    If the destination for forked media is specified using the "target"
+
+    attribute, the RTP will be encapsulated in an extra Telnyx protocol,
+
+    which adds a 24 byte header to the RTP payload in each packet. The STREP
+
+    header includes the Call Control `call_leg_id` for stream
+
+    identification, along with bits that represent the direction (inbound or
+
+    outbound) of the media. This 24-byte header sits between the UDP header
+
+    and the RTP header.
+
+
+    The STREP header makes it possible to fork RTP for multiple calls (or
+
+    two RTP streams for the same call) to the same IP:port, where the
+
+    streams can be demultiplexed by your application using the information
+
+    in the header. Of course, it's still possible to ignore this header
+
+    completely, for example, if sending forked media for different calls to
+
+    different ports or IP addresses. In this case, simply strip 24 bytes
+
+    (or use the second byte to find the header length) from the received UDP
+
+    payload to get the RTP (RTP header and payload).
+
+
+    ```
+
+    STREP Specification
+
+      0                   1                   2                   3
+      0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+     +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+     |1 1|Version|L|D|    HeaderLen  |  reserved (2 bytes)           |
+     +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+     |       reserved (4 bytes, for UDP ports or anything else)      |
+     +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+     |               The call_leg_id                                 |
+     |                   from Call Control                           |
+     |                       (128 bits / 16 bytes)                   |
+     |                           (this is binary data)               |
+     +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+     11
+       Static bits 11, always set to 11 to easily distinguish forked media
+       from RTP (10) and T.38 media (usually 00) and SIP (which begins
+       with a capital letter, so begins with bits 01). This is a magic number.
+
+     Version
+       Four bits to indicate the version number of the protocol, starting at 0001.
+
+     L
+       One bit to represent the leg of the call (A or B).
+       0 represents the A (first) leg of the call.
+       1 represents the B (second) leg of the call.
+
+     D
+       One bit to represent the direction of this RTP stream.
+       0 represents media received by Telnyx.
+       1 represents media transmitted by Telnyx.
+
+     HeaderLen (1 byte)
+       The length of the header in bytes.
+       Note that this value does not include the length of the payload. The total
+       size of the RTP can be calculated by subtracting the HeaderLen from the UDP
+       length (minus 8 for the UDP header).
+       In version 1, this value will always be 24.
+
+     Reserved (6 bytes)
+       Reserved for future use and to make sure that the header is a multiple of 32 bits
+
+     Call Leg ID
+       A 128-bit identifier for the call leg.
+       This is the call_leg_id from Call Control.
+    ```
+  operationId: callForkStart
+  parameters:
+    - $ref: ../components/parameters/CallControlId.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/StartForkingRequest.yaml
+    description: Fork media request
+    required: true
+  responses:
+    '200':
+      $ref: ../components/responses/CallControlCommandResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Forking start
+  tags:
+    - Call Commands
+  x-latency-category: interactive

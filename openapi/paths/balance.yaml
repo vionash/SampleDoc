@@ -1,0 +1,11 @@
+get:
+  operationId: getUserBalance
+  responses:
+    '200':
+      $ref: ../components/responses/UserBalanceResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Retrieve user balance details
+  tags:
+    - Billing
+  x-latency-category: responsive

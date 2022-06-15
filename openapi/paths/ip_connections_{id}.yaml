@@ -1,0 +1,76 @@
+delete:
+  description: Deletes an existing IP connection.
+  operationId: deleteIpConnection
+  parameters:
+    - description: Identifies the type of resource.
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      $ref: ../components/responses/IpConnectionResponse.yaml
+    '401':
+      description: Unauthorized
+    '404':
+      description: Resource not found
+    '422':
+      description: Bad request
+  summary: Delete an Ip connection
+  tags:
+    - IP Connections
+  x-latency-category: responsive
+get:
+  description: Retrieves the details of an existing ip connection.
+  operationId: retrieveIpConnection
+  parameters:
+    - description: IP Connection ID
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      $ref: ../components/responses/IpConnectionResponse.yaml
+    '401':
+      description: Unauthorized
+    '404':
+      description: Resource not found
+    '422':
+      description: Bad request
+  summary: Retrieve an Ip connection
+  tags:
+    - IP Connections
+  x-latency-category: responsive
+patch:
+  description: Updates settings of an existing IP connection.
+  operationId: updateIpConnection
+  parameters:
+    - description: Identifies the type of resource.
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/UpdateIpConnectionRequest.yaml
+    description: Parameters that can be updated in a IP connection
+    required: true
+  responses:
+    '200':
+      $ref: ../components/responses/IpConnectionResponse.yaml
+    '401':
+      description: Unauthorized
+    '404':
+      description: Resource not found
+    '422':
+      description: Bad request
+  summary: Update an Ip connection
+  tags:
+    - IP Connections
+  x-latency-category: responsive

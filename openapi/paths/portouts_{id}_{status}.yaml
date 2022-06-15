@@ -1,0 +1,44 @@
+patch:
+  description: Authorize or reject portout request
+  operationId: updatePortoutRequest
+  parameters:
+    - description: Portout id
+      in: path
+      name: id
+      required: true
+      schema:
+        format: uuid
+        type: string
+    - description: Updated portout status
+      in: path
+      name: status
+      required: true
+      schema:
+        enum:
+          - authorized
+          - rejected-pending
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          properties:
+            reason:
+              description: Provide a reason if rejecting the port out request
+              example: I do not recognize this transaction
+              type: string
+          type: object
+    required: true
+  responses:
+    '200':
+      $ref: ../components/responses/PortoutResponse.yaml
+    '401':
+      description: Unauthorized
+    '404':
+      description: Resource not found
+    '422':
+      description: Unprocessable entity. Check message field in response for details.
+  summary: Update Status
+  tags:
+    - Number Portout
+  x-latency-category: responsive

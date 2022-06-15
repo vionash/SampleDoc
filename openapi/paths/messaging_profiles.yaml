@@ -1,0 +1,78 @@
+get:
+  operationId: listMessagingProfiles
+  parameters:
+    - $ref: ../components/parameters/PageNumber.yaml
+    - $ref: ../components/parameters/PageSize.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/ListMessagingProfilesResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: List messaging profiles
+  tags:
+    - Messaging Profiles
+  x-endpoint-cost: medium
+  x-group-parameters: 'true'
+  x-latency-category: responsive
+post:
+  callbacks:
+    deliveryUpdate:
+      '{$request.body#/webhook_url}':
+        post:
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  $ref: ../components/schemas/OutboundMessageEvent.yaml
+            required: true
+          responses:
+            '200':
+              description: >-
+                The server must return an HTTP 200, otherwise we will reattempt
+                delivery at the failover webhook URL.
+    inboundMessage:
+      '{$request.body#/webhook_url}':
+        post:
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  $ref: ../components/schemas/InboundMessageEvent.yaml
+            required: true
+          responses:
+            '200':
+              description: >-
+                The server must return an HTTP 200, otherwise we will reattempt
+                delivery at the failover webhook URL.
+    replacedLinkClick:
+      '{$request.body#/webhook_url}':
+        post:
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  $ref: ../components/schemas/ReplacedLinkClickEvent.yaml
+            required: true
+          responses:
+            '200':
+              description: >-
+                The server must return an HTTP 200, otherwise we will reattempt
+                delivery at the failover webhook URL.
+  operationId: createMessagingProfile
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/CreateMessagingProfileRequest.yaml
+    description: New Messaging Profile object
+    required: true
+  responses:
+    '200':
+      $ref: ../components/responses/MessagingProfileResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Create a messaging profile
+  tags:
+    - Messaging Profiles
+  x-endpoint-cost: medium
+  x-latency-category: responsive

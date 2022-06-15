@@ -1,0 +1,216 @@
+delete:
+  description: ''
+  operationId: DeleteRoomRecordings
+  parameters:
+    - description: ISO 8601 date for filtering room recordings ended on that date.
+      in: query
+      name: filter[date_ended_at][eq]
+      schema:
+        example: '2021-04-25'
+        format: date
+        type: string
+    - description: ISO 8601 date for filtering room recordings ended after that date.
+      in: query
+      name: filter[date_ended_at][gte]
+      schema:
+        example: '2021-04-25'
+        format: date
+        type: string
+    - description: ISO 8601 date for filtering room recordings ended before that date.
+      in: query
+      name: filter[date_ended_at][lte]
+      schema:
+        example: '2021-04-25'
+        format: date
+        type: string
+    - description: ISO 8601 date for filtering room recordings started on that date.
+      in: query
+      name: filter[date_started_at][eq]
+      schema:
+        example: '2021-04-25'
+        format: date
+        type: string
+    - description: ISO 8601 date for filtering room recordings started after that date.
+      in: query
+      name: filter[date_started_at][gte]
+      schema:
+        example: '2021-04-25'
+        format: date
+        type: string
+    - description: ISO 8601 date for filtering room recordings started before that date.
+      in: query
+      name: filter[date_started_at][lte]
+      schema:
+        example: '2021-04-25'
+        format: date
+        type: string
+    - description: room_id for filtering room recordings.
+      in: query
+      name: filter[room_id]
+      schema:
+        example: 0ccc7b54-4df3-4bca-a65a-3da1ecc777f0
+        format: uuid
+        type: string
+    - description: participant_id for filtering room recordings.
+      in: query
+      name: filter[participant_id]
+      schema:
+        example: 0ccc7b54-4df3-4bca-a65a-3da1ecc777f0
+        format: uuid
+        type: string
+    - description: session_id for filtering room recordings.
+      in: query
+      name: filter[session_id]
+      schema:
+        example: 0ccc7b54-4df3-4bca-a65a-3da1ecc777f0
+        format: uuid
+        type: string
+    - description: status for filtering room recordings.
+      in: query
+      name: filter[status]
+      schema:
+        example: completed
+        type: string
+    - description: type for filtering room recordings.
+      in: query
+      name: filter[type]
+      schema:
+        example: audio
+        type: string
+    - description: duration_secs equal for filtering room recordings.
+      in: query
+      name: filter[duration_secs][eq]
+      schema:
+        example: 20
+        type: integer
+    - description: duration_secs less or equal for filtering room recordings.
+      in: query
+      name: filter[duration_secs][lte]
+      schema:
+        example: 20
+        type: integer
+    - description: duration_secs greater or equal for filtering room recordings.
+      in: query
+      name: filter[duration_secs][gte]
+      schema:
+        example: 20
+        type: integer
+    - $ref: ../components/parameters/PageSize.yaml
+    - $ref: ../components/parameters/PageNumber.yaml
+  responses:
+    '201':
+      $ref: ../components/responses/BulkDeleteRoomRecordingsResponse.yaml
+    '422':
+      $ref: ../components/responses/UnprocessableEntity.yaml
+  summary: Delete several room recordings in a bulk.
+  tags:
+    - Room Recordings
+  x-endpoint-cost: heavy
+  x-latency-category: responsive
+get:
+  description: ''
+  operationId: ListRoomRecordings
+  parameters:
+    - description: ISO 8601 date for filtering room recordings ended on that date.
+      in: query
+      name: filter[date_ended_at][eq]
+      schema:
+        example: '2021-04-25'
+        format: date
+        type: string
+    - description: ISO 8601 date for filtering room recordings ended after that date.
+      in: query
+      name: filter[date_ended_at][gte]
+      schema:
+        example: '2021-04-25'
+        format: date
+        type: string
+    - description: ISO 8601 date for filtering room recordings ended before that date.
+      in: query
+      name: filter[date_ended_at][lte]
+      schema:
+        example: '2021-04-25'
+        format: date
+        type: string
+    - description: ISO 8601 date for filtering room recordings started on that date.
+      in: query
+      name: filter[date_started_at][eq]
+      schema:
+        example: '2021-04-25'
+        format: date
+        type: string
+    - description: ISO 8601 date for filtering room recordings started after that date.
+      in: query
+      name: filter[date_started_at][gte]
+      schema:
+        example: '2021-04-25'
+        format: date
+        type: string
+    - description: ISO 8601 date for filtering room recordings started before that date.
+      in: query
+      name: filter[date_started_at][lte]
+      schema:
+        example: '2021-04-25'
+        format: date
+        type: string
+    - description: room_id for filtering room recordings.
+      in: query
+      name: filter[room_id]
+      schema:
+        example: 0ccc7b54-4df3-4bca-a65a-3da1ecc777f0
+        format: uuid
+        type: string
+    - description: participant_id for filtering room recordings.
+      in: query
+      name: filter[participant_id]
+      schema:
+        example: 0ccc7b54-4df3-4bca-a65a-3da1ecc777f0
+        format: uuid
+        type: string
+    - description: session_id for filtering room recordings.
+      in: query
+      name: filter[session_id]
+      schema:
+        example: 0ccc7b54-4df3-4bca-a65a-3da1ecc777f0
+        format: uuid
+        type: string
+    - description: status for filtering room recordings.
+      in: query
+      name: filter[status]
+      schema:
+        example: completed
+        type: string
+    - description: type for filtering room recordings.
+      in: query
+      name: filter[type]
+      schema:
+        example: audio
+        type: string
+    - description: duration_secs equal for filtering room recordings.
+      in: query
+      name: filter[duration_secs][eq]
+      schema:
+        example: 20
+        type: integer
+    - description: duration_secs less or equal for filtering room recordings.
+      in: query
+      name: filter[duration_secs][lte]
+      schema:
+        example: 20
+        type: integer
+    - description: duration_secs greater or equal for filtering room recordings.
+      in: query
+      name: filter[duration_secs][gte]
+      schema:
+        example: 20
+        type: integer
+    - $ref: ../components/parameters/PageSize.yaml
+    - $ref: ../components/parameters/PageNumber.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/ListRoomRecordingsResponse.yaml
+  summary: View a list of room recordings.
+  tags:
+    - Room Recordings
+  x-endpoint-cost: medium
+  x-latency-category: responsive

@@ -1,0 +1,148 @@
+get:
+  description: >-
+    Search for any detail record across the Telnyx Platform. Examples and
+    additional information found
+    [here](/docs/v2/debugging/detail-record-search).
+  operationId: DetailRecordsSearch
+  parameters:
+    - description: Filter by the given record type.
+      examples:
+        filter[record_type]=messaging:
+          summary: Searches for messaging detail records
+          value: messaging
+        filter[record_type]=verify:
+          summary: Searches for verify detail records
+          value: verify
+      in: query
+      name: filter[record_type]
+      required: true
+      schema:
+        enum:
+          - amd
+          - conference
+          - conference-participant
+          - media_storage
+          - messaging
+          - verify
+          - whatsapp
+          - whatsapp-conversation
+          - wireless
+        type: string
+    - description: >-
+        Filter by the given user-friendly date range. You can specify one of the
+        following enum values, or a dynamic one using this format: last_N_days.
+      examples:
+        filter[date_range]=last_month:
+          summary: >-
+            Searches for records with timestamp starting at `00:00:00` on the
+            first day of the month
+          value: last_month
+        filter[date_range]=today:
+          summary: >-
+            Searches for records with timestamp starting at `00:00:00` of the
+            current day
+          value: today
+        filter[date_range]=yesterday:
+          summary: >-
+            Searches for records with timestamp starting at `00:00:00` of
+            yesterday
+          value: yesterday
+      in: query
+      name: filter[date_range]
+      required: false
+      schema:
+        enum:
+          - yesterday
+          - today
+          - tomorrow
+          - last_week
+          - this_week
+          - next_week
+          - last_month
+          - this_month
+          - next_month
+        type: string
+    - description: >-
+        Filter records on a given record attribute and value. <br/>Example:
+        filter[status]=delivered
+      examples:
+        filter[cld][contains]=456:
+          summary: >-
+            Searches for records which have the property `cld` containing the
+            pattern `456`
+          value: '456'
+        filter[cld][ends_with]=789:
+          summary: >-
+            Searches for records which have the property `cld` ending with the
+            suffix `789`
+          value: '789'
+        filter[cld][starts_with]=123:
+          summary: >-
+            Searches for records which have the property `cld` starting with the
+            prefix `123`
+          value: '123'
+        filter[created_at][gte]=2021-06-22:
+          summary: Searches for records with `created_at` starting at `2021-06-22`
+          value: '2021-06-22'
+        filter[created_at][lt]=2021-06-23:
+          summary: Searches for records with `created_at` ending at `2021-06-22`
+          value: '2021-06-23'
+        filter[direction]=inbound:
+          summary: >-
+            Searches for records which have the property `direction` equal to
+            `inbound`
+          value: inbound
+      in: query
+      name: filter
+      required: false
+      schema:
+        additionalProperties: true
+        type: object
+    - description: Page number
+      in: query
+      name: page[number]
+      schema:
+        default: 1
+        format: int32
+        minimum: 1
+        type: integer
+    - description: Page size
+      in: query
+      name: page[size]
+      schema:
+        default: 20
+        format: int32
+        maximum: 50
+        minimum: 1
+        type: integer
+    - description: 'Specifies the sort order for results. <br/>Example: sort=-created_at'
+      examples:
+        sort=-created_at:
+          summary: >-
+            Sorts search results using the `created_at` date-time in descending
+            order
+          value: created_at
+        sort=created_at:
+          summary: >-
+            Sorts search results using the `created_at` date-time in ascending
+            order
+          value: created_at
+      in: query
+      name: sort
+      schema:
+        items:
+          type: string
+        type: array
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/DetailRecordsSearchResponse.yaml
+      description: Successful
+  security:
+    - bearerAuth: []
+  summary: Search detail records
+  tags:
+    - Detail Records
+  x-latency-category: interactive

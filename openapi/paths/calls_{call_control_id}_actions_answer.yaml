@@ -1,0 +1,74 @@
+post:
+  callbacks:
+    callAnswered:
+      '{$request.body#/webhook_url}':
+        post:
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  $ref: ../components/schemas/CallAnsweredEvent.yaml
+            required: true
+          responses:
+            '200':
+              description: >-
+                The server must return an HTTP 200, otherwise we will reattempt
+                delivery at the failover webhook URL.
+    streamingStarted:
+      '{$request.body#/webhook_url}':
+        post:
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  $ref: ../components/schemas/CallStreamingStartedEvent.yaml
+            required: true
+          responses:
+            '200':
+              description: >-
+                The server must return an HTTP 200, otherwise we will reattempt
+                delivery at the failover webhook URL.
+    streamingStopped:
+      '{$request.body#/webhook_url}':
+        post:
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  $ref: ../components/schemas/CallStreamingStoppedEvent.yaml
+            required: true
+          responses:
+            '200':
+              description: >-
+                The server must return an HTTP 200, otherwise we will reattempt
+                delivery at the failover webhook URL.
+  description: >-
+    Answer an incoming call. You must issue this command before executing
+    subsequent commands on an incoming call.
+
+
+    **Expected Webhooks:**
+
+
+    - `call.answered`
+
+    - `streaming.started` and `streaming.stopped` if `stream_url` was set
+  operationId: callAnswer
+  parameters:
+    - $ref: ../components/parameters/CallControlId.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/AnswerRequest.yaml
+    description: Answer call request
+    required: true
+  responses:
+    '200':
+      $ref: ../components/responses/CallControlCommandResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Answer call
+  tags:
+    - Call Commands
+  x-latency-category: interactive

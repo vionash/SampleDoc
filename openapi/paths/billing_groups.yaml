@@ -1,0 +1,32 @@
+get:
+  operationId: listBillingGroups
+  parameters:
+    - $ref: ../components/parameters/PageNumber.yaml
+    - $ref: ../components/parameters/PageSize.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/ListBillingGroupsResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: List all billing groups
+  tags:
+    - Billing Groups
+  x-latency-category: responsive
+post:
+  operationId: createBillingGroup
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/NewBillingGroup.yaml
+    description: New billing group object
+    required: true
+  responses:
+    '200':
+      $ref: ../components/responses/CreateBillingGroupResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Create a billing group
+  tags:
+    - Billing Groups
+  x-latency-category: responsive

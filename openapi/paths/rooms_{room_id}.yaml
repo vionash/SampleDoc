@@ -1,0 +1,85 @@
+delete:
+  description: >-
+    Synchronously delete a Room. Participants from that room will be kicked out,
+    they won't be able to join that room anymore, and you won't be charged
+    anymore for that room.
+  operationId: DeleteRoom
+  parameters:
+    - description: The unique identifier of a room.
+      in: path
+      name: room_id
+      required: true
+      schema:
+        example: 0ccc7b54-4df3-4bca-a65a-3da1ecc777f0
+        format: uuid
+        type: string
+  responses:
+    '204':
+      description: The resource was deleted successfully.
+    '404':
+      $ref: ../components/responses/ResourceNotFound.yaml
+  summary: Delete a room.
+  tags:
+    - Rooms
+  x-endpoint-cost: medium
+  x-latency-category: responsive
+get:
+  operationId: ViewRoom
+  parameters:
+    - description: The unique identifier of a room.
+      in: path
+      name: room_id
+      required: true
+      schema:
+        example: 0ccc7b54-4df3-4bca-a65a-3da1ecc777f0
+        format: uuid
+        type: string
+    - description: To decide if room sessions should be included in the response.
+      in: query
+      name: include_sessions
+      schema:
+        example: true
+        type: boolean
+  responses:
+    '200':
+      $ref: ../components/responses/GetRoomResponse.yaml
+    '404':
+      $ref: ../components/responses/ResourceNotFound.yaml
+  summary: View a room.
+  tags:
+    - Rooms
+  x-endpoint-cost: light
+  x-latency-category: responsive
+patch:
+  description: Synchronously update a Room.
+  operationId: PatchRoom
+  parameters:
+    - description: The unique identifier of a room.
+      in: path
+      name: room_id
+      required: true
+      schema:
+        example: 0ccc7b54-4df3-4bca-a65a-3da1ecc777f0
+        format: uuid
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/PatchRoomRequest.yaml
+    description: Parameters that can be defined during room update.
+    required: true
+  responses:
+    '200':
+      $ref: ../components/responses/PatchRoomResponse.yaml
+    '401':
+      $ref: ../components/responses/UnauthorizedResponse.yaml
+    '404':
+      $ref: ../components/responses/ResourceNotFound.yaml
+    '422':
+      description: Bad request
+  summary: Update a room.
+  tags:
+    - Rooms
+  x-endpoint-cost: medium
+  x-latency-category: responsive

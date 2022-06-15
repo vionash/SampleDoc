@@ -1,10 +1,10 @@
 post:
-  operationId: createVerificationCall
+  operationId: createVerificationWhatsapp
   requestBody:
     content:
       application/json:
         schema:
-          $ref: ../components/schemas/CreateVerificationRequestCall.yaml
+          $ref: ../components/schemas/CreateVerificationRequestWhatsapp.yaml
     required: true
   responses:
     '200':
@@ -15,8 +15,7 @@ post:
       description: Expected verifications response to a valid request.
     '400':
       $ref: ../components/responses/GenericErrorResponse.yaml
-  summary: Trigger a Call verification
+  summary: Trigger a Whatsapp verification
   tags:
     - Verify
-    - Group Example
   x-latency-category: responsive

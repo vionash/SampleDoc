@@ -1,0 +1,47 @@
+get:
+  description: Get all SIM card groups belonging to the user that match the given filters.
+  operationId: SimCardGroupsGetAll
+  parameters:
+    - $ref: ../components/parameters/PageNumber.yaml
+    - $ref: ../components/parameters/PageSize.yaml
+    - description: A valid SIM card group name.
+      in: query
+      name: filter[name]
+      schema:
+        example: My Test Group
+        format: uuid
+        type: string
+    - description: A Private Wireless Gateway ID associated with the group.
+      in: query
+      name: filter[private_wireless_gateway_id]
+      schema:
+        example: 7606c6d3-ff7c-49c1-943d-68879e9d584d
+        format: uuid
+        type: string
+  responses:
+    '200':
+      $ref: ../components/responses/GetAllSimCardGroupsResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Get all SIM card groups
+  tags:
+    - SIM Card Groups
+  x-latency-category: responsive
+post:
+  description: Creates a new SIM card group object
+  operationId: SimCardGroupsPost
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/SIMCardGroupCreate.yaml
+    required: true
+  responses:
+    '200':
+      $ref: ../components/responses/CreateSimCardGroupResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Create a SIM card group
+  tags:
+    - SIM Card Groups
+  x-latency-category: responsive

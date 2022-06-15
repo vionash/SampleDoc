@@ -1,0 +1,40 @@
+get:
+  description: Returns a list of all comments of a porting order.
+  operationId: listPortingOrdersComments
+  parameters:
+    - $ref: ../components/parameters/PathPortingOrderID.yaml
+    - $ref: ../components/parameters/PageNumber.yaml
+    - $ref: ../components/parameters/PageSize.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/ListPortingOrdersComments.yaml
+    '401':
+      description: Unauthorized
+    '422':
+      description: Unprocessable entity. Check message field in response for details.
+  summary: List all comments of a porting order
+  tags:
+    - Porting Order
+  x-latency-category: responsive
+post:
+  description: Creates a new comment for a porting order.
+  operationId: createPortingOrderComment
+  parameters:
+    - $ref: ../components/parameters/PathPortingOrderID.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/CreatePortingOrderComment.yaml
+    required: true
+  responses:
+    '201':
+      $ref: ../components/responses/ShowPortingOrdersComment.yaml
+    '401':
+      description: Unauthorized
+    '422':
+      description: Unprocessable entity. Check message field in response for details.
+  summary: Create a comment for a porting order
+  tags:
+    - Porting Order
+  x-latency-category: responsive

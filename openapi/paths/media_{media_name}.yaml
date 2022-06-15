@@ -1,0 +1,52 @@
+delete:
+  description: Deletes a stored media file.
+  operationId: deleteMediaStorage
+  parameters:
+    - $ref: ../components/parameters/MediaName.yaml
+  responses:
+    '204':
+      description: The media was deleted successfully.
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Deletes stored media
+  tags:
+    - Media Storage API
+  x-latency-category: interactive
+get:
+  description: Returns the information about a stored media file.
+  operationId: getMediaStorage
+  parameters:
+    - $ref: ../components/parameters/MediaName.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/MediaResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Retrieve stored media
+  tags:
+    - Media Storage API
+  x-latency-category: interactive
+put:
+  description: Updates a stored media file.
+  operationId: updateMediaStorage
+  parameters:
+    - $ref: ../components/parameters/MediaName.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/UpdateMediaRequest.yaml
+      multipart/form-data:
+        schema:
+          $ref: ../components/schemas/UpdateMediaMultipartRequest.yaml
+    description: Update media request
+    required: true
+  responses:
+    '200':
+      $ref: ../components/responses/MediaResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Update stored media
+  tags:
+    - Media Storage API
+  x-latency-category: interactive

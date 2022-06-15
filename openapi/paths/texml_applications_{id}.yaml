@@ -1,0 +1,61 @@
+delete:
+  description: Deletes a TeXML Application.
+  operationId: DeleteTexmlApplication
+  parameters:
+    - $ref: ../components/parameters/id.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/TexmlApplicationResponse.yaml
+    '401':
+      description: Unauthorized
+    '404':
+      description: Resource not found
+    '422':
+      description: Bad request
+  summary: Deletes a TeXML Application
+  tags:
+    - TeXML Applications
+  x-latency-category: responsive
+get:
+  description: Retrieves the details of an existing TeXML Application.
+  operationId: getTexmlApplication
+  parameters:
+    - $ref: ../components/parameters/id.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/TexmlApplicationResponse.yaml
+    '401':
+      description: Unauthorized
+    '404':
+      description: Resource not found
+    '422':
+      description: Bad request
+  summary: Retrieve a TeXML Application
+  tags:
+    - TeXML Applications
+  x-latency-category: responsive
+patch:
+  description: Updates settings of an existing TeXML Application.
+  operationId: UpdateTexmlApplication
+  parameters:
+    - $ref: ../components/parameters/id.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/UpdateTexmlApplicationRequest.yaml
+    description: Parameters that can be updated in a TeXML Application
+    required: true
+  responses:
+    '200':
+      $ref: ../components/responses/TexmlApplicationResponse.yaml
+    '401':
+      description: Unauthorized
+    '404':
+      description: Resource not found
+    '422':
+      description: Bad request
+  summary: Update a TeXML Application
+  tags:
+    - TeXML Applications
+  x-latency-category: responsive

@@ -1,0 +1,22 @@
+post:
+  description: Verify the coverage for a list of phone numbers.
+  operationId: verifyPhoneNumberCoverage
+  requestBody:
+    $ref: >-
+      ../components/requestBodies/VerifyCustomerServiceRequestPhoneNumberCoverage.yaml
+  responses:
+    '201':
+      $ref: >-
+        ../components/responses/ListCustomerServiceRequestPhoneNumberCoverage.yaml
+    '401':
+      $ref: ../components/responses/UnauthorizedErrorResponse.yaml
+    '403':
+      $ref: ../components/responses/ForbiddenErrorResponse.yaml
+    '422':
+      $ref: ../components/responses/UnprocessableEntityErrorResponse.yaml
+    '500':
+      $ref: ../components/responses/UnexpectedErrorResponse.yaml
+  summary: Verify CSR phone number coverage
+  tags:
+    - Customer Service Request
+  x-latency-category: responsive

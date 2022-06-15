@@ -1,0 +1,39 @@
+put:
+  description: >
+    This API allows dispatching the same operation described for the PUT
+    sim_cards/:sim_card_id/network_preferences API for multiple SIM cards at
+    once.<br/><br/>
+
+    Although, a SIM card network preference may fail individually under any
+    validation triggered as a consequence of its state. For example, a SIM can't
+    have an in-progress OTA update for applying a Network Preference, so they'll
+    fail when requested in this API. In that scenario, the specific error will
+    be present in the response along with the successful definitions in the
+    "errors" response node.
+  operationId: BulkSIMCardNetworkPreferences
+  requestBody:
+    content:
+      application/json:
+        schema:
+          properties:
+            mobile_operator_networks_preferences:
+              $ref: >-
+                ../components/schemas/MobileOperatorNetworksPreferencesRequest.yaml
+            sim_card_ids:
+              example:
+                - 6b14e151-8493-4fa1-8664-1cc4e6d14158
+                - 6b14e151-8493-4fa1-8664-1cc4e6d14158
+              items:
+                format: uuid
+                type: string
+              type: array
+          type: object
+  responses:
+    '202':
+      $ref: ../components/responses/BulkSIMCardNetworkPreferenceResponse.yaml
+    '422':
+      $ref: ../components/responses/UnprocessableEntity.yaml
+  summary: Bulk Network Preferences for SIM cards
+  tags:
+    - SIM Cards
+  x-latency-category: background

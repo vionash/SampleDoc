@@ -1,0 +1,92 @@
+get:
+  description: Gets a paginated list of Verify profiles.
+  operationId: listVerifyProfiles
+  parameters:
+    - in: query
+      name: filter[name]
+      required: false
+      schema:
+        description: Optional filter for profile names.
+        title: filter[name]
+        type: string
+    - in: query
+      name: page[size]
+      required: false
+      schema:
+        default: 25
+        title: page[size]
+        type: integer
+    - in: query
+      name: page[number]
+      required: false
+      schema:
+        default: 1
+        title: page[number]
+        type: integer
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ListVerifyProfilesResponse.yaml
+      description: Expected Verify profile response to a valid request.
+    '400':
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: List all Verify profiles
+  tags:
+    - Verify
+  x-group-parameters: 'true'
+  x-latency-category: responsive
+post:
+  description: Creates a new Verify profile to associate verifications with.
+  operationId: createVerifyProfile
+  requestBody:
+    content:
+      application/json:
+        schema:
+          properties:
+            call:
+              $ref: ../components/schemas/CreateVerifyProfileCallRequest.yaml
+              type: object
+            flashcall:
+              $ref: ../components/schemas/CreateVerifyProfileFlashcallRequest.yaml
+              type: object
+            language:
+              example: en-US
+              type: string
+            name:
+              example: Test Profile
+              type: string
+            psd2:
+              $ref: ../components/schemas/CreateVerifyProfilePSD2Request.yaml
+              type: object
+            sms:
+              $ref: ../components/schemas/CreateVerifyProfileSMSRequest.yaml
+              type: object
+            webhook_failover_url:
+              example: http://example.com/webhook/failover
+              type: string
+            webhook_url:
+              example: http://example.com/webhook
+              type: string
+            whatsapp:
+              $ref: ../components/schemas/CreateVerifyProfileWhatsappRequest.yaml
+              type: object
+          required:
+            - name
+          title: Create Verify Profile Request
+          type: object
+    required: true
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/VerifyProfileResponseDataWrapper.yaml
+      description: Expected Verify profile response to a valid request.
+    '400':
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Create a Verify profile
+  tags:
+    - Verify
+  x-latency-category: responsive

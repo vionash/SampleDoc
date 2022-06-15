@@ -1,0 +1,82 @@
+get:
+  description: 'Fetch all Mdr records '
+  operationId: getPaginatedMdrs
+  parameters:
+    - description: Pagination start date
+      in: query
+      name: start_date
+      schema:
+        type: string
+    - description: Pagination end date
+      in: query
+      name: end_date
+      schema:
+        type: string
+    - in: query
+      name: id
+      schema:
+        description: Message uuid
+        example: e093fbe0-5bde-11eb-ae93-0242ac130002
+        type: string
+    - in: query
+      name: direction
+      schema:
+        description: Direction (inbound or outbound)
+        enum:
+          - INBOUND
+          - OUTBOUND
+        example: INBOUND
+        type: string
+    - in: query
+      name: profile
+      schema:
+        description: Name of the profile
+        example: My profile
+        type: string
+    - in: query
+      name: cld
+      schema:
+        description: Destination number
+        example: '+15551237654'
+        type: string
+    - in: query
+      name: cli
+      schema:
+        description: Origination number
+        example: '+15551237654'
+        type: string
+    - in: query
+      name: status
+      schema:
+        description: Message status
+        enum:
+          - GW_TIMEOUT
+          - DELIVERED
+          - DLR_UNCONFIRMED
+          - DLR_TIMEOUT
+          - RECEIVED
+          - GW_REJECT
+          - FAILED
+        example: DELIVERED
+        type: string
+    - in: query
+      name: message_type
+      schema:
+        description: Type of message
+        enum:
+          - SMS
+          - MMS
+        example: SMS
+        type: string
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/MdrGetDetailResponse.yaml
+      description: Successful
+  security:
+    - bearerAuth: []
+  tags:
+    - MDR Detail Reports
+  x-latency-category: interactive

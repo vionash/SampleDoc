@@ -1,0 +1,26 @@
+post:
+  description: |
+    Resume recording the call.
+
+    **Expected Webhooks:**
+
+    There are no webhooks associated with this command.
+  operationId: callRecordResume
+  parameters:
+    - $ref: ../components/parameters/CallControlId.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/ResumeRecordingRequest.yaml
+    description: Resume recording call request
+    required: true
+  responses:
+    '200':
+      $ref: ../components/responses/CallControlCommandResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Record resume
+  tags:
+    - Call Commands
+  x-latency-category: interactive

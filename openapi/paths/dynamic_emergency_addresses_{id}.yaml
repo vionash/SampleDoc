@@ -1,0 +1,48 @@
+delete:
+  description: Deletes the dynamic emergency address based on the ID provided
+  operationId: deleteDynamicEmergencyAddress
+  parameters:
+    - description: Dynamic Emergency Address id
+      in: path
+      name: id
+      required: true
+      schema:
+        format: uuid
+        type: string
+  responses:
+    '200':
+      $ref: ../components/responses/DynamicEmergencyAddressResponse.yaml
+    '401':
+      description: Unauthorized
+    '404':
+      description: Resource not found
+    '422':
+      description: Unprocessable entity. Check message field in response for details.
+  summary: Delete a dynamic emergency address
+  tags:
+    - Dynamic Emergency Addresses
+  x-latency-category: responsive
+get:
+  description: Returns the dynamic emergency address based on the ID provided
+  operationId: getDynamicEmergencyAddress
+  parameters:
+    - description: Dynamic Emergency Address id
+      in: path
+      name: id
+      required: true
+      schema:
+        format: uuid
+        type: string
+  responses:
+    '200':
+      $ref: ../components/responses/DynamicEmergencyAddressResponse.yaml
+    '401':
+      description: Unauthorized
+    '404':
+      description: Resource not found
+    '422':
+      description: Unprocessable entity. Check message field in response for details.
+  summary: Get a dynamic emergency address
+  tags:
+    - Dynamic Emergency Addresses
+  x-latency-category: responsive

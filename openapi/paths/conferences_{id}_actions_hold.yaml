@@ -1,0 +1,29 @@
+post:
+  description: Hold a list of participants in a conference call
+  operationId: conferenceHoldParticipants
+  parameters:
+    - description: Uniquely identifies the conference by id or name
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/ConferenceHoldRequest.yaml
+    required: true
+  responses:
+    '200':
+      $ref: ../components/responses/ConferenceCommandResponse.yaml
+    '401':
+      $ref: ../components/responses/UnauthorizedResponse.yaml
+    '404':
+      $ref: ../components/responses/NotFoundResponse.yaml
+    '422':
+      $ref: ../components/responses/UnprocessableEntityResponse.yaml
+  summary: Hold conference participants
+  tags:
+    - Conference Commands
+  x-latency-category: interactive

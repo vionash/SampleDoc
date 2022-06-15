@@ -1,0 +1,58 @@
+get:
+  description: Returns a list of comments for a portout request.
+  operationId: findPortoutComments
+  parameters:
+    - description: Portout id
+      in: path
+      name: id
+      required: true
+      schema:
+        format: uuid
+        type: string
+  responses:
+    '200':
+      $ref: ../components/responses/ListPortoutComments.yaml
+    '401':
+      description: Unauthorized
+    '404':
+      description: Resource not found
+    '422':
+      description: Unprocessable entity. Check message field in response for details.
+  summary: List all comments for a portout request
+  tags:
+    - Number Portout
+  x-latency-category: responsive
+post:
+  description: Creates a comment on a portout request.
+  operationId: postPortRequestComment
+  parameters:
+    - description: Portout id
+      in: path
+      name: id
+      required: true
+      schema:
+        format: uuid
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          properties:
+            body:
+              description: Comment to post on this portout request
+              type: string
+          type: object
+    required: true
+  responses:
+    '201':
+      $ref: ../components/responses/PortoutCommentResponse.yaml
+    '401':
+      description: Unauthorized
+    '404':
+      description: Resource not found
+    '422':
+      description: Unprocessable entity. Check message field in response for details.
+  summary: Create a comment on a portout request
+  tags:
+    - Number Portout
+  x-latency-category: responsive

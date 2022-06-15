@@ -1,0 +1,38 @@
+delete:
+  operationId: DeleteFax
+  parameters:
+    - description: The unique identifier of a fax.
+      in: path
+      name: id
+      required: true
+      schema:
+        format: uuid
+        type: string
+  responses:
+    '204':
+      description: The resource was deleted successfully.
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Delete a fax
+  tags:
+    - Programmable Fax Commands
+  x-latency-category: responsive
+get:
+  operationId: ViewFax
+  parameters:
+    - description: The unique identifier of a fax.
+      in: path
+      name: id
+      required: true
+      schema:
+        format: uuid
+        type: string
+  responses:
+    '200':
+      $ref: ../components/responses/GetFaxResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: View a fax
+  tags:
+    - Programmable Fax Commands
+  x-latency-category: responsive

@@ -1,0 +1,18 @@
+get:
+  description: Returns a list of all requirements for this porting order.
+  operationId: ListPortingOrderRequirements
+  parameters:
+    - $ref: ../components/parameters/PathPortingOrderID.yaml
+    - $ref: ../components/parameters/PageNumber.yaml
+    - $ref: ../components/parameters/PageSize.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/ListPortingOrderRequirements.yaml
+    '401':
+      description: Unauthorized
+    '422':
+      description: Unprocessable entity. Check message field in response for details.
+  summary: List all required documents for this porting order
+  tags:
+    - Porting Order
+  x-latency-category: responsive

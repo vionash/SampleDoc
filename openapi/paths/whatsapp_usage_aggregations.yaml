@@ -1,0 +1,32 @@
+get:
+  description: >-
+    Generate and fetch WhatsApp usage aggregations synchronously. This endpoint
+    will both generate and fetch the WhatsApp aggregations over a specified time
+    period. 
+  operationId: getUsageAggregationsSync
+  parameters:
+    - in: query
+      name: start_date
+      schema:
+        example: '2020-07-01T00:00:00-06:00'
+        format: date-time
+        type: string
+    - in: query
+      name: end_date
+      schema:
+        example: '2020-07-01T00:00:00-06:00'
+        format: date-time
+        type: string
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: >-
+              ../components/schemas/WhatsAppUsageAggregationsResponseContainer.yaml
+      description: Successful
+  security:
+    - bearerAuth: []
+  tags:
+    - WhatsApp Usage Aggregations
+  x-latency-category: background

@@ -1,0 +1,99 @@
+post:
+  callbacks:
+    callAnswered:
+      '{$request.body#/webhook_url}':
+        post:
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  $ref: ../components/schemas/CallAnsweredEvent.yaml
+            required: true
+          responses:
+            '200':
+              description: >-
+                The server must return an HTTP 200, otherwise we will reattempt
+                delivery at the failover webhook URL.
+    callBridged:
+      '{$request.body#/webhook_url}':
+        post:
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  $ref: ../components/schemas/CallBridgedEvent.yaml
+            required: true
+          responses:
+            '200':
+              description: >-
+                The server must return an HTTP 200, otherwise we will reattempt
+                delivery at the failover webhook URL.
+    callHangup:
+      '{$request.body#/webhook_url}':
+        post:
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  $ref: ../components/schemas/CallHangupEvent.yaml
+            required: true
+          responses:
+            '200':
+              description: >-
+                The server must return an HTTP 200, otherwise we will reattempt
+                delivery at the failover webhook URL.
+    callInitiated:
+      '{$request.body#/webhook_url}':
+        post:
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  $ref: ../components/schemas/CallInitiatedEvent.yaml
+            required: true
+          responses:
+            '200':
+              description: >-
+                The server must return an HTTP 200, otherwise we will reattempt
+                delivery at the failover webhook URL.
+  description: >-
+    Transfer a call to a new destination. If the transfer is unsuccessful, a
+    `call.hangup` webhook for the other call (Leg B) will be sent indicating
+    that the transfer could not be completed. The original call will remain
+    active and may be issued additional commands, potentially transfering the
+    call to an alternate destination.
+
+
+    **Expected Webhooks:**
+
+
+    - `call.initiated`
+
+    - `call.bridged` to Leg B
+
+    - `call.answered` or `call.hangup`
+
+    - `call.machine.detection.ended` if `answering_machine_detection` was
+    requested
+
+    - `call.machine.greeting.ended` if `answering_machine_detection` was set to
+    `detect_beep`, `greeting_end` or `detect_words`
+  operationId: callTransfer
+  parameters:
+    - $ref: ../components/parameters/CallControlId.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/TransferCallRequest.yaml
+    description: Transfer call request
+    required: true
+  responses:
+    '200':
+      $ref: ../components/responses/CallControlCommandResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Transfer call
+  tags:
+    - Call Commands
+  x-latency-category: interactive

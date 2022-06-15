@@ -1,0 +1,16 @@
+get:
+  description: Retrieve the associated V1 sub_request_id and port_request_id
+  operationId: getPortingOrderSubRequest
+  parameters:
+    - $ref: ../components/parameters/PathPortingOrderID.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/SubRequestByPortingOrder.yaml
+    '401':
+      description: Unauthorized
+    '404':
+      description: Porting Order not found
+  summary: Retrieve the associated V1 sub_request_id and port_request_id
+  tags:
+    - Porting Order
+  x-latency-category: responsive

@@ -1,0 +1,42 @@
+post:
+  callbacks:
+    deliveryUpdate:
+      '{$request.body#/webhook_url}':
+        post:
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  $ref: ../components/schemas/OutboundMessageEvent.yaml
+            required: true
+          responses:
+            '200':
+              description: >-
+                The server must return an HTTP 200, otherwise we will reattempt
+                delivery at the failover webhook URL.
+  description: >
+    Send a message with a Phone Number, Alphanumeric Sender ID, Short Code or
+    Number Pool.
+
+
+    This endpoint allows you to send a message with any messaging resource.
+
+    Current messaging resources include: long-code, short-code, number-pool, and
+
+    alphanumeric-sender-id.
+  operationId: createMessage
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/CreateMessageRequest.yaml
+    description: Message payload
+  responses:
+    '200':
+      $ref: ../components/responses/MessageResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Send a message
+  tags:
+    - Messages
+  x-latency-category: responsive

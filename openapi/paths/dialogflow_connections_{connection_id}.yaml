@@ -1,0 +1,64 @@
+delete:
+  description: Deletes a stored Dialogflow ES Connection.
+  operationId: deleteDialogflowConnection
+  parameters:
+    - $ref: ../components/parameters/ConnectionId.yaml
+  responses:
+    '204':
+      description: The Dialogflow ES Connection for connection_id was deleted successfully.
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Delete stored Dialogflow ES Connection
+  tags:
+    - Dialogflow ES Integration
+  x-latency-category: responsive
+get:
+  description: >-
+    Return details of the Dialogflow connection associated with the given
+    CallControl connection.
+  operationId: getDialogflowConnection
+  parameters:
+    - $ref: ../components/parameters/ConnectionId.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/DialogflowConnectionResponseBody.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Retrieve stored Dialogflow Connection
+  tags:
+    - Dialogflow Integration
+  x-latency-category: responsive
+post:
+  description: >-
+    Save Dialogflow Credentiails to Telnyx, so it can be used with other Telnyx
+    services.
+  operationId: createDialogflowConnection
+  parameters:
+    - $ref: ../components/parameters/ConnectionId.yaml
+  requestBody:
+    $ref: ../components/requestBodies/DialogflowConnectionRequest.yaml
+  responses:
+    '201':
+      $ref: ../components/responses/DialogflowConnectionResponseBody.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Create a Dialogflow Connection
+  tags:
+    - Dialogflow ES Integration
+  x-latency-category: responsive
+put:
+  description: Updates a stored Dialogflow ES Connection.
+  operationId: updateDialogflowConnection
+  parameters:
+    - $ref: ../components/parameters/ConnectionId.yaml
+  requestBody:
+    $ref: ../components/requestBodies/DialogflowConnectionRequest.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/DialogflowConnectionResponseBody.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Update stored Dialogflow ES Connection
+  tags:
+    - Dialogflow ES Integration
+  x-latency-category: responsive

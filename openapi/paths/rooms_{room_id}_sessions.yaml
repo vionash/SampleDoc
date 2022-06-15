@@ -1,0 +1,97 @@
+get:
+  description: ''
+  operationId: NestedListRoomSessions
+  parameters:
+    - description: The unique identifier of a room.
+      in: path
+      name: room_id
+      required: true
+      schema:
+        example: 0ccc7b54-4df3-4bca-a65a-3da1ecc777f0
+        format: uuid
+        type: string
+    - description: ISO 8601 date for filtering room sessions created on that date.
+      in: query
+      name: filter[date_created_at][eq]
+      schema:
+        example: '2021-04-25'
+        format: date
+        type: string
+    - description: ISO 8601 date for filtering room sessions created after that date.
+      in: query
+      name: filter[date_created_at][gte]
+      schema:
+        example: '2021-04-25'
+        format: date
+        type: string
+    - description: ISO 8601 date for filtering room sessions created before that date.
+      in: query
+      name: filter[date_created_at][lte]
+      schema:
+        example: '2021-04-25'
+        format: date
+        type: string
+    - description: ISO 8601 date for filtering room sessions updated on that date.
+      in: query
+      name: filter[date_updated_at][eq]
+      schema:
+        example: '2021-04-25'
+        format: date
+        type: string
+    - description: ISO 8601 date for filtering room sessions updated after that date.
+      in: query
+      name: filter[date_updated_at][gte]
+      schema:
+        example: '2021-04-25'
+        format: date
+        type: string
+    - description: ISO 8601 date for filtering room sessions updated before that date.
+      in: query
+      name: filter[date_updated_at][lte]
+      schema:
+        example: '2021-04-25'
+        format: date
+        type: string
+    - description: ISO 8601 date for filtering room sessions ended on that date.
+      in: query
+      name: filter[date_ended_at][eq]
+      schema:
+        example: '2021-04-25'
+        format: date
+        type: string
+    - description: ISO 8601 date for filtering room sessions ended after that date.
+      in: query
+      name: filter[date_ended_at][gte]
+      schema:
+        example: '2021-04-25'
+        format: date
+        type: string
+    - description: ISO 8601 date for filtering room sessions ended before that date.
+      in: query
+      name: filter[date_ended_at][lte]
+      schema:
+        example: '2021-04-25'
+        format: date
+        type: string
+    - description: Filter active or inactive room sessions.
+      in: query
+      name: filter[active]
+      schema:
+        example: true
+        type: boolean
+    - description: To decide if room participants should be included in the response.
+      in: query
+      name: include_participants
+      schema:
+        example: true
+        type: boolean
+    - $ref: ../components/parameters/PageSize.yaml
+    - $ref: ../components/parameters/PageNumber.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/ListRoomSessionsResponse.yaml
+  summary: View a list of room sessions.
+  tags:
+    - Rooms
+  x-endpoint-cost: medium
+  x-latency-category: responsive

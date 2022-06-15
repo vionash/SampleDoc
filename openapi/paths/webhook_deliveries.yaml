@@ -1,0 +1,81 @@
+get:
+  description: Lists webhook_deliveries for the authenticated user
+  operationId: getWebhookDeliveries
+  parameters:
+    - description: Return only webhook_deliveries matching the given `status`
+      in: query
+      name: filter[status][eq]
+      required: false
+      schema:
+        enum:
+          - delivered
+          - failed
+        example: delivered
+        type: string
+    - description: >-
+        Return only webhook deliveries whose `webhook` component contains the
+        given text
+      in: query
+      name: filter[webhook][contains]
+      required: false
+      schema:
+        example: call.initiated
+        type: string
+    - description: >-
+        Return only webhook_deliveries whose `attempts` component contains the
+        given text
+      in: query
+      name: filter[attempts][contains]
+      required: false
+      schema:
+        example: https://fallback.example.com/webhooks
+        type: string
+    - description: >-
+        Return only webhook_deliveries whose delivery started later than or at
+        given ISO 8601 datetime
+      in: query
+      name: filter[started_at][gte]
+      required: false
+      schema:
+        example: '2019-03-29T11:10:00Z'
+        type: string
+    - description: >-
+        Return only webhook_deliveries whose delivery started earlier than or at
+        given ISO 8601 datetime
+      in: query
+      name: filter[started_at][lte]
+      required: false
+      schema:
+        example: '2019-03-29T11:10:00Z'
+        type: string
+    - description: >-
+        Return only webhook_deliveries whose delivery finished later than or at
+        given ISO 8601 datetime
+      in: query
+      name: filter[finished_at][gte]
+      required: false
+      schema:
+        example: '2019-03-29T11:10:00Z'
+        type: string
+    - description: >-
+        Return only webhook_deliveries whose delivery finished earlier than or
+        at given ISO 8601 datetime
+      in: query
+      name: filter[finished_at][lte]
+      required: false
+      schema:
+        example: '2019-03-29T11:10:00Z'
+        type: string
+    - $ref: ../components/parameters/PageNumber.yaml
+    - $ref: ../components/parameters/PageSize.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/ListWebhookDeliveriesResponse.yaml
+    '401':
+      description: Unauthorized
+    '422':
+      description: Unprocessable entity
+  summary: List webhook deliveries
+  tags:
+    - Webhooks
+  x-latency-category: responsive

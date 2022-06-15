@@ -1,0 +1,14 @@
+get:
+  description: This API returns the details of an Over the Air (OTA) update.
+  operationId: OTAUpdateGET
+  parameters:
+    - $ref: ../components/parameters/ResourceId.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/OTAUpdateResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Get OTA update
+  tags:
+    - OTA updates
+  x-latency-category: responsive

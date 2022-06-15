@@ -1,0 +1,35 @@
+get:
+  description: >-
+    This API lists a paginated collection of SIM card actions. It enables
+    exploring a collection of existing asynchronous operations using specific
+    filters.
+  operationId: ListSIMCardActions
+  parameters:
+    - $ref: ../components/parameters/PageNumber.yaml
+    - $ref: ../components/parameters/PageSize.yaml
+    - $ref: ../components/parameters/FilterSIMCardId.yaml
+    - $ref: ../components/parameters/FilterBasicStatusLifecycle.yaml
+    - $ref: ../components/parameters/FilterBulkSIMCardActionId.yaml
+    - description: Filter by action type.
+      in: query
+      name: filter[action_type]
+      required: false
+      schema:
+        enum:
+          - enable
+          - enable_standby_sim_card
+          - disable
+          - set_standby
+          - remove_public_ip
+          - set_public_ip
+        example: disable
+        type: string
+  responses:
+    '200':
+      $ref: ../components/responses/SimCardActionCollectionResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: List SIM card actions
+  tags:
+    - SIM Card Actions
+  x-latency-category: responsive

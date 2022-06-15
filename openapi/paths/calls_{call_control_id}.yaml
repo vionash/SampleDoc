@@ -1,0 +1,16 @@
+get:
+  description: >-
+    Returns the status of a call (data is available 10 minutes after call
+    ended).
+  operationId: retrieveCallStatus
+  parameters:
+    - $ref: ../components/parameters/CallControlId.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/RetrieveCallStatusResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Retrieve a call status
+  tags:
+    - Call Information
+  x-latency-category: interactive

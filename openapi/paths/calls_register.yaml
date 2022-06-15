@@ -1,0 +1,20 @@
+post:
+  description: Register the call before dialing to show your brand on callee's phone.
+  operationId: registerCall
+  parameters: []
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/RegisterCallRequest.yaml
+    description: Register call request
+    required: true
+  responses:
+    '200':
+      $ref: ../components/responses/RegisterCallResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Register the call for Google Verified Calls
+  tags:
+    - Register Call
+  x-latency-category: responsive

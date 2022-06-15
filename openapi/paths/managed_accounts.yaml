@@ -1,0 +1,47 @@
+get:
+  description: >-
+    Lists the accounts managed by the current user. Users need to be explictly
+    approved by Telnyx in order to become manager accounts.
+  operationId: listManagedAccounts
+  parameters:
+    - $ref: ../components/parameters/PageNumber.yaml
+    - $ref: ../components/parameters/PageSize.yaml
+    - $ref: ../components/parameters/FilterEmailContains.yaml
+    - $ref: ../components/parameters/FilterEmailEq.yaml
+    - $ref: ../components/parameters/Sort.yaml
+    - $ref: ../components/parameters/IncludeCancelledAccounts.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/ListManagedAccountsResponse.yaml
+    '401':
+      $ref: ../components/responses/UnauthorizedResponse.yaml
+  summary: Lists accounts managed by the current user.
+  tags:
+    - Managed Accounts
+  x-endpoint-cost: medium
+  x-latency-category: responsive
+post:
+  description: >-
+    Create a new managed account owned by the authenticated user. You need to be
+    explictly approved by Telnyx in order to become a manager account.
+  operationId: createManagedAccount
+  parameters: []
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/CreateManagedAccountRequest.yaml
+    description: Parameters that define the managed account to be created
+    required: true
+  responses:
+    '200':
+      $ref: ../components/responses/ManagedAccountResponse.yaml
+    '401':
+      $ref: ../components/responses/UnauthorizedResponse.yaml
+    '422':
+      $ref: ../components/responses/UnprocessableManagedAccountEntity.yaml
+  summary: Create a new managed account.
+  tags:
+    - Managed Accounts
+  x-endpoint-cost: medium
+  x-latency-category: responsive

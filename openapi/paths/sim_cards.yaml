@@ -1,0 +1,52 @@
+get:
+  description: Get all SIM cards belonging to the user that match the given filters.
+  operationId: SimCardsGet
+  parameters:
+    - $ref: ../components/parameters/PageNumber.yaml
+    - $ref: ../components/parameters/PageSize.yaml
+    - $ref: ../components/parameters/IncludeSIMCardGroup.yaml
+    - $ref: ../components/parameters/FilterSIMCardGroupId.yaml
+    - description: >
+        A list of SIM card tags to filter on.<br/><br/>
+
+        If the SIM card contains <b><i>all</i></b> of the given
+        <code>tags</code> they will be found.<br/><br/>
+
+        For example, if the SIM cards have the following tags: <ul>
+          <li><code>['customers', 'staff', 'test']</code>
+          <li><code>['test']</code></li>
+          <li><code>['customers']</code></li>
+        </ul>
+
+        Searching for <code>['customers', 'test']</code> returns only the first
+        because it's the only one with both tags.<br/> Searching for
+        <code>test</code> returns the first two SIMs, because both of them have
+        such tag.<br/> Searching for <code>customers</code> returns the first
+        and last SIMs.<br/>
+      in: query
+      name: filter[tags]
+      required: false
+      schema:
+        example:
+          - personal
+          - customers
+          - active-customers
+        items:
+          type: string
+        type: array
+    - description: A search string to partially match for the SIM card's ICCID.
+      in: query
+      name: filter[iccid]
+      required: false
+      schema:
+        example: '89310410106543789301'
+        type: string
+  responses:
+    '200':
+      $ref: ../components/responses/SearchSimCardsResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Get all SIM cards
+  tags:
+    - SIM Cards
+  x-latency-category: responsive

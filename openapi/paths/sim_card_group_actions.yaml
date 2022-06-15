@@ -1,0 +1,30 @@
+get:
+  description: >-
+    This API allows listing a paginated collection a SIM card group actions. It
+    allows to explore a collection of existing asynchronous operation using
+    specific filters.
+  operationId: SimCardGroupActionsGet
+  parameters:
+    - $ref: ../components/parameters/PageNumber.yaml
+    - $ref: ../components/parameters/PageSize.yaml
+    - $ref: ../components/parameters/FilterSIMCardGroupId.yaml
+    - $ref: ../components/parameters/FilterBasicStatusLifecycle.yaml
+    - description: Filter by action type.
+      in: query
+      name: filter[type]
+      required: false
+      schema:
+        enum:
+          - set_private_wireless_gateway
+          - remove_private_wireless_gateway
+        example: set_private_wireless_gateway
+        type: string
+  responses:
+    '200':
+      $ref: ../components/responses/SimCardGroupActionCollectionResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: List SIM card group actions
+  tags:
+    - SIM Card Group Actions
+  x-latency-category: responsive

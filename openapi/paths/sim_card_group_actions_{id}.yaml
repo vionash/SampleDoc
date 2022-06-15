@@ -1,0 +1,16 @@
+get:
+  description: >-
+    This API allows fetching detailed information about a SIM card group action
+    resource to make follow-ups in an existing asynchronous operation.
+  operationId: SimCardGroupActionGet
+  parameters:
+    - $ref: ../components/parameters/ResourceId.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/SIMCardGroupActionResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Get SIM card group action details
+  tags:
+    - SIM Card Group Actions
+  x-latency-category: responsive

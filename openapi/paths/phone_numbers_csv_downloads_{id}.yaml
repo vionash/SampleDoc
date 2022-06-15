@@ -1,0 +1,19 @@
+get:
+  operationId: retrieveCsvDownload
+  parameters:
+    - description: Identifies the CSV download.
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      $ref: ../components/responses/CsvDownloadResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Retrieve a CSV download
+  tags:
+    - CSV Downloads
+  x-endpoint-cost: medium
+  x-latency-category: background

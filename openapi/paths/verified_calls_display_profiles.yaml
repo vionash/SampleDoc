@@ -1,0 +1,40 @@
+get:
+  operationId: listVerifiedCallsDisplayProfiles
+  parameters:
+    - $ref: ../components/parameters/PageNumber.yaml
+    - $ref: ../components/parameters/PageSize.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/ListVerifiedCallsDisplayProfilesResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: >-
+    Lists the Verified Calls Display Profiles owned by the current
+    user/organization
+  tags:
+    - Verified Calls Display Profile
+  x-endpoint-cost: light
+  x-group-parameters: 'true'
+  x-latency-category: responsive
+post:
+  description: >-
+    Creates a Verified Calls Display Profile associated with the given Business
+    Identity
+  operationId: createVerifiedCallsDisplayProfile
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/CreateVerifiedCallsDisplayProfileRequest.yaml
+    required: true
+  responses:
+    '201':
+      $ref: ../components/responses/displayVerifiedCallsDisplayProfileResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Creates a Verified Calls Display Profile
+  tags:
+    - Verified Calls Display Profile
+  x-endpoint-cost: medium
+  x-group-parameters: 'true'
+  x-latency-category: responsive

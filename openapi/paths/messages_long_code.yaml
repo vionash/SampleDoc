@@ -1,0 +1,32 @@
+post:
+  callbacks:
+    deliveryUpdate:
+      '{$request.body#/webhook_url}':
+        post:
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  $ref: ../components/schemas/OutboundMessageEvent.yaml
+            required: true
+          responses:
+            '200':
+              description: >-
+                The server must return an HTTP 200, otherwise we will reattempt
+                delivery at the failover webhook URL.
+  operationId: createLongCodeMessage
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/CreateLongCodeMessageRequest.yaml
+    description: Message payload
+  responses:
+    '200':
+      $ref: ../components/responses/MessageResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Send a long code message
+  tags:
+    - Messages
+  x-latency-category: responsive

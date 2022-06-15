@@ -1,0 +1,37 @@
+get:
+  description: Returns the WDR Reports that match the given parameters.
+  operationId: getWdrReports
+  parameters:
+    - $ref: ../components/parameters/PageNumber.yaml
+    - $ref: ../components/parameters/PageSize.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/GetWdrReportsResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Get all Wireless Detail Records (WDRs) Reports
+  tags:
+    - Reporting
+  x-latency-category: background
+post:
+  description: >
+    Asynchronously create a report containing Wireless Detail Records (WDRs) for
+    the SIM cards that consumed wireless data in the given time period.
+  operationId: createWdrReport
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/WdrReportRequest.yaml
+    required: true
+  responses:
+    '201':
+      $ref: ../components/responses/CreateWdrReportResponse.yaml
+    '422':
+      $ref: ../components/responses/UnprocessableEntity.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Create a Wireless Detail Records (WDRs) Report
+  tags:
+    - Reporting
+  x-latency-category: background

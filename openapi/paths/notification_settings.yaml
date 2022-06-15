@@ -1,0 +1,64 @@
+get:
+  description: List notification settings.
+  operationId: listNotificationSettings
+  parameters:
+    - $ref: ../components/parameters/PageNumber.yaml
+    - $ref: ../components/parameters/PageSize.yaml
+    - $ref: ../components/parameters/NotificationProfileId.yaml
+    - $ref: ../components/parameters/NotificationChannelId.yaml
+    - $ref: ../components/parameters/NotificationEventConditionId.yaml
+    - $ref: ../components/parameters/AssociatedRecordType.yaml
+    - $ref: ../components/parameters/Status.yaml
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            properties:
+              data:
+                items:
+                  $ref: ../components/schemas/NotificationSetting.yaml
+                type: array
+              meta:
+                $ref: ../components/schemas/PaginationMeta.yaml
+            type: object
+      description: Returns a list of notification settings.
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: List notification settings
+  tags:
+    - Notifications
+  x-latency-category: responsive
+post:
+  description: Add a notification setting.
+  operationId: createNotificationSetting
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/NotificationSetting.yaml
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            properties:
+              data:
+                $ref: ../components/schemas/NotificationSetting.yaml
+            type: object
+      description: A Notification Setting response
+    '201':
+      content:
+        application/json:
+          schema:
+            properties:
+              data:
+                $ref: ../components/schemas/NotificationSetting.yaml
+            type: object
+      description: A Notification Setting response - async
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Add a Notification Setting
+  tags:
+    - Notifications
+  x-latency-category: responsive

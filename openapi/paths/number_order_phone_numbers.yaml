@@ -1,0 +1,12 @@
+get:
+  description: Get a list of phone numbers associated to orders.
+  operationId: retrieveNumberOrderPhoneNumbers
+  responses:
+    '200':
+      $ref: ../components/responses/ListNumberOrderPhoneNumbersResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Retrieve a list of phone numbers associated to orders
+  tags:
+    - Number Orders
+  x-latency-category: responsive

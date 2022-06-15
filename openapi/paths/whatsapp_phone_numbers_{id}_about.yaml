@@ -1,0 +1,25 @@
+patch:
+  operationId: patchWhatsappPhoneNumberAbout
+  parameters:
+    - description: Identifies the WhatsApp Phone Number
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/UpdateWhatsappPhoneNumberAboutRequest.yaml
+    required: true
+  responses:
+    '200':
+      description: Updated WhatsApp Phone Number about text
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Update a WhatsApp Phone Number about text
+  tags:
+    - WhatsApp Phone Number
+  x-group-parameters: 'true'
+  x-latency-category: responsive

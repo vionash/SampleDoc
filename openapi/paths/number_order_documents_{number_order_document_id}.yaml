@@ -1,0 +1,44 @@
+get:
+  description: Gets a single number order document.
+  operationId: retrieveNumberOrderDocument
+  parameters:
+    - description: The number order document ID.
+      in: path
+      name: number_order_document_id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      $ref: ../components/responses/NumberOrderDocumentResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Retrieve a number order document
+  tags:
+    - Number Order Documents
+  x-latency-category: responsive
+patch:
+  description: Updates a number order document.
+  operationId: updateNumberOrderDocument
+  parameters:
+    - description: The number order document ID.
+      in: path
+      name: number_order_document_id
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/UpdateNumberOrderDocumentRequest.yaml
+    required: true
+  responses:
+    '200':
+      $ref: ../components/responses/NumberOrderDocumentResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Update a number order document
+  tags:
+    - Number Order Documents
+  x-latency-category: responsive

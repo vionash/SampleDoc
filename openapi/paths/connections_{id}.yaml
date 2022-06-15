@@ -1,0 +1,26 @@
+get:
+  description: >-
+    Retrieves the high-level details of an existing connection. To retrieve
+    specific authentication information, use the endpoint for the specific
+    connection type.
+  operationId: retrieveConnection
+  parameters:
+    - description: IP Connection ID
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      $ref: ../components/responses/ConnectionResponse.yaml
+    '401':
+      description: Unauthorized
+    '404':
+      description: Resource not found
+    '422':
+      description: Bad request
+  summary: Retrieve a connection
+  tags:
+    - Connections
+  x-latency-category: responsive

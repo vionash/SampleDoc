@@ -1,0 +1,41 @@
+post:
+  callbacks:
+    callGatherEnded:
+      '{$request.body#/webhook_url}':
+        post:
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  $ref: ../components/schemas/CallGatherEndedEvent.yaml
+            required: true
+          responses:
+            '200':
+              description: >-
+                The server must return an HTTP 200, otherwise we will reattempt
+                delivery at the failover webhook URL.
+  description: |
+    Stop current gather.
+
+    **Expected Webhooks:**
+
+    - `call.gather.ended`
+  operationId: callGatherStop
+  parameters:
+    - $ref: ../components/parameters/CallControlId.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/StopGatherRequest.yaml
+    description: Stop current gather
+    required: true
+  responses:
+    '200':
+      $ref: ../components/responses/CallControlCommandResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Gather stop
+  tags:
+    - Call Commands
+  x-latency-category: interactive

@@ -1,0 +1,26 @@
+post:
+  description: >-
+    Cancel the outbound fax that is in one of the following states: `queued`,
+    `media.processed`, `originated` or `sending` 
+  operationId: CancelFax
+  parameters:
+    - description: The unique identifier of a fax.
+      in: path
+      name: id
+      required: true
+      schema:
+        format: uuid
+        type: string
+  responses:
+    '202':
+      $ref: ../components/responses/CancelFaxResponse.yaml
+    '404':
+      $ref: ../components/responses/NotFoundResponse.yaml
+    '422':
+      $ref: ../components/responses/UnprocessableEntityResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Cancel a fax
+  tags:
+    - Programmable Fax Commands
+  x-latency-category: responsive

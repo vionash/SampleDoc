@@ -1,0 +1,21 @@
+get:
+  description: Retrieve the list of calls in an existing queue
+  operationId: listQueueCalls
+  parameters:
+    - description: Uniquely identifies the queue by name
+      in: path
+      name: queue_name
+      required: true
+      schema:
+        type: string
+    - $ref: ../components/parameters/PageNumber.yaml
+    - $ref: ../components/parameters/PageSize.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/ListQueueCallsResponse.yaml
+    '404':
+      $ref: ../components/responses/NotFoundResponse.yaml
+  summary: Retrieve calls from a queue
+  tags:
+    - Queue Commands
+  x-latency-category: interactive

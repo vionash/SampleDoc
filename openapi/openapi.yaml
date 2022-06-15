@@ -9,9 +9,12 @@ components:
 info:
   contact:
     email: support@telnyx.com
-  description: SIP trunking, SMS, MMS, Call Control and Telephony Data Services.
   license:
     name: MIT
+  x-logo:
+    url: 'https://raw.githubusercontent.com/team-telnyx/ivr-demo-python/master/logo-dark.png'
+  description:
+    $ref: ./info-description.md
   title: Telnyx API
   version: 2.0.0
   x-endpoint-cost: light
@@ -653,6 +656,8 @@ servers:
   - description: Version 2.0.0 of the Telnyx API
     url: https://api.telnyx.com/v2
 tags:
+  - description: Group Example
+    name: Group Example 
   - description: Access Tokens creation
     name: Access Tokens
   - description: Authentication Provider operations

@@ -1,37 +1,8 @@
-This is an **example** API to demonstrate features of the OpenAPI specification.
+# Telnyx API Reference
 
-# Introduction
+## Introduction
+Telnyx is a real-time communications platform with full, feature-rich functionality, making it quick and easy to set up and port numbers around the world, configure messaging, control VoIP and IP network functions, and define how and where communications can be used in real time. The Telnyx API can power a host of specialty applications, from call tracking to cloud-based PBX, dynamic security, and authentication use cases.
 
-This API definition is intended to to be a good starting point for
-describing your API in 
+Our API Reference is organized by topics, such as Phone Numbers or Messaging. Each topic is prefaced with a general overview that describes how our API can be used within the context of that topic, followed by reference documentation of specific API endpoints.
 
-[OpenAPI/Swagger
-format](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md).
-
-It also demonstrates features of the
-[create-openapi-repo](https://github.com/Redocly/create-openapi-repo) tool
-and 
-
-the [Redoc](https://github.com/Redocly/Redoc) documentation engine. Beyond
-the standard OpenAPI syntax, we use a few 
-
-[vendor
-extensions](https://github.com/Redocly/Redoc/blob/master/docs/redoc-vendor-extensions.md).
-
-
-# OpenAPI Specification
-
-The goal of The OpenAPI Specification is to define a standard,
-language-agnostic interface to REST APIs which
-
-allows both humans and computers to discover and understand the capabilities
-of the service without access to source
-
-code, documentation, or through network traffic inspection. When properly
-defined via OpenAPI, a consumer can 
-
-understand and interact with the remote service with a minimal amount of
-implementation logic. Similar to what
-
-interfaces have done for lower-level programming, OpenAPI removes the
-guesswork in calling the service.
+Telnyx strives to create a developer-first platform with top tier documentation and 24/7 support. Explore our API capabilities, and please let us know how we can further empower your development team to better serve your customers.

@@ -1,0 +1,32 @@
+delete:
+  description: Deletes the Private Wireless Gateway.
+  operationId: deletePrivateWirelessGateway
+  parameters:
+    - $ref: ../components/parameters/ResourceId.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/DeletePrivateWirelessGatewayResponse.yaml
+    '404':
+      $ref: ../components/responses/ResourceNotFound.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Delete a Private Wireless Gateway
+  tags:
+    - Private Wireless Gateways
+  x-latency-category: responsive
+get:
+  description: Retrieve information about a Private Wireless Gateway.
+  operationId: getPrivateWirelessGateway
+  parameters:
+    - $ref: ../components/parameters/ResourceId.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/GetPrivateWirelessGatewayResponse.yaml
+    '404':
+      $ref: ../components/responses/ResourceNotFound.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Get a Private Wireless Gateway
+  tags:
+    - Private Wireless Gateways
+  x-latency-category: responsive

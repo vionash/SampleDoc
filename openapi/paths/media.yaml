@@ -1,0 +1,41 @@
+get:
+  description: Returns a list of stored media files.
+  operationId: listMediaStorage
+  parameters:
+    - description: Filters files by given content types
+      in: query
+      name: filter[content_type][]
+      schema:
+        example: application_xml
+        type: string
+  responses:
+    '200':
+      $ref: ../components/responses/ListMediaResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: List uploaded media
+  tags:
+    - Media Storage API
+  x-latency-category: interactive
+post:
+  description: Upload media file to Telnyx so it can be used with other Telnyx services
+  operationId: createMediaStorage
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/UploadMediaRequest.yaml
+      multipart/form-data:
+        schema:
+          $ref: ../components/schemas/UploadMediaMultipartRequest.yaml
+    description: Upload media request
+    required: true
+  responses:
+    '201':
+      $ref: ../components/responses/MediaResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Upload media
+  tags:
+    - Media Storage API
+  x-latency-category: interactive

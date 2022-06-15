@@ -1,0 +1,14 @@
+get:
+  description: Retrieve a document requirement record
+  operationId: docReqsRetrieveDocumentRequirements
+  parameters:
+    - $ref: ../components/parameters/DocReqsRequirementId.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/DocReqsRequirementResponse.yaml
+    default:
+      $ref: ../components/responses/GenericErrorResponse.yaml
+  summary: Retrieve a document requirement
+  tags:
+    - Requirements
+  x-latency-category: responsive

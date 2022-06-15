@@ -1,0 +1,50 @@
+post:
+  callbacks:
+    conferenceRecordingSaved:
+      '{$request.body#/webhook_url}':
+        post:
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  $ref: ../components/schemas/ConferenceRecordingSavedEvent.yaml
+            required: true
+          responses:
+            '200':
+              description: >-
+                The server must return an HTTP 200, otherwise we will reattempt
+                delivery at the failover webhook URL.
+  description: |
+    Stop recording the conference.
+
+    **Expected Webhooks:**
+
+    - `conference.recording.saved`
+  operationId: conferenceStopRecording
+  parameters:
+    - description: Specifies the conference to stop the recording for by id or name
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/StopRecordingRequest.yaml
+    description: Stop recording conference request
+    required: true
+  responses:
+    '200':
+      $ref: ../components/responses/ConferenceCommandResponse.yaml
+    '401':
+      $ref: ../components/responses/UnauthorizedResponse.yaml
+    '404':
+      $ref: ../components/responses/NotFoundResponse.yaml
+    '422':
+      $ref: ../components/responses/UnprocessableEntityResponse.yaml
+  summary: Conference recording stop
+  tags:
+    - Conference Commands
+  x-latency-category: interactive
