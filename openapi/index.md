@@ -1,4 +1,4 @@
-## JavaScript Client SDK
+## Voice JavaScript Client SDK
 
 The Telnyx Video Client SDK provides all the functionality you need to join and interact with a video room from a browser.
 
