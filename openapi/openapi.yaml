@@ -18,7 +18,7 @@ servers:
 security:
   - BearerAuth: []
 tags:
-  - name: Voice Client-Side SDKs
+  - name: Video Client-Side SDKs
     description:
       $ref: ./index.md
   - name: Video API
