@@ -18,10 +18,10 @@ servers:
 security:
   - BearerAuth: []
 tags:
-  - name: Quickstart Reference Guide
+  - name: Client-Side SDKs
     description:
       $ref: ./index.md
-  - name: Progammable Video API
+  - name: Video API
     description: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   - name: Rooms
     description: Rooms operations.
